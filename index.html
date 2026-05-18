@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPACE INDEX ─ 宇宙産業参入のための知識基盤</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d1b2a;
+  --ink-soft:#1c2e44;
+  --paper:#f4ede0;
+  --paper-warm:#ebe1cf;
+  --paper-deep:#ddd0b8;
+  --gold:#a07c3a;
+  --gold-deep:#7d5d24;
+  --crimson:#9b2a1f;
+  --moss:#3d6049;
+  --line:#2a1f15;
+  --mute:#5e4e3a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans JP",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.7;
+  font-feature-settings:"palt";
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(160,124,58,0.06) 0%, transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(13,27,42,0.05) 0%, transparent 40%);
+}
+.grain{
+  position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0.4;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+/* ===== HEADER ===== */
+header.masthead{
+  border-bottom:2px solid var(--line);
+  padding:1.4rem 2.5rem 1rem;
+  background:var(--paper);
+  position:relative;
+  z-index:5;
+}
+.masthead-inner{
+  max-width:1400px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:flex-end;
+  gap:2rem;flex-wrap:wrap;
+}
+.brand{display:flex;flex-direction:column;gap:.2rem}
+.brand-mark{
+  font-family:"Cormorant Garamond",serif;
+  font-size:.7rem;letter-spacing:0.45em;
+  color:var(--gold-deep);text-transform:uppercase;
+}
+.brand-name{
+  font-family:"Cormorant Garamond",serif;
+  font-size:2.6rem;font-weight:500;letter-spacing:0.18em;
+  line-height:1;color:var(--ink);
+}
+.brand-jp{
+  font-family:"Noto Serif JP",serif;
+  font-size:.8rem;letter-spacing:0.3em;
+  color:var(--mute);margin-top:.3rem;
+}
+.masthead-meta{
+  text-align:right;font-family:"JetBrains Mono",monospace;
+  font-size:.7rem;color:var(--mute);
+  line-height:1.8;
+}
+.masthead-meta strong{color:var(--ink);font-weight:500}
+
+/* ===== HERO ===== */
+.hero{
+  max-width:1400px;margin:0 auto;padding:3.5rem 2.5rem 2.5rem;
+  position:relative;z-index:2;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1fr 1.2fr;gap:3rem;align-items:start;
+}
+.hero-eyebrow{
+  font-family:"JetBrains Mono",monospace;font-size:.7rem;
+  letter-spacing:0.3em;color:var(--gold-deep);
+  border-top:1px solid var(--line);padding-top:.5rem;
+  display:inline-block;margin-bottom:1.5rem;
+}
+.hero-title{
+  font-family:"Noto Serif JP",serif;font-weight:900;
+  font-size:clamp(2.2rem,4.5vw,3.6rem);line-height:1.15;
+  letter-spacing:-0.01em;color:var(--ink);
+  margin-bottom:1.2rem;
+}
+.hero-title .accent{
+  color:var(--crimson);font-style:normal;
+}
+.hero-sub{
+  font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:1.4rem;color:var(--gold-deep);
+  margin-bottom:1.8rem;letter-spacing:0.02em;
+}
+.hero-lead{
+  font-size:.95rem;line-height:1.9;color:var(--ink-soft);
+  border-left:2px solid var(--gold);padding-left:1.2rem;
+  max-width:520px;
+}
+.hero-lead p+p{margin-top:.8rem}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  border:1px solid var(--line);background:var(--paper-warm);
+}
+.stat{
+  padding:1.6rem 1.4rem;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.stat:nth-child(2n){border-right:none}
+.stat:nth-last-child(-n+2){border-bottom:none}
+.stat-label{
+  font-family:"JetBrains Mono",monospace;font-size:.65rem;
+  letter-spacing:0.2em;color:var(--mute);margin-bottom:.4rem;
+}
+.stat-value{
+  font-family:"Cormorant Garamond",serif;font-size:2rem;
+  font-weight:500;color:var(--ink);line-height:1;
+}
+.stat-unit{
+  font-family:"Noto Serif JP",serif;font-size:.75rem;
+  color:var(--mute);margin-top:.3rem;
+}
+
+/* ===== SECTION GENERIC ===== */
+section.block{
+  max-width:1400px;margin:0 auto;padding:2.5rem;
+  position:relative;z-index:2;
+}
+.section-header{
+  display:flex;align-items:baseline;gap:1.5rem;
+  border-top:3px double var(--line);padding-top:1.2rem;
+  margin-bottom:2rem;
+}
+.section-num{
+  font-family:"Cormorant Garamond",serif;font-size:3rem;
+  font-weight:300;color:var(--gold);line-height:1;
+  font-style:italic;
+}
+.section-title{
+  font-family:"Noto Serif JP",serif;font-weight:700;
+  font-size:1.7rem;color:var(--ink);
+}
+.section-title small{
+  display:block;font-family:"Cormorant Garamond",serif;
+  font-size:.85rem;letter-spacing:0.2em;color:var(--gold-deep);
+  text-transform:uppercase;font-weight:400;margin-top:.2rem;
+}
+.section-intro{
+  max-width:740px;font-size:.92rem;line-height:1.85;
+  color:var(--ink-soft);margin-bottom:2.5rem;
+  border-left:2px solid var(--paper-deep);padding-left:1.2rem;
+}
+
+/* ===== TAXONOMY (CATEGORY MAP) ===== */
+.taxo-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.2rem;
+}
+.taxo-card{
+  background:var(--paper-warm);border:1px solid var(--line);
+  padding:1.5rem 1.4rem;position:relative;
+  transition:all .25s ease;
+}
+.taxo-card:hover{
+  background:var(--ink);color:var(--paper);transform:translateY(-2px);
+}
+.taxo-card:hover .taxo-label,
+.taxo-card:hover .taxo-id,
+.taxo-card:hover .taxo-sub{color:var(--paper-warm)}
+.taxo-card:hover .taxo-tag{
+  background:var(--paper-warm);color:var(--ink);border-color:var(--paper-warm);
+}
+.taxo-id{
+  font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:1.4rem;color:var(--gold-deep);line-height:1;
+  margin-bottom:.4rem;
+}
+.taxo-label{
+  font-family:"Noto Serif JP",serif;font-weight:700;
+  font-size:1.15rem;color:var(--ink);margin-bottom:.3rem;
+  letter-spacing:0.02em;
+}
+.taxo-sub{
+  font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:.85rem;color:var(--mute);margin-bottom:.8rem;
+}
+.taxo-desc{font-size:.82rem;color:var(--ink-soft);line-height:1.7;margin-bottom:1rem}
+.taxo-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.taxo-tag{
+  font-family:"JetBrains Mono",monospace;font-size:.65rem;
+  padding:.15rem .55rem;border:1px solid var(--line);
+  color:var(--ink-soft);letter-spacing:0.05em;
+  transition:all .2s;
+}
+
+/* ===== INFO NEEDS MATRIX ===== */
+.matrix-wrap{
+  overflow-x:auto;border:1px solid var(--line);
+  background:var(--paper-warm);
+}
+table.matrix{
+  width:100%;border-collapse:collapse;font-size:.78rem;
+  min-width:780px;
+}
+.matrix th,.matrix td{
+  padding:.7rem .8rem;border:1px solid var(--paper-deep);
+  text-align:left;vertical-align:top;
+}
+.matrix thead th{
+  background:var(--ink);color:var(--paper);
+  font-family:"Noto Serif JP",serif;font-weight:500;
+  font-size:.75rem;letter-spacing:0.1em;
+}
+.matrix tbody th{
+  background:var(--paper-deep);font-weight:600;
+  font-family:"Noto Serif JP",serif;color:var(--ink);
+  position:sticky;left:0;
+}
+.matrix td.must{background:rgba(155,42,31,0.08);color:var(--crimson);font-weight:600;text-align:center}
+.matrix td.rec{background:rgba(160,124,58,0.1);color:var(--gold-deep);font-weight:500;text-align:center}
+.matrix td.opt{background:transparent;color:var(--mute);text-align:center}
+
+/* ===== FILTER BAR ===== */
+.filter-bar{
+  background:var(--ink);color:var(--paper);
+  padding:1.4rem 1.6rem;border:1px solid var(--ink);
+  margin-bottom:1.6rem;
+  display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center;
+}
+.filter-group{display:flex;flex-direction:column;gap:.4rem;min-width:140px}
+.filter-label{
+  font-family:"JetBrains Mono",monospace;font-size:.65rem;
+  letter-spacing:0.2em;color:var(--paper-deep);text-transform:uppercase;
+}
+.filter-group select,
+.filter-group input{
+  background:transparent;border:none;border-bottom:1px solid var(--paper-deep);
+  color:var(--paper);font-family:"Noto Sans JP",sans-serif;
+  font-size:.9rem;padding:.3rem 0;outline:none;
+  width:100%;
+}
+.filter-group select option{background:var(--ink);color:var(--paper)}
+.filter-group input::placeholder{color:var(--mute)}
+.filter-spacer{flex:1}
+.filter-count{
+  font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:1.1rem;color:var(--paper-deep);
+}
+.filter-count strong{color:var(--paper);font-weight:600;font-style:normal;font-size:1.4rem}
+.filter-reset{
+  background:transparent;border:1px solid var(--paper-deep);
+  color:var(--paper);padding:.4rem 1rem;cursor:pointer;
+  font-family:"JetBrains Mono",monospace;font-size:.7rem;
+  letter-spacing:0.1em;transition:all .2s;
+}
+.filter-reset:hover{background:var(--paper);color:var(--ink)}
+
+/* ===== RESOURCE TABLE ===== */
+.res-table-wrap{
+  overflow-x:auto;border:1px solid var(--line);
+  background:var(--paper-warm);
+}
+.res-table{
+  width:100%;border-collapse:collapse;font-size:.82rem;
+  min-width:920px;
+}
+.res-table thead th{
+  background:var(--ink);color:var(--paper);
+  font-family:"Noto Serif JP",serif;font-weight:500;
+  font-size:.72rem;letter-spacing:0.1em;
+  padding:.85rem .9rem;text-align:left;
+  border-bottom:2px solid var(--gold);
+  position:sticky;top:0;z-index:3;
+  white-space:nowrap;
+}
+.res-table thead th.sortable{cursor:pointer;user-select:none;transition:background .15s}
+.res-table thead th.sortable:hover{background:var(--ink-soft)}
+.sort-ind{color:var(--gold);font-size:.7rem;margin-left:.2rem;opacity:.6}
+.res-table thead th.sorted-asc .sort-ind,
+.res-table thead th.sorted-desc .sort-ind{opacity:1}
+.res-table thead th.sorted-asc .sort-ind::after{content:" ↑"}
+.res-table thead th.sorted-desc .sort-ind::after{content:" ↓"}
+.res-table tbody tr.res-row{
+  border-bottom:1px solid var(--paper-deep);
+  cursor:pointer;transition:background .15s;
+}
+.res-table tbody tr.res-row:hover{background:rgba(160,124,58,0.08)}
+.res-table tbody tr.res-row.expanded{background:rgba(13,27,42,0.04)}
+.res-table tbody tr.res-row.hidden{display:none}
+.res-table tbody td{
+  padding:.7rem .9rem;vertical-align:top;
+}
+.cell-name{font-weight:600;color:var(--ink);min-width:200px}
+.cell-name-sub{
+  font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:.78rem;color:var(--mute);font-weight:400;
+  margin-top:.15rem;
+}
+.cell-org{font-size:.78rem;color:var(--ink-soft);min-width:130px}
+.cell-region{font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:0.05em}
+.cell-region.JP{color:var(--crimson)}
+.cell-region.GLOBAL{color:var(--ink-soft)}
+.cell-badge{white-space:nowrap}
+.cell-badge .badge{
+  font-family:"JetBrains Mono",monospace;font-size:.62rem;
+  padding:.18rem .55rem;letter-spacing:0.08em;
+  text-transform:uppercase;display:inline-block;
+}
+.cell-badge .badge.free{background:var(--moss);color:var(--paper)}
+.cell-badge .badge.paid{background:var(--crimson);color:var(--paper)}
+.cell-badge .badge.freemium{background:var(--gold-deep);color:var(--paper)}
+.cell-tags{
+  display:flex;flex-wrap:wrap;gap:.25rem;
+}
+.cell-tag{
+  font-family:"JetBrains Mono",monospace;font-size:.62rem;
+  background:var(--paper);padding:.12rem .45rem;
+  border:1px solid var(--paper-deep);color:var(--ink-soft);
+  letter-spacing:0.03em;white-space:nowrap;
+}
+.cell-link a{
+  font-family:"JetBrains Mono",monospace;font-size:.72rem;
+  color:var(--gold-deep);text-decoration:none;letter-spacing:0.05em;
+  border-bottom:1px solid transparent;transition:all .15s;
+}
+.cell-link a:hover{color:var(--crimson);border-bottom-color:var(--crimson)}
+/* expanded detail row */
+.res-detail{display:none}
+.res-detail.show{display:table-row}
+.res-detail td{
+  background:var(--paper);padding:1.1rem 1.4rem;
+  border-bottom:2px solid var(--gold);
+}
+.res-detail-grid{
+  display:grid;grid-template-columns:auto 1fr;gap:.6rem 1.4rem;
+  font-size:.83rem;
+}
+.res-detail-label{
+  font-family:"JetBrains Mono",monospace;font-size:.65rem;
+  letter-spacing:0.15em;color:var(--mute);text-transform:uppercase;
+  padding-top:.15rem;white-space:nowrap;
+}
+.res-detail-val{color:var(--ink-soft);line-height:1.7}
+.res-detail-val strong{color:var(--ink)}
+.res-price-inline{
+  font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:.85rem;color:var(--gold-deep);
+}
+.empty{
+  text-align:center;padding:4rem 2rem;
+  font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:1.3rem;color:var(--mute);
+  border:1px dashed var(--paper-deep);
+  margin-top:1rem;
+}
+@media (max-width:760px){
+  .res-table-wrap{font-size:.78rem}
+  .res-detail-grid{grid-template-columns:1fr;gap:.3rem}
+}
+
+/* ===== COVERAGE GRID ===== */
+.coverage{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.2rem;margin-top:1.5rem;
+}
+.cov{
+  border:1px solid var(--line);padding:1.4rem;
+  position:relative;background:var(--paper);
+}
+.cov.strong{background:var(--paper-warm);border-color:var(--moss);border-left-width:4px}
+.cov.medium{background:var(--paper-warm);border-color:var(--gold);border-left-width:4px}
+.cov.weak{background:var(--paper-warm);border-color:var(--crimson);border-left-width:4px}
+.cov-head{
+  display:flex;justify-content:space-between;align-items:baseline;
+  margin-bottom:.6rem;
+}
+.cov-title{
+  font-family:"Noto Serif JP",serif;font-weight:700;
+  font-size:1rem;color:var(--ink);
+}
+.cov-rating{
+  font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:.85rem;
+}
+.cov.strong .cov-rating{color:var(--moss)}
+.cov.medium .cov-rating{color:var(--gold-deep)}
+.cov.weak .cov-rating{color:var(--crimson)}
+.cov-body{font-size:.82rem;color:var(--ink-soft);line-height:1.7}
+.cov-body ul{margin-top:.5rem;padding-left:1.1rem;font-size:.78rem}
+.cov-body li{margin-bottom:.2rem}
+
+/* ===== PATHWAYS ===== */
+.pathways{display:grid;gap:1rem;margin-top:1.5rem}
+.path{
+  border:1px solid var(--line);background:var(--paper-warm);
+  padding:1.3rem 1.5rem;
+  display:grid;grid-template-columns:auto 1fr;gap:1.5rem;
+  align-items:start;
+}
+.path-num{
+  font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:2.4rem;font-weight:300;color:var(--gold);
+  line-height:1;border-right:1px solid var(--paper-deep);
+  padding-right:1.5rem;
+}
+.path-body h3{
+  font-family:"Noto Serif JP",serif;font-weight:700;
+  font-size:1.1rem;margin-bottom:.4rem;color:var(--ink);
+}
+.path-body p{font-size:.85rem;line-height:1.75;color:var(--ink-soft)}
+.path-steps{
+  display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.7rem;
+}
+.path-step{
+  font-family:"JetBrains Mono",monospace;font-size:.7rem;
+  background:var(--paper);padding:.3rem .7rem;
+  border:1px solid var(--paper-deep);
+  color:var(--ink);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  border-top:3px double var(--line);margin-top:3rem;
+  background:var(--ink);color:var(--paper);
+  padding:2.5rem;position:relative;z-index:2;
+}
+.footer-inner{
+  max-width:1400px;margin:0 auto;
+  display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end;
+}
+.colophon{
+  font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:.9rem;line-height:1.8;
+  max-width:600px;color:var(--paper-deep);
+}
+.colophon strong{
+  display:block;font-family:"Noto Serif JP",serif;font-style:normal;
+  color:var(--paper);font-size:1rem;font-weight:600;
+  margin-bottom:.5rem;letter-spacing:0.05em;
+}
+.footer-meta{
+  font-family:"JetBrains Mono",monospace;font-size:.7rem;
+  text-align:right;color:var(--paper-deep);line-height:1.8;
+}
+
+/* ===== BUSINESS MODEL SECTION ===== */
+.bm-grid{display:grid;gap:1.4rem;margin-top:1.5rem}
+.bm-card{
+  background:var(--paper-warm);border:1px solid var(--line);
+  padding:0;display:grid;
+  grid-template-columns:240px 1fr;gap:0;
+  position:relative;
+}
+.bm-side{
+  background:var(--ink);color:var(--paper);
+  padding:1.6rem 1.4rem;display:flex;flex-direction:column;
+  justify-content:space-between;
+}
+.bm-cat-code{
+  font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:1.6rem;color:var(--gold);line-height:1;
+  margin-bottom:.4rem;
+}
+.bm-cat-name{
+  font-family:"Noto Serif JP",serif;font-weight:700;
+  font-size:1.15rem;color:var(--paper);line-height:1.3;
+  margin-bottom:.3rem;
+}
+.bm-cat-sub{
+  font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:.8rem;color:var(--paper-deep);
+}
+.bm-access{
+  margin-top:1rem;border-top:1px solid rgba(244,237,224,0.2);padding-top:.8rem;
+}
+.bm-access-label{
+  font-family:"JetBrains Mono",monospace;font-size:.6rem;
+  letter-spacing:0.2em;color:var(--paper-deep);
+  margin-bottom:.3rem;
+}
+.bm-access-val{
+  font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:1rem;
+}
+.bm-access-val.high{color:#7fb88f}
+.bm-access-val.mid{color:var(--gold)}
+.bm-access-val.low{color:#e58575}
+.bm-main{
+  padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:.9rem;
+}
+.bm-row{display:grid;grid-template-columns:110px 1fr;gap:.8rem;align-items:start}
+.bm-row-label{
+  font-family:"JetBrains Mono",monospace;font-size:.65rem;
+  letter-spacing:0.15em;color:var(--mute);text-transform:uppercase;
+  padding-top:.15rem;
+}
+.bm-row-val{font-size:.88rem;line-height:1.7;color:var(--ink-soft)}
+.bm-row-val strong{color:var(--ink);font-weight:600}
+.bm-models{display:flex;flex-direction:column;gap:.25rem}
+.bm-model-item{
+  font-size:.86rem;color:var(--ink-soft);position:relative;padding-left:1rem;
+}
+.bm-model-item::before{
+  content:"▸";position:absolute;left:0;color:var(--gold);
+  font-size:.75rem;
+}
+.bm-cost-bar{
+  position:relative;height:42px;background:var(--paper);
+  border:1px solid var(--paper-deep);overflow:hidden;
+  margin-top:.3rem;
+}
+.bm-cost-fill{
+  position:absolute;top:0;bottom:0;
+  background:linear-gradient(90deg,var(--moss) 0%,var(--gold) 50%,var(--crimson) 100%);
+  opacity:0.35;
+}
+.bm-cost-marks{
+  position:absolute;inset:0;display:flex;align-items:center;
+  font-family:"JetBrains Mono",monospace;font-size:.7rem;
+  padding:0 .8rem;justify-content:space-between;color:var(--ink);
+}
+.bm-cost-mark{background:var(--paper);padding:.1rem .4rem;border:1px solid var(--ink);font-weight:500}
+.bm-prices{
+  display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.3rem;
+}
+.bm-price{
+  font-family:"JetBrains Mono",monospace;font-size:.7rem;
+  background:var(--paper);padding:.3rem .6rem;
+  border:1px solid var(--paper-deep);
+  display:flex;flex-direction:column;gap:.1rem;
+}
+.bm-price-item{font-size:.62rem;color:var(--mute);letter-spacing:0.05em}
+.bm-price-val{color:var(--ink);font-weight:500}
+.bm-sources{
+  display:flex;flex-wrap:wrap;gap:.3rem;
+}
+.bm-source{
+  font-family:"JetBrains Mono",monospace;font-size:.62rem;
+  color:var(--gold-deep);letter-spacing:0.05em;
+  background:transparent;padding:.15rem .5rem;
+  border:1px dashed var(--gold);
+}
+
+/* highlight card for SME entry point */
+.bm-card.bm-highlight{
+  border:2px solid var(--gold);
+  box-shadow:0 0 0 4px rgba(160,124,58,0.08);
+}
+.bm-flag{
+  position:absolute;top:-12px;left:1.4rem;
+  background:var(--gold-deep);color:var(--paper);
+  font-family:"JetBrains Mono",monospace;font-size:.65rem;
+  letter-spacing:0.15em;padding:.25rem .7rem;
+  z-index:5;
+}
+
+/* cost phases breakdown */
+.bm-phases{
+  display:grid;grid-template-columns:1fr 1fr;gap:.6rem;
+  margin-top:.2rem;
+}
+.bm-phase{
+  background:var(--paper);border-left:3px solid var(--gold);
+  padding:.7rem .9rem;
+}
+.bm-phase-head{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:.5rem;margin-bottom:.3rem;
+}
+.bm-phase-name{
+  font-family:"Noto Serif JP",serif;font-weight:600;
+  font-size:.85rem;color:var(--ink);
+}
+.bm-phase-range{
+  font-family:"JetBrains Mono",monospace;font-size:.72rem;
+  color:var(--crimson);font-weight:500;
+  white-space:nowrap;
+}
+.bm-phase-note{
+  font-size:.76rem;color:var(--ink-soft);line-height:1.6;
+}
+
+/* government subsidies section */
+.bm-subsidies-wrap{
+  background:linear-gradient(135deg, rgba(61,96,73,0.08) 0%, rgba(160,124,58,0.08) 100%);
+  border:1px solid var(--moss);
+  border-left:4px solid var(--moss);
+  padding:.9rem 1rem;
+}
+.bm-subsidies-head{
+  display:flex;align-items:center;gap:.6rem;margin-bottom:.7rem;
+  padding-bottom:.5rem;border-bottom:1px dashed rgba(61,96,73,0.3);
+}
+.bm-subsidies-icon{
+  font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:1.4rem;color:var(--moss);line-height:1;
+}
+.bm-subsidies-title{
+  font-family:"Noto Serif JP",serif;font-weight:700;
+  font-size:.92rem;color:var(--moss);letter-spacing:0.02em;
+}
+.bm-subsidies-sub{
+  font-family:"JetBrains Mono",monospace;font-size:.64rem;
+  color:var(--mute);letter-spacing:0.1em;margin-left:auto;
+}
+.bm-subsidies-list{display:flex;flex-direction:column;gap:.55rem}
+.bm-subsidy{
+  background:var(--paper);border:1px solid rgba(61,96,73,0.2);
+  padding:.55rem .75rem;display:grid;
+  grid-template-columns:1fr auto;gap:.3rem .8rem;
+  align-items:start;
+}
+.bm-subsidy-name{
+  font-family:"Noto Serif JP",serif;font-weight:600;
+  font-size:.78rem;color:var(--ink);line-height:1.4;
+}
+.bm-subsidy-theme{
+  font-size:.76rem;color:var(--ink-soft);
+  grid-column:1/-1;line-height:1.5;
+}
+.bm-subsidy-theme strong{color:var(--ink)}
+.bm-subsidy-amount{
+  font-family:"JetBrains Mono",monospace;font-size:.7rem;
+  color:var(--moss);font-weight:500;
+  background:rgba(61,96,73,0.08);padding:.18rem .5rem;
+  white-space:nowrap;align-self:start;
+}
+.bm-subsidy-type{
+  font-family:"JetBrains Mono",monospace;font-size:.58rem;
+  background:var(--ink);color:var(--paper);
+  padding:.12rem .4rem;letter-spacing:0.05em;
+  display:inline-block;margin-right:.4rem;
+}
+.bm-subsidy-note{
+  font-size:.7rem;color:var(--mute);font-style:italic;
+  grid-column:1/-1;
+}
+.bm-no-subsidy{
+  font-size:.78rem;color:var(--mute);font-style:italic;
+  padding:.5rem;text-align:center;
+}
+
+/* legend */
+.bm-legend{
+  display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;
+  margin-bottom:1.5rem;font-size:.78rem;color:var(--ink-soft);
+  padding:1rem 1.2rem;background:var(--paper-warm);
+  border:1px solid var(--paper-deep);
+}
+.bm-legend-item{display:flex;align-items:center;gap:.5rem}
+.bm-legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.bm-legend-dot.high{background:#7fb88f}
+.bm-legend-dot.mid{background:var(--gold)}
+.bm-legend-dot.low{background:#e58575}
+
+@media (max-width:760px){
+  .bm-card{grid-template-columns:1fr}
+  .bm-side{border-bottom:1px solid var(--paper-deep)}
+  .bm-row{grid-template-columns:1fr;gap:.2rem}
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:880px){
+  .hero-grid{grid-template-columns:1fr;gap:2rem}
+  header.masthead{padding:1.2rem 1.2rem .8rem}
+  .hero,section.block,footer{padding-left:1.2rem;padding-right:1.2rem}
+  .footer-inner{grid-template-columns:1fr;text-align:left}
+  .footer-meta{text-align:left}
+  .brand-name{font-size:2rem}
+  .filter-group{min-width:120px}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- ===== MASTHEAD ===== -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <div class="brand-mark">An Editorial Atlas · Vol. 1</div>
+      <div class="brand-name">SPACE&nbsp;INDEX</div>
+      <div class="brand-jp">宇 宙 産 業 参 入 の た め の 知 識 基 盤</div>
+    </div>
+    <div class="masthead-meta">
+      <div>EDITION&nbsp;/&nbsp;<strong>2026 SPRING · REV.2</strong></div>
+      <div>SCOPE&nbsp;/&nbsp;JAPAN × GLOBAL</div>
+      <div>SOURCES&nbsp;/&nbsp;<span id="sourceCountTop">―</span> CURATED</div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">PREFACE · 序</div>
+      <h1 class="hero-title">これから宇宙に<br><span class="accent">参入する人のための</span>、<br>地図と書架。</h1>
+      <div class="hero-sub">A field guide for newcomers to the space economy.</div>
+      <div class="hero-lead">
+        <p>世界の宇宙経済は2025年に<strong>6,264億ドル</strong>、2034年には<strong>1兆ドル</strong>を超える見込み。日本も<strong>4兆円→8兆円</strong>への倍増を目指している。一方で、何をどこから学ぶべきかは未だ霧の中にある。</p>
+        <p>本サイトは、宇宙産業への参入を検討する企業・個人のための「<strong>知識の地図</strong>」である。参入の関わり方と必要情報を整理し、それらの所在（無償/有償）と<strong>ビジネスモデル・初期費用</strong>を可視化する。</p>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-label">GLOBAL · 2025</div>
+        <div class="stat-value">$626<small style="font-size:1rem">.4B</small></div>
+        <div class="stat-unit">世界の宇宙経済規模（Novaspace）</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">GLOBAL · 2034</div>
+        <div class="stat-value">$1.01<small style="font-size:1rem">T</small></div>
+        <div class="stat-unit">10年後予測 / CAGR 12%</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">JAPAN · 2025</div>
+        <div class="stat-value">¥9,365<small style="font-size:1rem">億</small></div>
+        <div class="stat-unit">2025年度宇宙関連予算</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">JAPAN · 2030s</div>
+        <div class="stat-value">¥8<small style="font-size:1rem">兆</small></div>
+        <div class="stat-unit">市場規模倍増の政府目標</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION I: TAXONOMY ===== -->
+<section class="block" id="taxonomy">
+  <div class="section-header">
+    <div class="section-num">I.</div>
+    <div class="section-title">
+      参入カテゴリの地図
+      <small>The Taxonomy of Entry</small>
+    </div>
+  </div>
+  <div class="section-intro">
+    宇宙産業への関わり方は、伝統的に「上流（機器製造）─中流（運用）─下流（データ活用）」で語られてきた。しかし民間主導の時代に入った今、これに「フロンティア領域」と「支援産業（横断）」を加えた<strong>5層21分野</strong>で捉えると、自社の立ち位置が見えやすくなる。
+  </div>
+  <div class="taxo-grid" id="taxoGrid"></div>
+</section>
+
+<!-- ===== SECTION II: INFORMATION NEEDS ===== -->
+<section class="block" id="needs">
+  <div class="section-header">
+    <div class="section-num">II.</div>
+    <div class="section-title">
+      参入時に揃えるべき情報
+      <small>What You Need to Know</small>
+    </div>
+  </div>
+  <div class="section-intro">
+    どの層から参入するかによって、優先して集めるべき情報は変わる。下表は、各層が特に重視する情報項目を整理したもの。<span style="color:var(--crimson);font-weight:600">●必須</span>／<span style="color:var(--gold-deep);font-weight:600">○推奨</span>／<span style="color:var(--mute)">・任意</span> の三段階で示す。
+  </div>
+  <div class="matrix-wrap">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th style="min-width:200px">情報項目</th>
+          <th>上流 (機器)</th>
+          <th>中流 (運用)</th>
+          <th>下流 (利用)</th>
+          <th>フロンティア</th>
+          <th>支援産業</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th>市場規模・成長予測</th><td class="must">●</td><td class="must">●</td><td class="must">●</td><td class="must">●</td><td class="must">●</td></tr>
+        <tr><th>ビジネスモデル・収益構造</th><td class="must">●</td><td class="must">●</td><td class="must">●</td><td class="must">●</td><td class="rec">○</td></tr>
+        <tr><th>初期投資・コスト構造</th><td class="must">●</td><td class="must">●</td><td class="rec">○</td><td class="must">●</td><td class="rec">○</td></tr>
+        <tr><th>主要プレーヤー・競合分析</th><td class="must">●</td><td class="must">●</td><td class="must">●</td><td class="must">●</td><td class="rec">○</td></tr>
+        <tr><th>技術動向・標準・成熟度</th><td class="must">●</td><td class="must">●</td><td class="rec">○</td><td class="must">●</td><td class="opt">・</td></tr>
+        <tr><th>規制・法制度（宇宙活動法等）</th><td class="must">●</td><td class="must">●</td><td class="rec">○</td><td class="must">●</td><td class="must">●</td></tr>
+        <tr><th>政府政策・支援制度・補助金</th><td class="must">●</td><td class="must">●</td><td class="rec">○</td><td class="must">●</td><td class="rec">○</td></tr>
+        <tr><th>サプライチェーン・調達</th><td class="must">●</td><td class="rec">○</td><td class="opt">・</td><td class="must">●</td><td class="opt">・</td></tr>
+        <tr><th>顧客・需要側ニーズ</th><td class="rec">○</td><td class="must">●</td><td class="must">●</td><td class="must">●</td><td class="must">●</td></tr>
+        <tr><th>投資・資金調達・M&A動向</th><td class="must">●</td><td class="rec">○</td><td class="rec">○</td><td class="must">●</td><td class="must">●</td></tr>
+        <tr><th>データセット・データ仕様</th><td class="opt">・</td><td class="rec">○</td><td class="must">●</td><td class="rec">○</td><td class="opt">・</td></tr>
+        <tr><th>イベント・コミュニティ・人材</th><td class="rec">○</td><td class="rec">○</td><td class="rec">○</td><td class="rec">○</td><td class="must">●</td></tr>
+        <tr><th>リスク・安全保障・輸出管理</th><td class="must">●</td><td class="must">●</td><td class="rec">○</td><td class="must">●</td><td class="rec">○</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== SECTION III: COVERAGE ANALYSIS ===== -->
+<section class="block" id="coverage">
+  <div class="section-header">
+    <div class="section-num">III.</div>
+    <div class="section-title">
+      情報の存在状況 ─ 何が無償で、何が有償か
+      <small>Coverage of Available Sources</small>
+    </div>
+  </div>
+  <div class="section-intro">
+    宇宙産業は政策誘導型産業であるため、<strong>政府系の一次資料は概ね無償で揃う</strong>。一方、グローバルな市場予測・競合比較・財務分析は専門調査会社の有償レポートに依存する構造が続く。日本市場の詳細は、無償と有償の境界が他産業より曖昧で、業界団体・メディアが事実上の調査機能を補完している。
+  </div>
+  <div class="coverage">
+    <div class="cov strong">
+      <div class="cov-head"><div class="cov-title">政策・規制・基本データ</div><div class="cov-rating">充実 ★★★</div></div>
+      <div class="cov-body">
+        内閣府・経産省・文科省・JAXAが包括的に公開。宇宙基本計画、技術戦略、戦略基金の公募・採択結果まで全てPDFで入手可能。
+        <ul><li>政府ポータル / 審議会議事録</li><li>JAXA Earth-graphy</li><li>e-Gov 法令検索</li></ul>
+      </div>
+    </div>
+    <div class="cov strong">
+      <div class="cov-head"><div class="cov-title">衛星データ（下流入門）</div><div class="cov-rating">充実 ★★★</div></div>
+      <div class="cov-body">
+        Tellus／Copernicus／NASA Earthdataなど、商用にも使える無償データが豊富。解析環境までセットで提供される。
+        <ul><li>Tellus (Open & Free)</li><li>Sentinel / Copernicus</li><li>Landsat / NASA</li></ul>
+      </div>
+    </div>
+    <div class="cov medium">
+      <div class="cov-head"><div class="cov-title">業界動向・市場規模（マクロ）</div><div class="cov-rating">部分的 ★★☆</div></div>
+      <div class="cov-body">
+        BryceTech（米SIA）やESA、WEFが無償公開。Novaspace本編・Analysys Masonは有償。和訳・解説は宙畑・UchuBizが補完。
+        <ul><li>BryceTech (Free)</li><li>Novaspace / NSR (Paid)</li><li>宙畑 / UchuBiz (Free)</li></ul>
+      </div>
+    </div>
+    <div class="cov medium">
+      <div class="cov-head"><div class="cov-title">日本市場・国内企業詳細</div><div class="cov-rating">部分的 ★★☆</div></div>
+      <div class="cov-body">
+        日本航空宇宙工業会の年次データブックは有料。矢野経済・富士経済の宇宙関連レポートは個別購入。SPACETIDE COMPASSが公開要約＋有償詳細の構成。
+        <ul><li>日航工データブック (Paid)</li><li>SPACETIDE COMPASS</li><li>矢野/富士経済 (Paid)</li></ul>
+      </div>
+    </div>
+    <div class="cov medium">
+      <div class="cov-head"><div class="cov-title">スタートアップ・資金調達</div><div class="cov-rating">部分的 ★★☆</div></div>
+      <div class="cov-body">
+        BryceのStart-Up Spaceや、INITIAL・STARTUP DB・Crunchbase等で個別資金調達は追える。プライベートな評価額・M&A詳細はPitchBook等の有償。
+        <ul><li>BryceTech Start-Up Space</li><li>INITIAL / STARTUP DB</li><li>PitchBook / CB Insights (Paid)</li></ul>
+      </div>
+    </div>
+    <div class="cov weak">
+      <div class="cov-head"><div class="cov-title">技術ロードマップ・特許動向</div><div class="cov-rating">不足 ★☆☆</div></div>
+      <div class="cov-body">
+        JAXA「宇宙技術戦略」が無償の最良資料だが、競合特許マップ・要素技術の深掘りは個別調査が必要。J-PlatPat等を組み合わせる必要あり。
+        <ul><li>JAXA宇宙技術戦略</li><li>J-PlatPat (Free)</li><li>カスタム調査 (Paid)</li></ul>
+      </div>
+    </div>
+    <div class="cov weak">
+      <div class="cov-head"><div class="cov-title">国際的な顧客需要・調達情報</div><div class="cov-rating">不足 ★☆☆</div></div>
+      <div class="cov-body">
+        米国DoD、ESA、NASA、各国軍の調達情報は英語の一次資料に分散。SAM.gov等を継続ウォッチする必要があり、まとまった日本語情報源は少ない。
+        <ul><li>SAM.gov (US)</li><li>NASA SBIR/STTR</li><li>ESA ESTAR / TenderArc</li></ul>
+      </div>
+    </div>
+    <div class="cov medium">
+      <div class="cov-head"><div class="cov-title">人材・キャリア・教育</div><div class="cov-rating">部分的 ★★☆</div></div>
+      <div class="cov-body">
+        スペジョブ等の専門サービスが立ち上がりつつあり、SPACETIDE Career Connect等のイベントも増加。一方、職種別の給与・スキル統計は未整備。
+        <ul><li>スペジョブ</li><li>SPACETIDE Career Connect</li><li>宙畑 キャリアナビ</li></ul>
+      </div>
+    </div>
+    <div class="cov medium">
+      <div class="cov-head"><div class="cov-title">ビジネスモデル・収益構造</div><div class="cov-rating">部分的 ★★☆</div></div>
+      <div class="cov-body">
+        打上げサービスや商用衛星画像は公開価格が普及。一方、データ解析SaaS・運用サービスの単価や顧客LTV等のユニットエコノミクスは個別開示にとどまる。
+        <ul><li>SpaceX Rideshare 公開価格</li><li>各社IR資料（上場ベンチャー）</li><li>日経BP 事業創出ガイド (Paid)</li></ul>
+      </div>
+    </div>
+    <div class="cov weak">
+      <div class="cov-head"><div class="cov-title">初期投資・開発コスト（実額）</div><div class="cov-rating">不足 ★☆☆</div></div>
+      <div class="cov-body">
+        CubeSat等の小規模はガイドが整備されつつあるが、中型衛星・地上局構築の実際の費用、運用フェーズのランニングコストは未公開が多い。SBIR採択額・PR公開資金調達額が手がかり。
+        <ul><li>JAXAオープンラボ目安</li><li>SBIR採択結果（公表）</li><li>INITIAL／STARTUP DB</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION IV: SEARCH RESOURCES ===== -->
+<section class="block" id="library">
+  <div class="section-header">
+    <div class="section-num">IV.</div>
+    <div class="section-title">
+      情報源ライブラリ
+      <small>The Curated Library</small>
+    </div>
+  </div>
+  <div class="section-intro">
+    国内外の情報源を一覧表で網羅。参入カテゴリ・情報種別・無償/有償・対象地域での絞り込み、および<strong>列ヘッダクリックでソート</strong>、<strong>行クリックで詳細展開</strong>が可能。<strong>キーワード欄</strong>には会社名・略称（例: "JAXA", "リモセン", "Novaspace"）が使える。
+  </div>
+
+  <div class="filter-bar">
+    <div class="filter-group">
+      <label class="filter-label" for="fCategory">参入カテゴリ</label>
+      <select id="fCategory">
+        <option value="">すべて</option>
+        <option value="upstream">上流（機器）</option>
+        <option value="midstream">中流（運用）</option>
+        <option value="downstream">下流（利用）</option>
+        <option value="frontier">フロンティア</option>
+        <option value="support">支援産業</option>
+        <option value="cross">横断（全般）</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label class="filter-label" for="fInfo">情報種別</label>
+      <select id="fInfo">
+        <option value="">すべて</option>
+        <option value="market">市場規模・予測</option>
+        <option value="business">ビジネスモデル・コスト</option>
+        <option value="players">プレーヤー・競合</option>
+        <option value="tech">技術動向</option>
+        <option value="policy">政策・規制・法律</option>
+        <option value="funding">投資・資金調達</option>
+        <option value="data">データセット</option>
+        <option value="event">イベント・コミュニティ</option>
+        <option value="career">人材・教育</option>
+        <option value="media">メディア・ニュース</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label class="filter-label" for="fCost">課金</label>
+      <select id="fCost">
+        <option value="">すべて</option>
+        <option value="free">無償</option>
+        <option value="paid">有償</option>
+        <option value="freemium">一部無償</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label class="filter-label" for="fRegion">地域</label>
+      <select id="fRegion">
+        <option value="">すべて</option>
+        <option value="JP">日本</option>
+        <option value="GLOBAL">海外/グローバル</option>
+      </select>
+    </div>
+    <div class="filter-group" style="min-width:200px;flex:1">
+      <label class="filter-label" for="fSearch">キーワード検索</label>
+      <input type="text" id="fSearch" placeholder="例: JAXA, リモセン, market...">
+    </div>
+    <div class="filter-spacer"></div>
+    <div class="filter-count">
+      <strong id="resCount">0</strong> / <span id="resTotal">0</span> sources
+    </div>
+    <button class="filter-reset" id="fReset">RESET</button>
+  </div>
+
+  <div class="res-table-wrap">
+    <table class="res-table" id="resTable">
+      <thead>
+        <tr>
+          <th class="sortable" data-sort="name">情報源 <span class="sort-ind">⇅</span></th>
+          <th class="sortable" data-sort="org">提供元 <span class="sort-ind">⇅</span></th>
+          <th class="sortable" data-sort="region">地域 <span class="sort-ind">⇅</span></th>
+          <th class="sortable" data-sort="cost">課金 <span class="sort-ind">⇅</span></th>
+          <th>カテゴリ</th>
+          <th>種別</th>
+          <th style="text-align:right">リンク</th>
+        </tr>
+      </thead>
+      <tbody id="resTbody"></tbody>
+    </table>
+  </div>
+  <div class="empty" id="emptyState" style="display:none">該当する情報源がありません。条件を緩めるか、RESETしてください。</div>
+</section>
+
+<!-- ===== SECTION V: BUSINESS MODELS & COSTS ===== -->
+<section class="block" id="business">
+  <div class="section-header">
+    <div class="section-num">V.</div>
+    <div class="section-title">
+      ビジネスモデルと初期費用
+      <small>Business Models &amp; Cost of Entry</small>
+    </div>
+  </div>
+  <div class="section-intro">
+    非宇宙企業が参入を検討する際、最も知りたいのは「どんな儲け方で、いくら必要か」である。下記は分野別の典型的ビジネスモデルと初期投資レンジ、そして<strong>その情報がどれくらい公開で入手可能か</strong>を整理したもの。<strong>各分野には宇宙戦略基金（10年1兆円規模）・SBIRフェーズ3・Kプログラム等の政府支援プログラムが用意されており、実質的な初期投資を大きく圧縮できる可能性がある</strong>。緑枠のセクションで各分野の該当プログラムを参照のこと。
+  </div>
+  <div class="bm-legend">
+    <strong style="font-family:'Noto Serif JP',serif;color:var(--ink)">情報アクセス度：</strong>
+    <div class="bm-legend-item"><span class="bm-legend-dot high"></span>高（公開価格・標準化）</div>
+    <div class="bm-legend-item"><span class="bm-legend-dot mid"></span>中（参考情報あり）</div>
+    <div class="bm-legend-item"><span class="bm-legend-dot low"></span>低（個別開示中心）</div>
+    <span style="margin-left:auto;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--mute);font-size:.85rem">※コストレンジは公開資料・SBIR採択額・公表資金調達等を基にした目安</span>
+  </div>
+  <div class="bm-grid" id="bmGrid"></div>
+</section>
+
+<!-- ===== SECTION VI: ENTRY PATHWAYS ===== -->
+<section class="block" id="pathways">
+  <div class="section-header">
+    <div class="section-num">VI.</div>
+    <div class="section-title">
+      参入の経路 ─ ペルソナ別のはじめの一歩
+      <small>Entry Pathways by Persona</small>
+    </div>
+  </div>
+  <div class="section-intro">
+    立場によって、まず読むべき資料の順序は異なる。代表的な5つの参入パターン別に、最短経路を提案する。
+  </div>
+  <div class="pathways" id="pathways"></div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="colophon">
+      <strong>SPACE INDEX</strong>
+      An editorial atlas curated for those entering Japan's space economy. 本サイトに掲載する情報源は2026年5月時点で確認できたものであり、各リソースの最新性・正確性は提供元での確認をお願いする。市場規模・予測値は出典時点のもの。
+      <br><br>
+      <a href="stories.html" style="color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:1px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.1em;text-decoration:none">→ ORBIT STORIES — 衛星データ活用事例ギャラリー</a>
+    </div>
+    <div class="footer-meta">
+      <div>BUILT&nbsp;/&nbsp;2026.05</div>
+      <div>SOURCES&nbsp;/&nbsp;<span id="sourceCountBottom">―</span></div>
+      <div>LICENSE&nbsp;/&nbsp;EDITORIAL USE</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== DATA: CATEGORIES =====
+const categories = [
+  {id:"up-1",code:"A·1",cat:"upstream",label:"宇宙輸送",sub:"Launch & Transportation",desc:"ロケット製造、打上げサービス、射場運営。商業打上げ需要に応える国際競争の主戦場。",tags:["ロケット","射場","再使用"]},
+  {id:"up-2",code:"A·2",cat:"upstream",label:"衛星製造",sub:"Satellite Manufacturing",desc:"バス・ペイロード・コンポーネント。小型衛星量産＝コンステ需要が新規参入の入り口。",tags:["小型衛星","コンステ","SAR"]},
+  {id:"up-3",code:"A·3",cat:"upstream",label:"地上設備",sub:"Ground Segment",desc:"地上局、アンテナ、通信機器。GaaS（Ground-as-a-Service）化が進む。",tags:["地上局","GaaS","アンテナ"]},
+  {id:"up-4",code:"A·4",cat:"upstream",label:"部品・素材",sub:"Components & Materials",desc:"COTS活用が進む耐放射線素子、光学部品、推進系。非宇宙企業の参入余地が大きい。",tags:["COTS","素材","推進系"]},
+  {id:"mid-1",code:"B·1",cat:"midstream",label:"衛星運用",sub:"Satellite Operations",desc:"打上げ後の管制・運用。Operations-as-a-Service型の事業者も増加。",tags:["運用","管制","TT&C"]},
+  {id:"mid-2",code:"B·2",cat:"midstream",label:"軌道上サービス",sub:"On-Orbit Services",desc:"デブリ除去、寿命延長、燃料補給、軌道間輸送。日本はAstroscale筆頭に強みあり。",tags:["デブリ","OOS","延命"]},
+  {id:"down-1",code:"C·1",cat:"downstream",label:"衛星通信",sub:"Satellite Communications",desc:"GEO/LEOコンステ、HTS、D2D（Direct to Device）。市場規模最大セグメント。",tags:["LEO","HTS","D2D"]},
+  {id:"down-2",code:"C·2",cat:"downstream",label:"衛星測位 (PNT)",sub:"Positioning, Navigation, Timing",desc:"GNSS、準天頂衛星みちびき。自動運転・物流・測量等の応用層が広い。",tags:["GNSS","みちびき","測量"]},
+  {id:"down-3",code:"C·3",cat:"downstream",label:"地球観測",sub:"Earth Observation",desc:"光学・SAR・ハイパースペクトル。農業・防災・金融オルタナデータ等多分野応用。",tags:["EO","SAR","リモセン"]},
+  {id:"down-4",code:"C·4",cat:"downstream",label:"データ解析・ソリューション",sub:"Analytics & Solutions",desc:"AI×衛星データのバーティカル展開。非宇宙企業にとって最も参入しやすい層。",tags:["AI","解析","SaaS"]},
+  {id:"fr-1",code:"D·1",cat:"frontier",label:"月・宇宙資源",sub:"Lunar & Resources",desc:"アルテミス計画関連、月面着陸機、ローバー、水資源。日本は宇宙資源法を世界第2位で整備。",tags:["月","アルテミス","資源"]},
+  {id:"fr-2",code:"D·2",cat:"frontier",label:"有人宇宙・宇宙旅行",sub:"Human Spaceflight",desc:"ISS活用、ポストISS、サブオービタル観光。安全規制と保険の整備が論点。",tags:["有人","ISS","観光"]},
+  {id:"fr-3",code:"D·3",cat:"frontier",label:"民間宇宙ステーション",sub:"Commercial Space Stations",desc:"ISS退役後を見据えた商業LEOプラットフォーム。微小重力実験・製造の需要創出が鍵。",tags:["CSS","LEO","ポストISS"]},
+  {id:"fr-4",code:"D·4",cat:"frontier",label:"軌道上製造・実験",sub:"In-Space Manufacturing",desc:"半導体結晶、医薬品、特殊材料の微小重力製造。長期的に最も大きな市場と目される。",tags:["ISAM","製造","µG"]},
+  {id:"fr-5",code:"D·5",cat:"frontier",label:"宇宙太陽光発電",sub:"Space-Based Solar Power",desc:"研究フェーズだが各国が実証計画を加速。エネルギー業界からの参入分野。",tags:["SBSP","エネルギー"]},
+  {id:"fr-6",code:"D·6",cat:"frontier",label:"安全保障・防衛",sub:"Defense & Security",desc:"宇宙ドメイン認識（SDA）、早期警戒、デュアルユース。市場成長率が最も高い。",tags:["SDA","防衛","SSA"]},
+  {id:"sup-1",code:"E·1",cat:"support",label:"投資・ファイナンス・保険",sub:"Capital & Insurance",desc:"VC、PE、政府基金、打上げ・第三者賠償保険。日本は宇宙戦略基金1兆円規模。",tags:["VC","基金","保険"]},
+  {id:"sup-2",code:"E·2",cat:"support",label:"法務・規制対応",sub:"Legal & Regulatory",desc:"宇宙活動法、衛星リモセン法、宇宙資源法、輸出管理。グローバル展開には各国法の理解必須。",tags:["宇宙活動法","リモセン","ITAR"]},
+  {id:"sup-3",code:"E·3",cat:"support",label:"コンサル・市場調査",sub:"Consulting & Research",desc:"戦略立案、市場予測、技術評価。グローバル大手と国内系の使い分けがポイント。",tags:["コンサル","調査","戦略"]},
+  {id:"sup-4",code:"E·4",cat:"support",label:"人材・教育",sub:"Talent & Education",desc:"宇宙人材紹介、研修、大学プログラム。非宇宙人材の流入を促す育成市場が成長。",tags:["採用","研修","大学"]},
+  {id:"sup-5",code:"E·5",cat:"support",label:"メディア・コミュニティ",sub:"Media & Community",desc:"業界専門メディア、カンファレンス、ニュースレター。情報収集と人脈形成の起点。",tags:["メディア","イベント","コミュニティ"]}
+];
+
+// ===== DATA: RESOURCES =====
+const resources = [
+  // === 日本・政府系（無償） ===
+  {name:"内閣府 宇宙開発戦略推進事務局",org:"Cabinet Office",desc:"宇宙基本計画、宇宙政策委員会議事録、宇宙活動法・リモセン法・宇宙資源法の所管。日本の宇宙政策の総司令塔で、まず最初に押さえるべき一次情報源。",url:"https://www8.cao.go.jp/space/",cost:"free",region:"JP",cat:["cross"],info:["policy","market"],tags:["政策","法律","宇宙基本計画"]},
+  {name:"経済産業省 宇宙産業課",org:"METI",desc:"産業構造審議会 宇宙産業小委員会の資料、Tellus事業、調査報告書を多数公開。産業政策視点での参入検討に最適。",url:"https://www.meti.go.jp/policy/mono_info_service/mono/space_industry/index.html",cost:"free",region:"JP",cat:["cross","upstream","downstream"],info:["policy","market","tech"],tags:["産業政策","補助金","Tellus"]},
+  {name:"文部科学省 宇宙開発利用部会",org:"MEXT",desc:"宇宙技術戦略、JAXA中期計画、宇宙戦略基金（文科省計上分）の実施方針。研究開発・先端技術領域の参入で必読。",url:"https://www.mext.go.jp/b_menu/shingi/gijyutu/gijyutu2/index.htm",cost:"free",region:"JP",cat:["cross","frontier"],info:["policy","tech"],tags:["技術戦略","JAXA","研究開発"]},
+  {name:"総務省 宇宙×ICT",org:"MIC",desc:"周波数調整、衛星通信政策、宇宙戦略基金（総務省計上分）。通信事業者・周波数を扱う事業者の必須参照先。",url:"https://www.soumu.go.jp/",cost:"free",region:"JP",cat:["downstream","support"],info:["policy","tech"],tags:["周波数","通信","ITU"]},
+  {name:"JAXA",org:"宇宙航空研究開発機構",desc:"技術情報、衛星カタログ、研究開発成果、共創プログラム（J-SPARC）、産業界連携窓口。技術連携・実証の入り口。",url:"https://www.jaxa.jp/",cost:"free",region:"JP",cat:["cross"],info:["tech","data"],tags:["JAXA","研究","J-SPARC"]},
+  {name:"JAXA宇宙戦略基金",org:"JAXA",desc:"10年1兆円規模の支援基金。第1期・第2期の公募テーマ、採択結果、説明会資料を網羅。研究開発資金獲得の最大チャンス。",url:"https://fund.jaxa.jp/",cost:"free",region:"JP",cat:["cross"],info:["funding","policy"],tags:["基金","公募","採択結果"]},
+  {name:"Tellus",org:"さくらインターネット / 経産省",desc:"政府衛星データを無償提供する日本発プラットフォーム。光学・SAR・気象データに加え解析環境までクラウドで提供。下流参入の試金石。",url:"https://www.tellusxdp.com/",cost:"free",region:"JP",cat:["downstream"],info:["data","tech"],tags:["衛星データ","SAR","光学"]},
+  {name:"JAXA Earth-graphy",org:"JAXA",desc:"だいち・しきさい・ひまわり等のJAXA衛星データ提供ポータル。研究・商用利用の窓口、データ仕様書も公開。",url:"https://earth.jaxa.jp/",cost:"free",region:"JP",cat:["downstream"],info:["data"],tags:["ALOS","GCOM","データ"]},
+  {name:"e-Gov 法令検索",org:"デジタル庁",desc:"宇宙活動法、衛星リモセン法、宇宙資源法、電波法など、宇宙ビジネス関連法令の原文と改正履歴。",url:"https://laws.e-gov.go.jp/",cost:"free",region:"JP",cat:["support","cross"],info:["policy"],tags:["法令","条文","規制"]},
+  {name:"一般財団法人 リモート・センシング技術センター (RESTEC)",org:"RESTEC",desc:"衛星データ配布、技術トレーニング、技術コンサル。地球観測の実務的な相談窓口として歴史が長い。",url:"https://www.restec.or.jp/",cost:"freemium",region:"JP",cat:["downstream"],info:["data","tech","career"],tags:["EO","研修","解析"]},
+  {name:"内閣府 宇宙政策委員会議事録",org:"Cabinet Office",desc:"宇宙基本計画・予算・各種戦略の検討プロセス。政策の方向性を最も早く知ることができる一次資料。",url:"https://www8.cao.go.jp/space/comittee/comittee.html",cost:"free",region:"JP",cat:["cross"],info:["policy"],tags:["議事録","政策動向"]},
+
+  // === 日本・業界団体（無償～有償） ===
+  {name:"一般社団法人 日本航空宇宙工業会 (SJAC)",org:"SJAC",desc:"年次「宇宙産業データブック」発行。日本の宇宙機器産業の生産額・売上の最も信頼できる時系列データ。詳細版は有償。",url:"https://www.sjac.or.jp/",cost:"freemium",region:"JP",cat:["upstream","cross"],info:["market","players"],tags:["産業統計","データブック","サプライチェーン"],price:"概要無償／詳細版有償"},
+  {name:"一般社団法人 SPACETIDE",org:"SPACETIDE",desc:"アジア最大級の国際宇宙ビジネスカンファレンスを毎年主催。「SPACETIDE COMPASS」は日本・アジアの動向を要約したフラッグシップレポート。",url:"https://spacetide.jp/",cost:"freemium",region:"JP",cat:["cross","support"],info:["market","event","players"],tags:["COMPASS","カンファレンス","業界動向"],price:"イベント参加費／レポート要約は無償"},
+
+  // === 日本・メディア（無償） ===
+  {name:"宙畑 (Sorabatake)",org:"さくらインターネット",desc:"衛星データと宇宙ビジネスの解説メディア。市場規模、政策、技術解説、企業インタビューまで網羅。日本語の宇宙ビジネス情報の最高峰。",url:"https://sorabatake.jp/",cost:"free",region:"JP",cat:["cross"],info:["media","tech","market"],tags:["メディア","解説","Tellus"]},
+  {name:"UchuBiz",org:"朝日インタラクティブ",desc:"宇宙ビジネス専門ニュースメディア。スタートアップから政策、海外動向まで日次更新。CNET Japan系列で取材力に定評。",url:"https://uchubiz.com/",cost:"free",region:"JP",cat:["cross"],info:["media","players","funding"],tags:["ニュース","スタートアップ"]},
+  {name:"Space Connect",org:"Space Connect株式会社",desc:"宇宙ビジネス特化メディアと人材プラットフォーム「スペジョブ」を運営。業界キャリア情報と企業動向が結びついている。",url:"https://space-connect.jp/",cost:"free",region:"JP",cat:["support"],info:["media","career"],tags:["キャリア","採用","HR"]},
+  {name:"宙畑 キャリアナビ",org:"宙畑",desc:"宇宙業界で働く人々のインタビュー、職種解説、企業紹介を集積。文系・非宇宙人材の参入経路を知るのに有効。",url:"https://sorabatake.jp/category/work/",cost:"free",region:"JP",cat:["support"],info:["career","media"],tags:["キャリア","インタビュー"]},
+
+  // === 日本・有償調査会社 ===
+  {name:"矢野経済研究所",org:"矢野経済研究所",desc:"日本市場のシェア・規模に強い。宇宙関連は地球観測サービス、衛星通信、宇宙インフラ等のテーマで個別レポート発行。",url:"https://www.yano.co.jp/",cost:"paid",region:"JP",cat:["cross","downstream"],info:["market","players"],tags:["市場調査","シェア"],price:"概ね15万円～／レポート"},
+  {name:"富士経済グループ",org:"富士経済",desc:"国内市場の競合分析・将来予測に強い。ICT・通信領域で衛星関連レポートを定期発行。FK-Mardsで部分購入も可能。",url:"https://www.fuji-keizai.co.jp/",cost:"paid",region:"JP",cat:["cross","downstream"],info:["market","players"],tags:["市場調査","予測"],price:"概ね15万円～／レポート"},
+  {name:"日経テレコン / 日経XTECH",org:"日本経済新聞社",desc:"宇宙ビジネス関連のニュース、業界レポート、企業情報を集約。アナリスト向けの統計データも入手可能。",url:"https://t21.nikkei.co.jp/",cost:"paid",region:"JP",cat:["cross"],info:["media","market"],tags:["ニュース","業界DB"],price:"法人契約／個人プラン有"},
+
+  // === 海外・政府/国際機関（無償） ===
+  {name:"NASA",org:"米国航空宇宙局",desc:"予算書、ロードマップ、技術ポートフォリオ、SBIR/STTR公募。米国宇宙産業の動向を読み解く起点。",url:"https://www.nasa.gov/",cost:"free",region:"GLOBAL",cat:["cross","frontier"],info:["policy","tech","funding"],tags:["NASA","SBIR","予算"]},
+  {name:"ESA Space Economy Hub",org:"European Space Agency",desc:"ESA年次レポート、欧州宇宙経済の統計、各種市場分析を無償公開。欧州市場参入時の必読。",url:"https://space-economy.esa.int/",cost:"free",region:"GLOBAL",cat:["cross"],info:["market","policy"],tags:["欧州","ESA","経済"]},
+  {name:"EUSPA EO & GNSS Market Report",org:"EU Agency for the Space Programme",desc:"地球観測とGNSSの世界市場規模・予測を扱う代表的な無償レポート。欧州目線だが網羅性が高い。",url:"https://www.euspa.europa.eu/",cost:"free",region:"GLOBAL",cat:["downstream"],info:["market"],tags:["EO","GNSS","欧州"]},
+  {name:"World Economic Forum: $1.8T Opportunity",org:"WEF / McKinsey",desc:"2024年公表「Space: The $1.8 Trillion Opportunity」。宇宙経済を Backbone と Reach に分け、産業横断的な経済効果を可視化した必読レポート。",url:"https://www.weforum.org/publications/space-the-1-8-trillion-opportunity-for-global-economic-growth/",cost:"free",region:"GLOBAL",cat:["cross"],info:["market"],tags:["WEF","予測","経済効果"]},
+  {name:"OECD Space Economy",org:"OECD",desc:"宇宙経済の統計手法、各国比較、政策含意。マクロな構造理解に有用。",url:"https://www.oecd.org/innovation/inno/space-economy/",cost:"free",region:"GLOBAL",cat:["cross"],info:["market","policy"],tags:["OECD","統計","政策比較"]},
+  {name:"Copernicus / Sentinel",org:"EU / ESA",desc:"Sentinel衛星群の無償データ。光学・SAR・大気観測まで網羅し、商用利用も可能。EOビジネスの基盤データ。",url:"https://www.copernicus.eu/",cost:"free",region:"GLOBAL",cat:["downstream"],info:["data"],tags:["Sentinel","EO","欧州"]},
+  {name:"NASA Earthdata",org:"NASA",desc:"NASA保有の地球観測データ・解析ツールを集約。Landsat、MODIS、GPMなど主要ミッションのデータが集まる。",url:"https://www.earthdata.nasa.gov/",cost:"free",region:"GLOBAL",cat:["downstream"],info:["data"],tags:["Landsat","NASA","EO"]},
+  {name:"USGS EarthExplorer",org:"USGS",desc:"Landsatをはじめ米国政府衛星データのカタログと無償ダウンロード。EO解析の定番。",url:"https://earthexplorer.usgs.gov/",cost:"free",region:"GLOBAL",cat:["downstream"],info:["data"],tags:["Landsat","USGS"]},
+  {name:"SAM.gov (米国連邦調達)",org:"US Federal Government",desc:"NASA・DoD・NOAA等の連邦政府調達情報を一元検索。米国政府需要を取りに行く際の入り口。",url:"https://sam.gov/",cost:"free",region:"GLOBAL",cat:["upstream","frontier"],info:["funding"],tags:["調達","DoD","NASA"]},
+  {name:"ITU 周波数データベース",org:"国際電気通信連合",desc:"衛星周波数登録、軌道情報、各国通信規格。通信衛星事業の必須参照。",url:"https://www.itu.int/",cost:"freemium",region:"GLOBAL",cat:["downstream","upstream"],info:["policy","data"],tags:["周波数","軌道","ITU"]},
+
+  // === 海外・調査会社（無償） ===
+  {name:"BryceTech Reports",org:"BryceTech",desc:"State of the Satellite Industry、Start-Up Space、Smallsats by the Numbers等、80超のレポートを無償公開。グローバル動向の標準教科書的存在。",url:"https://brycetech.com/reports",cost:"free",region:"GLOBAL",cat:["cross"],info:["market","players","funding"],tags:["SIA","レポート","統計"]},
+  {name:"State of the Satellite Industry Report",org:"Satellite Industry Association / Bryce",desc:"米SIA発行・Bryce制作の年次衛星産業レポート。世界の衛星産業を4セグメント（製造・打上げ・サービス・地上）で集計する業界標準。",url:"https://sia.org/news-resources/state-of-the-satellite-industry-report/",cost:"free",region:"GLOBAL",cat:["cross"],info:["market"],tags:["SIA","年次","業界統計"]},
+
+  // === 海外・調査会社（有償） ===
+  {name:"Novaspace (旧Euroconsult)",org:"Novaspace",desc:"Space Economy Report (12版)、衛星通信、地球観測、政府宇宙プログラム等。世界で最も網羅的な有償宇宙市場インテリジェンス。",url:"https://nova.space/",cost:"paid",region:"GLOBAL",cat:["cross"],info:["market","players","funding"],tags:["Euroconsult","NSR","Intelligence Hub"],price:"レポート単体 ~$5,000～／サブスクあり"},
+  {name:"Analysys Mason",org:"Analysys Mason",desc:"衛星通信、地上局市場、5G/NTN等の電気通信×衛星予測。通信オペレーター・投資家向け詳細予測に強い。",url:"https://www.analysysmason.com/",cost:"paid",region:"GLOBAL",cat:["downstream"],info:["market","players"],tags:["通信","予測","NTN"],price:"レポート単体 ~$4,000～"},
+  {name:"Quilty Space",org:"Quilty Space",desc:"衛星通信オペレーターの財務分析・M&A動向に強い独立リサーチハウス。投資家・M&A担当者の指名買いが多い。",url:"https://quiltyspace.com/",cost:"paid",region:"GLOBAL",cat:["downstream","support"],info:["funding","players"],tags:["財務","M&A","通信"],price:"サブスク制"},
+  {name:"PitchBook",org:"Morningstar / PitchBook",desc:"スタートアップ評価額、ラウンド詳細、エグジット情報。VC・PE業界の標準ツール。宇宙領域のディール追跡に必須。",url:"https://pitchbook.com/",cost:"paid",region:"GLOBAL",cat:["support"],info:["funding","players"],tags:["VC","評価額","エグジット"],price:"年間契約 / 個人プラン無"},
+  {name:"CB Insights",org:"CB Insights",desc:"スタートアップ・テックトレンドのデータベース。Space TechのMarket Mapで宇宙領域の主要スタートアップを俯瞰可能。",url:"https://www.cbinsights.com/",cost:"paid",region:"GLOBAL",cat:["support"],info:["funding","players"],tags:["スタートアップ","Market Map"],price:"年間契約"},
+  {name:"Bloomberg Intelligence: Space",org:"Bloomberg",desc:"Bloomberg端末経由の宇宙産業アナリストレポート。財務指標・株価動向と紐付いた分析が強み。",url:"https://www.bloomberg.com/professional/products/bloomberg-intelligence/",cost:"paid",region:"GLOBAL",cat:["support","cross"],info:["funding","market"],tags:["金融","株式","アナリスト"],price:"Bloomberg契約 ~$2,400/月"},
+  {name:"Mordor Intelligence / MarketsandMarkets等",org:"Various",desc:"衛星通信・EO・打上げ等のテーマ別市場予測。BryceやNovaspaceに比べ手頃な価格帯。要素技術別レポートが充実。",url:"https://www.mordorintelligence.com/",cost:"paid",region:"GLOBAL",cat:["cross"],info:["market"],tags:["市場予測","テーマ別"],price:"概ね$4,000–$10,000／レポート"},
+
+  // === 海外・メディア ===
+  {name:"SpaceNews",org:"SpaceNews",desc:"米国を中心とした宇宙産業の日刊ニュース。打上げ、調達、政策、人事までカバー。業界の英語ニュースの定番。",url:"https://spacenews.com/",cost:"freemium",region:"GLOBAL",cat:["cross"],info:["media"],tags:["ニュース","米国","日刊"]},
+  {name:"Payload",org:"Payload Space",desc:"米発の宇宙ビジネスニュースレター・メディア。データ重視で読みやすく、若手アナリスト・スタートアップ層に強い。",url:"https://payloadspace.com/",cost:"freemium",region:"GLOBAL",cat:["cross"],info:["media","funding"],tags:["ニュースレター","データ","スタートアップ"]},
+  {name:"Ars Technica - Space",org:"Ars Technica",desc:"Eric Bergerによる深堀り宇宙報道で知られる技術系メディア。技術的に正確な分析が読める。",url:"https://arstechnica.com/space/",cost:"free",region:"GLOBAL",cat:["upstream","cross"],info:["media","tech"],tags:["技術","解説"]},
+
+  // === スタートアップ・資金調達情報 ===
+  {name:"INITIAL",org:"ユーザベース",desc:"日本スタートアップの資金調達・評価額・株主構成データベース。ispace、Synspective、Axelspace等の宇宙系も網羅。",url:"https://initial.inc/",cost:"freemium",region:"JP",cat:["support"],info:["funding","players"],tags:["スタートアップ","資金調達","日本"]},
+  {name:"STARTUP DB",org:"フォースタートアップス",desc:"日本のスタートアップ企業情報DB。資金調達ニュース、組織図、KPIを集約。",url:"https://startup-db.com/",cost:"freemium",region:"JP",cat:["support"],info:["funding","players"],tags:["スタートアップ","資金調達"]},
+  {name:"BryceTech Start-Up Space",org:"BryceTech",desc:"米国を含むグローバル宇宙スタートアップの資金調達を年次集計した代表的無償レポート。",url:"https://brycetech.com/reports",cost:"free",region:"GLOBAL",cat:["support"],info:["funding"],tags:["スタートアップ","ベンチャー","資金調達"]},
+
+  // === 法律・規制 ===
+  {name:"GVA法律事務所 宇宙法ブログ",org:"GVA法律事務所",desc:"宇宙活動法、リモセン法、宇宙資源法の解説。実務的観点で書かれており、参入時の規制理解に有用。",url:"https://gvalaw.jp/blog/",cost:"free",region:"JP",cat:["support"],info:["policy"],tags:["法律","解説","実務"]},
+  {name:"内閣府 リモセン法FAQ",org:"内閣府",desc:"衛星リモートセンシング装置使用許可、リモセン記録取扱認定の申請手続き・解釈集。リモセン事業参入時の必読。",url:"https://www8.cao.go.jp/space/application/rs/application.html",cost:"free",region:"JP",cat:["downstream","support"],info:["policy"],tags:["リモセン","許認可"]},
+  {name:"内閣府 宇宙活動法ガイダンス",org:"内閣府",desc:"打上げ許可・人工衛星管理許可の申請ガイダンス。ロケット・衛星事業者の許認可取得手続き。",url:"https://www8.cao.go.jp/space/application/permits.html",cost:"free",region:"JP",cat:["upstream","midstream"],info:["policy"],tags:["宇宙活動法","許認可"]},
+
+  // === 学術 / 論文 ===
+  {name:"arXiv astro-ph",org:"Cornell University",desc:"宇宙物理・宇宙工学関連プレプリント。最新の研究動向を技術者目線で追える。",url:"https://arxiv.org/list/astro-ph/recent",cost:"free",region:"GLOBAL",cat:["frontier","upstream"],info:["tech"],tags:["論文","プレプリント"]},
+  {name:"IAC / IAF Proceedings",org:"International Astronautical Federation",desc:"年次国際宇宙会議 (IAC) の発表論文。各国の研究計画・最新成果が集まる場。",url:"https://www.iafastro.org/",cost:"freemium",region:"GLOBAL",cat:["cross","frontier"],info:["tech","event"],tags:["IAC","学会"]},
+  {name:"J-STAGE 日本航空宇宙学会",org:"科学技術振興機構",desc:"日本航空宇宙学会誌、システム制御情報学会等の論文を無償公開。日本の研究動向把握に有効。",url:"https://www.jstage.jst.go.jp/",cost:"free",region:"JP",cat:["upstream","frontier"],info:["tech"],tags:["論文","学会"]},
+
+  // === 人材・コミュニティ ===
+  {name:"スペジョブ",org:"Space Connect",desc:"宇宙業界特化の人材マッチングサービス。求人情報・カジュアル面談・企業紹介。",url:"https://spacejob.jp/",cost:"free",region:"JP",cat:["support"],info:["career"],tags:["転職","求人"]},
+  {name:"SPACETIDE Career Connect",org:"SPACETIDE",desc:"宇宙業界特化のキャリアイベント。年2回（夏・冬）開催。20社超の宇宙企業の人事と直接対話できる場。",url:"https://spacetide.jp/career/",cost:"free",region:"JP",cat:["support"],info:["career","event"],tags:["キャリア","イベント","採用"]},
+  {name:"宇宙ビジネス創出推進自治体",org:"内閣府・経産省",desc:"13自治体（北海道、福井県、福岡県等）が選定。地域企業との連携、補助金、サプライチェーン構築の相談窓口。",url:"https://www8.cao.go.jp/space/policy/jichitai/jichitai.html",cost:"free",region:"JP",cat:["upstream","support"],info:["policy","career"],tags:["自治体","地域","補助金"]},
+
+  // === 保険・ファイナンス ===
+  {name:"三井住友海上 / 東京海上日動 宇宙保険",org:"国内損保",desc:"打上げ保険、衛星損害保険、第三者賠償責任保険。事業者向けの問い合わせ窓口あり。",url:"https://www.ms-ins.com/",cost:"freemium",region:"JP",cat:["support"],info:["policy"],tags:["保険","賠償責任"]},
+
+  // === ロードマップ・技術戦略 ===
+  {name:"宇宙技術戦略",org:"内閣府 宇宙政策委員会",desc:"輸送・衛星・宇宙科学探査・分野共通技術の4分野で技術項目を整理。宇宙戦略基金のテーマ設定の根拠資料でもある。",url:"https://www8.cao.go.jp/space/policy/seisaku.html",cost:"free",region:"JP",cat:["cross","frontier"],info:["tech","policy"],tags:["技術戦略","ロードマップ"]},
+  {name:"J-PlatPat (特許情報プラットフォーム)",org:"工業所有権情報・研修館",desc:"特許検索の無償ポータル。競合の技術ポートフォリオ・出願動向の調査に利用。",url:"https://www.j-platpat.inpit.go.jp/",cost:"free",region:"JP",cat:["upstream","frontier"],info:["tech"],tags:["特許","知財"]},
+
+  // === 書籍 ===
+  {name:"宇宙ビジネス入門 NewSpace革命の全貌",org:"石田真康（日経BP）",desc:"SPACETIDE代表の石田氏による業界俯瞰書籍。日本の宇宙ビジネス参入の入門書として広く読まれる定番。",url:"https://www.nikkeibp.co.jp/",cost:"paid",region:"JP",cat:["cross"],info:["media","market"],tags:["書籍","入門","NewSpace"],price:"~2,200円"},
+  {name:"宇宙ビジネスのための宇宙法入門",org:"小塚壮一郎・佐藤雅彦（有斐閣）",desc:"国内外の宇宙法を網羅した実務書。法務・規制対応で参入する際の必読書。",url:"https://www.yuhikaku.co.jp/",cost:"paid",region:"JP",cat:["support"],info:["policy"],tags:["書籍","宇宙法","実務"],price:"~3,300円"},
+
+  // === ビジネスモデル・コスト情報 ===
+  {name:"SpaceX Rideshare 公開価格表",org:"SpaceX",desc:"Transporter／Bandwagonミッションの相乗り打上げ価格を公式公開。50kgまで$275K、追加$7K/kg。打上げコストの参照基準。",url:"https://www.spacex.com/rideshare/",cost:"free",region:"GLOBAL",cat:["upstream","midstream"],info:["business","market"],tags:["価格","Rideshare","Transporter"]},
+  {name:"Rocket Lab IR資料",org:"Rocket Lab USA",desc:"Electron打上げサービス（約$7.5M／回）の事業構造、Neutron開発状況、衛星バスHASTE等の収益内訳を四半期ごとに開示。",url:"https://investors.rocketlabusa.com/",cost:"free",region:"GLOBAL",cat:["upstream"],info:["business","funding"],tags:["IR","上場","Electron"]},
+  {name:"ispace IR・統合報告書",org:"株式会社ispace",desc:"月面輸送サービスの事業計画・ミッションコスト・収益構造を上場ベンチャーとして開示。日本の宇宙ベンチャーの事業構造を学べる稀有な事例。",url:"https://ispace-inc.com/jpn/ir/",cost:"free",region:"JP",cat:["frontier"],info:["business","funding"],tags:["IR","月面","上場"]},
+  {name:"Synspective IR資料",org:"株式会社Synspective",desc:"小型SAR衛星のコンステレーション構築費用、データサービス収益構造を上場後に開示。SAR×コンステレーション事業のリファレンス。",url:"https://synspective.com/ja/ir/",cost:"free",region:"JP",cat:["upstream","downstream"],info:["business","funding"],tags:["SAR","コンステ","IR"]},
+  {name:"AW3D 衛星画像 価格表",org:"NTTデータ / RESTEC",desc:"Maxar、SPOT、Pleiades等の商用衛星画像の解像度別公開価格表。日本の代理店経由での購入見積りのリファレンス。",url:"https://www.aw3d.jp/products/satellite/",cost:"free",region:"JP",cat:["downstream"],info:["business"],tags:["価格表","Maxar","衛星画像"]},
+  {name:"JSI 衛星画像 製品案内",org:"日本スペースイメージング",desc:"Vantor(旧Maxar)、Capella(SAR)、SatVu(熱赤外)等の衛星画像製品仕様・価格情報。EO参入時の購入オプション比較に。",url:"https://www.jsicorp.jp/product/satellite.html",cost:"free",region:"JP",cat:["downstream"],info:["business"],tags:["価格","SAR","熱赤外"]},
+  {name:"Sentinel Hub Pricing",org:"Sinergise / Planet",desc:"Sentinelデータ＋商用画像（Pleiades 8.5€/km²等）の従量課金プラットフォーム。月額30€から商用利用可能で、解析PoC段階の最有力。",url:"https://www.sentinel-hub.com/pricing/",cost:"freemium",region:"GLOBAL",cat:["downstream"],info:["business"],tags:["クォータ","従量課金","EO"]},
+  {name:"宇宙ビジネス 事業創出・参入戦略",org:"日経BP",desc:"ロケット・衛星製造・宇宙旅行の市場予測、衛星データ利活用9産業（農業・建設・保険・運輸等）の事業例。非宇宙からの参入検討の決定版。",url:"https://info.nikkeibp.co.jp/nxt/campaign/b/288650/",cost:"paid",region:"JP",cat:["cross"],info:["business","market"],tags:["事業創出","参入戦略","書籍"],price:"~16万円～"},
+  {name:"内閣府 衛星データ グッドプラクティス事例集",org:"内閣府",desc:"衛星データを実ビジネスに活用した好事例を分野別に整理。導入規模・効果も記載され、参入時の費用対効果議論の根拠資料に。",url:"https://www8.cao.go.jp/space/goodpractice/jireisyu.html",cost:"free",region:"JP",cat:["downstream","support"],info:["business"],tags:["事例集","利活用"]},
+  {name:"経産省 SBIRフェーズ3 採択事業",org:"経済産業省・文部科学省",desc:"宇宙スタートアップ16社に最大388億円採択（ispace 120億、SPACE WALKER・将来宇宙輸送 各最大140億等）。各社の事業規模感を知る公開資料。",url:"https://www.meti.go.jp/policy/innovation_corp/sbir.html",cost:"free",region:"JP",cat:["frontier","upstream"],info:["business","funding"],tags:["SBIR","採択","補助金"]},
+  {name:"JAXAオープンラボ／J-SPARC",org:"JAXA",desc:"民間との共創プログラム。CubeSat級なら打上げ込み1億円・1.5年が目安等、参入規模感のリファレンスとして公開。",url:"https://aerospacebiz.jaxa.jp/",cost:"free",region:"JP",cat:["cross"],info:["business","tech"],tags:["J-SPARC","共創","目安"]},
+  {name:"BryceTech Smallsats by the Numbers",org:"BryceTech",desc:"小型衛星の年次集計レポート。製造数・打上げ数・運用主体別の構成と推移を無償公開。小型衛星ビジネスの規模感把握に。",url:"https://brycetech.com/reports",cost:"free",region:"GLOBAL",cat:["upstream","downstream"],info:["business","market"],tags:["小型衛星","年次","統計"]},
+  {name:"CubeSat開発ガイド (宇宙旅行.com)",org:"宇宙旅行.com",desc:"CubeSatの開発費用（1U:500万-2,000万円、6U:5,000万-2億円）、打上手段、Rocket Lab/SpaceX等の価格比較を網羅した実務ガイド。",url:"https://xn--29sob207cg49a.com/business/cubesat-development-guide/",cost:"free",region:"GLOBAL",cat:["upstream"],info:["business","tech"],tags:["CubeSat","開発費用","ガイド"]},
+
+  // === 部品・コンポーネント参入 ===
+  {name:"JAXA JERG-2-023 宇宙転用可能部品の宇宙適用ハンドブック",org:"JAXA",desc:"COTS部品（民生品）を宇宙で使うための適用フロー、品質保証レベル、選定指針、放射線評価。部品参入時の最重要ガイド。",url:"https://sma.jaxa.jp/TechDoc/Docs/JAXA-JERG-2-023.pdf",cost:"free",region:"JP",cat:["upstream"],info:["business","tech","policy"],tags:["JERG","COTS","宇宙転用"]},
+  {name:"JAXA JERG-2-130D 宇宙機一般試験標準",org:"JAXA",desc:"振動・熱真空・EMC・衝撃等の宇宙機・コンポーネント試験基準。試験項目・条件の標準化を理解する基盤資料。",url:"https://sma.jaxa.jp/TechDoc/Docs/JAXA-JERG-2-130D.pdf",cost:"free",region:"JP",cat:["upstream"],info:["tech","policy"],tags:["試験標準","JERG","認定"]},
+  {name:"JAXA 筑波宇宙センター 試験設備 利用拡大事業",org:"JAXA / エイ・イー・エス",desc:"大型振動・音響・熱真空・EMC試験設備を民間有償利用可能。各設備のユーザーズマニュアル公開。試験設備を持たない企業の参入支援。",url:"https://www.aes.co.jp/tksc_utilization/",cost:"freemium",region:"JP",cat:["upstream"],info:["business","tech"],tags:["試験設備","筑波","有償利用"]},
+  {name:"宇宙戦略基金「衛星サプライチェーン構築」テーマ",org:"JAXA / 経産省",desc:"衛星部品・コンポーネント国産化に向けた開発・量産支援。第二期で衛星サプライチェーン全体の仕組み整備FSも実施。",url:"https://fund.jaxa.jp/",cost:"free",region:"JP",cat:["upstream"],info:["business","funding","policy"],tags:["サプライチェーン","部品","量産"]},
+  {name:"JAXA 宇宙環境・部品データベース",org:"JAXA",desc:"宇宙環境影響評価、宇宙用材料・部品の試験データを集約。設計時のリファレンスとして無償で活用可能。",url:"https://sma.jaxa.jp/",cost:"free",region:"JP",cat:["upstream"],info:["tech","data"],tags:["部品DB","材料","環境試験"]},
+  {name:"IMV 受託振動試験サービス",org:"IMV株式会社",desc:"航空宇宙分野の振動・音響・複合環境試験を受託。試験事例・条件が公開され、要件定義の参考になる。",url:"https://www.imv.co.jp/imvlab/",cost:"paid",region:"JP",cat:["upstream"],info:["business","tech"],tags:["振動試験","受託","民間"]},
+  {name:"振研 受託試験センター",org:"株式会社振研",desc:"大型振動装置による人工衛星・部品の受託試験。ランダム振動・高加速度試験に対応する民間試験会社。",url:"https://www.shinken-ltd.co.jp/testcenter/aviation/",cost:"paid",region:"JP",cat:["upstream"],info:["business","tech"],tags:["振動","受託","衛星"]},
+  {name:"Analog Devices Space Products",org:"Analog Devices",desc:"宇宙アプリケーション向けEP・EP+・MIL-STD-883製品ポートフォリオ。COTS／宇宙品の中間カテゴリ「EP+」など部品選定の参考に。",url:"https://www.analog.com/jp/applications/markets/aerospace-and-defense-pavilion-home/space.html",cost:"free",region:"GLOBAL",cat:["upstream"],info:["tech"],tags:["半導体","COTS","耐放射線"]},
+  {name:"福井県工業技術センター 熱真空試験機",org:"福井県工業技術センター",desc:"地方公設試の宇宙関連試験設備の代表例。中小企業が地域単位で利用可能な試験リソース。",url:"https://www.fklab.fukui.fukui.jp/kougi/machines/list/00817.html",cost:"freemium",region:"JP",cat:["upstream"],info:["tech"],tags:["公設試","熱真空","地方"]},
+  {name:"JAXA J-SPARC 共創プロジェクト",org:"JAXA 新事業促進部",desc:"民間企業との共創型R&D。JAXAからの資金提供はないが、技術・知見・施設を活用したプロトタイプ／実証の共同推進が可能。部品メーカーの宇宙参入の典型ルート。",url:"https://aerospacebiz.jaxa.jp/solution/j-sparc/",cost:"free",region:"JP",cat:["cross","upstream"],info:["business","tech","career"],tags:["共創","J-SPARC","パートナーシップ"]},
+  {name:"JAXA SMASH 超小型衛星実証",org:"JAXA",desc:"産学官による超小型衛星実証プログラム。新規部品・コンポーネントの軌道上実証機会を提供。",url:"https://aerospacebiz.jaxa.jp/",cost:"free",region:"JP",cat:["upstream"],info:["tech","business"],tags:["実証","SMASH","超小型衛星"]},
+
+  // === 政府支援プログラム ===
+  {name:"宇宙開発利用加速化戦略プログラム（スターダスト）",org:"内閣府",desc:"各省連携の宇宙関連研究開発プログラム。月面開発、衛星基盤技術、宇宙輸送等の重点分野で複数年支援。宇宙戦略基金と並ぶ主要支援制度。",url:"https://www8.cao.go.jp/space/comittee/comittee.html",cost:"free",region:"JP",cat:["cross","frontier"],info:["business","funding","policy"],tags:["スターダスト","加速化","内閣府"]},
+  {name:"Kプログラム（経済安全保障重要技術育成）",org:"内閣府 / 文科省 / 経産省",desc:"宇宙輸送・衛星・SDA等の重要技術開発を支援。1件あたり数億〜数百億円規模。デュアルユース技術の参入機会。",url:"https://www8.cao.go.jp/cstp/anzen_anshin/anzen_anshin.html",cost:"free",region:"JP",cat:["cross","frontier"],info:["business","funding","policy"],tags:["Kプログラム","経済安全保障","デュアルユース"]},
+  {name:"JAXA宇宙戦略基金 技術開発テーマ一覧",org:"JAXA",desc:"全期（第1〜第3期）の公募テーマ・公募開始日・採択結果を時系列で網羅したリスト。自社の事業分野に該当するテーマを見つける最短ルート。",url:"https://fund.jaxa.jp/techlist/",cost:"free",region:"JP",cat:["cross"],info:["business","funding","policy"],tags:["公募一覧","採択結果","テーマ"]},
+  {name:"中小機構 ものづくり補助金",org:"中小企業基盤整備機構",desc:"宇宙限定ではないが、中小企業の試作・設備投資に活用可能。部品参入時の試験設備購入・量産設備整備の補助に。",url:"https://www.smrj.go.jp/",cost:"free",region:"JP",cat:["upstream","support"],info:["business","funding"],tags:["ものづくり補助金","中小企業","設備投資"]},
+  {name:"NEDO 宇宙関連事業",org:"NEDO",desc:"宇宙環境利用に関する技術開発支援。微小重力環境を活用したライフサイエンス・素材開発等の宇宙関連プログラムを公募。",url:"https://www.nedo.go.jp/",cost:"free",region:"JP",cat:["frontier","upstream"],info:["business","funding"],tags:["NEDO","技術開発","補助金"]}
+];
+
+// ===== DATA: PATHWAYS =====
+const pathways = [
+  {
+    num:"01",
+    title:"非宇宙の大企業（新規事業部門）",
+    desc:"既存技術・販路を持つ大企業が、宇宙ビジネスへ事業多角化する場合。まずは産業構造とサプライチェーンの全体像を掴み、自社のアセットとの結節点を探す。",
+    steps:["①宇宙基本計画 概要","②WEF $1.8T レポート","③経産省 宇宙産業課 配下の調査報告","④宙畑 業界マップ","⑤SPACETIDE 参加検討"]
+  },
+  {
+    num:"02",
+    title:"スタートアップ起業家",
+    desc:"独自技術や着想を持ち、宇宙領域で起業する場合。資金調達、規制、技術成熟度の見極めが鍵となる。",
+    steps:["①宇宙戦略基金 公募テーマ","②宇宙技術戦略","③Bryce Start-Up Space","④INITIAL 国内資金調達","⑤宇宙活動法/リモセン法"]
+  },
+  {
+    num:"03",
+    title:"中小・地場製造業（部品・素材）",
+    desc:"COTS化・コスト削減が進む宇宙機器のサプライチェーンに、自社の加工技術で参入する場合。地域自治体の支援を活用したい。",
+    steps:["①日航工 宇宙産業データブック","②宇宙ビジネス創出推進自治体","③JAXA 産業界連携 (J-SPARC)","④SJAC 会員企業ネットワーク","⑤宇宙戦略基金 部品開発テーマ"]
+  },
+  {
+    num:"04",
+    title:"投資家・金融機関",
+    desc:"VC・銀行・保険会社等、資本提供サイドからの参入。マクロな市場・財務指標と、個別ディール情報の両方が必要。",
+    steps:["①Novaspace Space Economy","②Quilty Space オペレータ分析","③PitchBook / CB Insights","④Bloomberg Intelligence","⑤SPACETIDE 投資セッション"]
+  },
+  {
+    num:"05",
+    title:"自治体・公共セクター",
+    desc:"地域の宇宙拠点化、衛星データを使った政策実装、サプライチェーン誘致を目指す場合。利用面と供給面の両アプローチがある。",
+    steps:["①宇宙ビジネス創出推進自治体 事例集","②Tellus 利用事例","③RESTEC 自治体向けプログラム","④経産省 衛星データ利活用","⑤宇宙関連予算 各府省"]
+  }
+];
+
+// ===== DATA: BUSINESS MODELS & COSTS =====
+// access: high=公開価格・標準化, mid=参考情報あり, low=個別開示中心
+// costMin/costMax は対数スケール想定の参考値（百万円単位）
+const businessModels = [
+  {
+    code:"A·1", name:"宇宙輸送（ロケット）", sub:"Launch Services",
+    models:[
+      "kg当たり課金の打上げサービス（B2B）",
+      "ロケット製造・部品供給（Tier1/Tier2）",
+      "射場運営・地上支援サービス"
+    ],
+    costRange:"数十億〜数百億円", costMin:3000, costMax:200000,
+    timeToMarket:"5〜10年",
+    revenueRefs:[
+      {item:"Falcon 9 占有", val:"$67M／回"},
+      {item:"Falcon 9 相乗り", val:"$7K／kg"},
+      {item:"Electron 占有", val:"$7.5M／回"},
+      {item:"SBIR採択上限", val:"最大140億円"}
+    ],
+    subsidies:[
+      {name:"宇宙戦略基金（経産省）",theme:"高頻度打上げに資するロケット部品・コンポーネント等の開発",amount:"総額195億円／1件上限40億円",type:"補助",note:"採択10件程度・支援最長4年"},
+      {name:"宇宙戦略基金（経産省）",theme:"高頻度打上げに資するロケット製造プロセスの刷新",amount:"総額245億円／1件上限60億円",type:"補助",note:"採択10件程度・支援最長4年"},
+      {name:"宇宙戦略基金（文科省）",theme:"宇宙輸送機の革新的な軽量・高性能化及びコスト低減技術",amount:"120億円程度",type:"委託"},
+      {name:"宇宙戦略基金 第三期",theme:"民間ロケット打上げ実証加速化（STAND）",amount:"複数回打上げ実証支援",type:"補助",note:"事業化初期段階の打上げ事業者向け"},
+      {name:"SBIRフェーズ3",theme:"再使用型・小型ロケット開発",amount:"最大140億円／社",type:"補助",note:"SPACE WALKER・将来宇宙輸送・IST等が採択"}
+    ],
+    access:"mid",
+    accessNote:"打上げ価格は公開、開発・運用費の実額は事業者により開示状況にばらつき。",
+    sources:["SpaceX Rideshare","Rocket Lab IR","経産省 SBIR採択","Novaspace"]
+  },
+  {
+    code:"A·2", name:"衛星製造", sub:"Satellite Manufacturing",
+    models:[
+      "受託衛星製造（バス＋ペイロード一括）",
+      "衛星バスのプラットフォーム化（標準化＋カスタム）",
+      "コンステレーション運営（自社開発＋データ販売）"
+    ],
+    costRange:"500万円〜数百億円", costMin:5, costMax:50000,
+    timeToMarket:"1〜5年（サイズ依存）",
+    revenueRefs:[
+      {item:"1U CubeSat 開発", val:"500万〜2,000万円"},
+      {item:"6U 商業 CubeSat", val:"5,000万〜2億円"},
+      {item:"100kg級 小型衛星", val:"5億円〜"},
+      {item:"日本上場ベンチャー累計調達", val:"100〜280億円"}
+    ],
+    subsidies:[
+      {name:"宇宙戦略基金（経産省）",theme:"商業衛星コンステレーション構築加速化",amount:"総額950億円程度",type:"委託/補助",note:"1件50〜500億円規模。アクセルスペース・Synspective・QPS・アークエッジ等4社採択"},
+      {name:"宇宙戦略基金（文科省）",theme:"高分解能・高頻度な光学衛星観測システム",amount:"280億円程度",type:"委託"},
+      {name:"宇宙戦略基金 第二期",theme:"革新的衛星ミッション技術実証支援",amount:"総額120億円／1件上限70億円",type:"委託",note:"採択3件・最長5年"},
+      {name:"SBIRフェーズ3",theme:"小型衛星・基盤技術",amount:"数十億円規模",type:"補助"}
+    ],
+    access:"high",
+    accessNote:"小型衛星の開発費用レンジは公開ガイドあり。中・大型は個別。",
+    sources:["JAXAオープンラボ","CubeSat開発ガイド","Bryce Smallsats","Synspective IR"]
+  },
+  {
+    code:"A·3", name:"地上設備", sub:"Ground Segment",
+    models:[
+      "地上局構築・販売（CAPEX型）",
+      "GaaS／クラウド地上局サービス（時間課金）",
+      "アンテナ・モデム等の部品供給"
+    ],
+    costRange:"数千万円〜数億円（自前局）", costMin:30, costMax:500,
+    timeToMarket:"1〜3年",
+    revenueRefs:[
+      {item:"自前地上局構築", val:"数千万〜数億円"},
+      {item:"GaaS（時間課金）", val:"$数〜数十／分"},
+      {item:"Infostellar 等の月額", val:"数十万円〜"}
+    ],
+    subsidies:[
+      {name:"宇宙戦略基金 第二期",theme:"衛星通信利活用を拡大するための汎用地上アンテナ及びユースケースの開発・実証",amount:"複数件採択",type:"委託/補助"},
+      {name:"宇宙戦略基金 第二期",theme:"衛星通信と地上ネットワークの統合運用の実現に向けた周波数共用技術等の開発・実証",amount:"複数件採択",type:"委託/補助"}
+    ],
+    access:"mid",
+    accessNote:"GaaS事業者の従量単価は公開傾向、自前構築費は要見積。",
+    sources:["AWS Ground Station","Infostellar","KSAT"]
+  },
+  {
+    code:"A·4", name:"部品・コンポーネント参入", sub:"Component Supplier Path", highlight:true,
+    models:[
+      "既存技術の宇宙転用（B2B、衛星メーカー向け部品供給）",
+      "COTS部品の宇宙適用化（特性データ・スクリーニング付加価値）",
+      "標準コンポーネント量産（小型衛星コンステ向け）",
+      "試験受託・認証支援サービス",
+      "JAXA／衛星メーカーへのカスタム部品開発"
+    ],
+    costRange:"数百万円〜数億円", costMin:5, costMax:1000,
+    timeToMarket:"3〜5年（試作〜軌道上実証〜量産）",
+    revenueRefs:[
+      {item:"設計・宇宙適用調査", val:"数百万〜数千万円"},
+      {item:"認定試験一式（受託）", val:"500万〜数千万円"},
+      {item:"軌道上実証(CubeSat相乗)", val:"1億円程度〜"},
+      {item:"クリーンルーム等量産設備", val:"数千万〜数億円"}
+    ],
+    costBreakdown:[
+      {phase:"①設計・適用調査", range:"数百万〜数千万円", note:"既存技術の宇宙転用検討、JERG等の規格適合性評価。社内の試作で完結可能。"},
+      {phase:"②認定試験（実証フェーズ）", range:"500万〜数千万円", note:"振動・熱真空・放射線・EMC試験。JAXA筑波／民間試験会社の受託利用が一般的。"},
+      {phase:"③軌道上実証", range:"1億〜数億円", note:"CubeSat相乗りで1億円程度、自社衛星搭載なら数億円。SBIRやJAXA共創で支援可能。"},
+      {phase:"④量産・運用フェーズ", range:"数千万〜数億円", note:"クリーンルーム・トレーサビリティ・継続的品質保証。受注規模に応じた段階投資が可能。"}
+    ],
+    subsidies:[
+      {name:"宇宙戦略基金（経産省）",theme:"衛星サプライチェーン構築のための衛星部品・コンポーネントの開発・実証",amount:"第1期 10件採択／追加公募・第2期継続",type:"補助",note:"産業競争力強化型（A型）と先端基盤型（B型）。非宇宙企業の採択実績多数"},
+      {name:"宇宙戦略基金 第二期（経産省）",theme:"宇宙機の環境試験の課題解決",amount:"総額230億円／1件最大80億円",type:"委託/補助",note:"採択6件・最長5年。試験設備保有企業も対象"},
+      {name:"宇宙戦略基金（経産省）",theme:"固体モータ主要材料量産化のための技術開発",amount:"48億円程度",type:"補助",note:"素材メーカー向け"},
+      {name:"宇宙戦略基金",theme:"ロケット用大型構造部品を対象とした金属3D積層に係る基盤技術開発",amount:"基盤技術向け",type:"委託",note:"3Dプリンタ・金属加工企業向け"},
+      {name:"SBIRフェーズ3",theme:"重要部品・コンポーネント",amount:"案件次第",type:"補助"},
+      {name:"スターダストプログラム",theme:"月面・衛星基盤技術強化",amount:"案件次第",type:"委託"},
+      {name:"地方自治体補助（13宇宙ビジネス推進自治体）",theme:"サプライチェーン参入支援",amount:"自治体次第",type:"補助",note:"福井・福岡・北海道等が積極支援"}
+    ],
+    access:"mid",
+    accessNote:"JAXA JERG規格群・試験設備マニュアルは公開。受託試験単価は要見積、量産単価は受発注ベースで非公開。日本のヒートパイプ・特殊素材・精密加工企業に強み、SBIR・宇宙戦略基金のサプライチェーンテーマで支援拡大中。",
+    sources:["JAXA JERG-2-023 宇宙転用ハンドブック","JAXA 筑波宇宙センター利用拡大","宇宙戦略基金 衛星サプライチェーン","IMV／振研 受託試験"]
+  },
+  {
+    code:"B·2", name:"軌道上サービス (OOS)", sub:"On-Orbit Services",
+    models:[
+      "デブリ除去・寿命延長の受託サービス",
+      "軌道間輸送（OTV）",
+      "政府発注／PPPによる実証契約"
+    ],
+    costRange:"数十億〜数百億円", costMin:3000, costMax:50000,
+    timeToMarket:"5〜10年",
+    revenueRefs:[
+      {item:"Astroscale 累計調達", val:"約2億ドル超"},
+      {item:"JAXA CRD2 等の政府契約", val:"数十〜数百億円規模"}
+    ],
+    subsidies:[
+      {name:"JAXA CRD2",theme:"商業デブリ除去実証",amount:"数十〜数百億円規模",type:"委託",note:"Astroscale等が採択"},
+      {name:"宇宙戦略基金",theme:"半永久電源システムに係る要素技術",amount:"複数件採択",type:"委託"},
+      {name:"軌道上サービス戦略共創フォーラム",theme:"市場形成・ルールメイキング",amount:"対話・調整",type:"その他",note:"事業化前の戦略策定支援"},
+      {name:"SBIRフェーズ3",theme:"デブリ対策・OOS",amount:"案件次第",type:"補助",note:"BULL社等が採択"}
+    ],
+    access:"low",
+    accessNote:"市場価格未形成、契約ベース。技術開発フェーズで政府発注主導。",
+    sources:["Astroscale IR","JAXA CRD2","Novaspace OOS"]
+  },
+  {
+    code:"C·1", name:"衛星通信", sub:"Satellite Communications",
+    models:[
+      "自社衛星運営＋通信サービス販売（B2C/B2B）",
+      "衛星通信のリセラー・代理店（VAR）",
+      "D2D・IoT衛星通信SaaS"
+    ],
+    costRange:"数千万円〜数千億円（規模差大）", costMin:30, costMax:300000,
+    timeToMarket:"1〜10年",
+    revenueRefs:[
+      {item:"Starlink 個人プラン（日本）", val:"月額¥6,600〜"},
+      {item:"Starlink Business", val:"月額数万〜数十万"},
+      {item:"代理店モデル参入", val:"数千万円規模"},
+      {item:"自社コンステ構築", val:"数百億円〜"}
+    ],
+    subsidies:[
+      {name:"宇宙戦略基金（総務省）",theme:"衛星量子暗号の通信技術の開発・実証",amount:"145億円程度",type:"委託"},
+      {name:"宇宙戦略基金",theme:"衛星コンステレーション構築に必要な通信技術（光ルータ）の実装支援",amount:"複数件採択",type:"委託/補助"},
+      {name:"宇宙戦略基金 第二期",theme:"衛星光通信の実装を見据えた衛星バス及び光通信端末の開発（FS）",amount:"FS段階",type:"委託"},
+      {name:"宇宙戦略基金",theme:"国際競争力ある通信ペイロードに関する技術の開発・実証",amount:"複数件採択",type:"委託/補助"}
+    ],
+    access:"high",
+    accessNote:"小売価格は公開、卸価格・代理店マージン構造は契約。",
+    sources:["Starlink 料金","各種MNO","Analysys Mason (Paid)"]
+  },
+  {
+    code:"C·2", name:"衛星測位 (PNT)", sub:"Positioning/Navigation",
+    models:[
+      "高精度測位サービス（補強信号、CLAS等）",
+      "PNT受信機・モジュール製造",
+      "アプリケーション開発（自動運転・測量・物流）"
+    ],
+    costRange:"数百万円〜数億円", costMin:5, costMax:500,
+    timeToMarket:"6ヶ月〜2年",
+    revenueRefs:[
+      {item:"アプリ開発のみ", val:"数百万〜数千万円"},
+      {item:"受信機・モジュール開発", val:"数千万〜数億円"},
+      {item:"みちびきCLAS利用", val:"無償"}
+    ],
+    subsidies:[
+      {name:"宇宙戦略基金",theme:"月測位システム技術",amount:"複数件採択",type:"委託",note:"月面市場を視野に入れたPNT技術"},
+      {name:"内閣府 みちびき利用促進事業",theme:"準天頂衛星活用アプリ・サービス開発",amount:"年次補助",type:"補助"},
+      {name:"宇宙戦略基金",theme:"高精度衛星編隊飛行技術",amount:"複数件採択",type:"委託"}
+    ],
+    access:"high",
+    accessNote:"GNSS信号自体は無償、参入は応用開発主体で実額把握が容易。",
+    sources:["内閣府 みちびき","EUSPA Market Report","アプリ事例集"]
+  },
+  {
+    code:"C·3", name:"地球観測 (EO)", sub:"Earth Observation",
+    models:[
+      "衛星画像の販売（単発／アーカイブ／撮影依頼）",
+      "サブスクリプション型データアクセス",
+      "解析済みプロダクトの販売（インデックス／マップ）"
+    ],
+    costRange:"商用画像 数万円〜（購入）／数億円（自社衛星）", costMin:0.1, costMax:50000,
+    timeToMarket:"即日〜（購入の場合）",
+    revenueRefs:[
+      {item:"Sentinel／Landsat", val:"無償"},
+      {item:"Pleiades 1.5m", val:"8.5€／km²"},
+      {item:"Maxar 30cm", val:"概ね数千〜数万円／km²"},
+      {item:"Planet サブスク", val:"年額 数百万円〜"}
+    ],
+    subsidies:[
+      {name:"宇宙戦略基金（経産省）",theme:"商業衛星コンステレーション構築加速化",amount:"総額950億円程度",type:"委託/補助",note:"SAR・光学・多波長コンステ事業者向け"},
+      {name:"宇宙戦略基金（文科省）",theme:"高分解能・高頻度な光学衛星観測システム",amount:"280億円程度",type:"委託"},
+      {name:"宇宙戦略基金 第二期",theme:"次世代地球観測衛星に向けた観測機能高度化技術",amount:"複数件採択",type:"委託"},
+      {name:"宇宙戦略基金",theme:"衛星応用に向けた光・量子センシング技術",amount:"複数件採択",type:"委託"},
+      {name:"宇宙戦略基金",theme:"高出力レーザの宇宙適用による革新的衛星ライダー技術",amount:"複数件採択",type:"委託"}
+    ],
+    access:"high",
+    accessNote:"商用画像は単価公開普及。SAR・ハイパースペクトル等の新興データは要見積。",
+    sources:["AW3D 価格表","JSI","Sentinel Hub","Tellus Traveler"]
+  },
+  {
+    code:"C·4", name:"データ解析・SaaS", sub:"Analytics & Solutions",
+    models:[
+      "業種別ソリューションSaaS（農業・防災・金融・保険）",
+      "受託解析・コンサルティング",
+      "API／プラットフォーム提供"
+    ],
+    costRange:"数百万円〜数千万円", costMin:5, costMax:300,
+    timeToMarket:"3〜18ヶ月",
+    revenueRefs:[
+      {item:"PoC開発", val:"数百万〜数千万円"},
+      {item:"SaaS導入（業種別）", val:"月額数万〜数百万円"},
+      {item:"受託解析", val:"数百万円／案件〜"}
+    ],
+    subsidies:[
+      {name:"宇宙戦略基金",theme:"衛星データ利用システム海外実証（FS）",amount:"FS段階",type:"委託",note:"グローバル展開志向の解析事業者向け"},
+      {name:"宇宙戦略基金 第二期",theme:"地球環境衛星データ利用の加速に向けた先端技術",amount:"複数件採択",type:"委託/補助"},
+      {name:"経産省 衛星データ利用システム支援",theme:"社会実装に向けた解析システム開発・実証",amount:"年次補助",type:"補助",note:"2030年度までに10件規模の社会実装が目標"},
+      {name:"内閣府 衛星リモセン応用実証",theme:"衛星データ利活用モデル実証",amount:"年次補助",type:"委託/補助",note:"非宇宙企業の参入支援が中心"}
+    ],
+    access:"low",
+    accessNote:"参入費用は最も低いが、SaaS単価・LTV等のユニットエコノミクスは個別開示中心。",
+    sources:["天地人 等の事例","内閣府 グッドプラクティス","スタートアップ各社"]
+  },
+  {
+    code:"D·1", name:"月・宇宙資源", sub:"Lunar & Resources",
+    models:[
+      "月面輸送サービス（CLPS型）",
+      "ローバー・着陸機の受託開発",
+      "宇宙資源探査・採取（長期）"
+    ],
+    costRange:"数十億〜数百億円", costMin:5000, costMax:50000,
+    timeToMarket:"5〜15年",
+    revenueRefs:[
+      {item:"ispace SBIR採択", val:"最大120億円"},
+      {item:"NASA CLPS 1ミッション", val:"$70M〜$200M"},
+      {item:"ispace 累計調達", val:"数百億円規模"}
+    ],
+    subsidies:[
+      {name:"宇宙戦略基金",theme:"月極域における高精度着陸技術",amount:"複数件採択",type:"委託"},
+      {name:"宇宙戦略基金",theme:"月面の水資源探査技術（センシング技術）の開発・実証",amount:"複数件採択",type:"委託"},
+      {name:"宇宙戦略基金",theme:"月-地球間通信システム開発・実証（FS）",amount:"FS段階",type:"委託"},
+      {name:"スターダストプログラム",theme:"月面開発・衛星基盤技術強化",amount:"複数件採択",type:"委託"},
+      {name:"SBIRフェーズ3",theme:"月面着陸船・ローバー",amount:"ispace最大120億円等",type:"補助"}
+    ],
+    access:"mid",
+    accessNote:"上場ベンチャーのIR・SBIR採択額で目安は把握可能。商業化前段階。",
+    sources:["ispace IR","NASA CLPS","SBIR採択結果"]
+  },
+  {
+    code:"D·2", name:"有人宇宙・宇宙旅行", sub:"Human Spaceflight",
+    models:[
+      "サブオービタル・軌道旅行（B2C・B2B）",
+      "実験・実証ペイロード受託（ISS／民間ステーション）",
+      "宇宙食・宇宙服等の周辺機器"
+    ],
+    costRange:"数億円〜数百億円", costMin:50, costMax:50000,
+    timeToMarket:"3〜10年",
+    revenueRefs:[
+      {item:"Virgin Galactic 1席", val:"~$45万"},
+      {item:"Axiom ISSミッション 1席", val:"~$5,500万"},
+      {item:"きぼう ペイロード", val:"数百万〜億円規模"}
+    ],
+    subsidies:[
+      {name:"宇宙戦略基金 第二期",theme:"有人宇宙輸送システムにおける安全確保の基盤技術",amount:"複数件採択",type:"委託"},
+      {name:"宇宙戦略基金",theme:"国際競争力と自立・自在性を有する物資補給システムに係る技術",amount:"複数件採択",type:"委託"},
+      {name:"宇宙戦略基金",theme:"低軌道汎用実験システム／自律飛行型モジュールシステム技術",amount:"複数件採択",type:"委託/補助",note:"民間宇宙ステーション構想を視野"},
+      {name:"宇宙戦略基金 第三期",theme:"LEO拠点リブースト技術",amount:"新規公募",type:"委託",note:"ポストISSを見据えた基盤技術"},
+      {name:"JAXAきぼう利用プログラム",theme:"ISS船内・船外実験",amount:"利用機会提供（一部無償）",type:"その他"}
+    ],
+    access:"mid",
+    accessNote:"観光単価は公開、本格ビジネス参入の事業費は個別。",
+    sources:["Virgin Galactic","Axiom Space","JAXA きぼう"]
+  },
+  {
+    code:"D·6", name:"安全保障・防衛", sub:"Defense & Security",
+    models:[
+      "政府・防衛省への装備品・サービス納入",
+      "SDA（宇宙状況把握）・早期警戒サービス",
+      "デュアルユース技術（民生展開）"
+    ],
+    costRange:"数億〜数千億円", costMin:50, costMax:300000,
+    timeToMarket:"3〜10年",
+    revenueRefs:[
+      {item:"Kプログラム採択", val:"数億〜数百億円"},
+      {item:"防衛省 宇宙関連調達", val:"年間数千億円規模"}
+    ],
+    subsidies:[
+      {name:"Kプログラム（経済安全保障重要技術育成）",theme:"宇宙輸送・衛星・SDA等の重要技術",amount:"案件単位で数億〜数百億円",type:"委託",note:"輸送・衛星の研究開発構想公表済み"},
+      {name:"防衛装備庁 安全保障技術研究推進制度",theme:"宇宙ドメイン関連基盤研究",amount:"年次補助",type:"委託"},
+      {name:"宇宙戦略基金",theme:"衛星量子暗号通信等のデュアルユース",amount:"145億円程度",type:"委託",note:"防衛・民生両面で活用可能"}
+    ],
+    access:"low",
+    accessNote:"成長率最高だが、調達情報・契約金額は限定公開。輸出管理(ITAR等)の理解必須。",
+    sources:["防衛装備庁","Kプログラム","Novaspace Defense"]
+  },
+  {
+    code:"E·1", name:"投資・ファイナンス・保険", sub:"Capital & Insurance",
+    models:[
+      "VC／CVCによる出資（伝統的VC運営）",
+      "打上げ／衛星損害／第三者賠償保険",
+      "プロジェクトファイナンス・リース"
+    ],
+    costRange:"数千万円〜（運営費）／案件次第", costMin:50, costMax:10000,
+    timeToMarket:"即日〜",
+    revenueRefs:[
+      {item:"打上保険料率", val:"衛星価値の5〜15%"},
+      {item:"第三者賠償保険", val:"宇宙活動法で義務"},
+      {item:"VC運営", val:"通常のVC構造"}
+    ],
+    subsidies:[
+      {name:"JAXA間接出資制度",theme:"VC等への間接出資を通じた宇宙ベンチャー支援",amount:"年次認可",type:"その他",note:"VCファンドへのLP出資が可能"},
+      {name:"宇宙戦略基金（金融機関連携）",theme:"事前登録金融機関制度",amount:"運用枠",type:"その他",note:"基金資金の一時運用枠"}
+    ],
+    access:"mid",
+    accessNote:"保険レートは業界相場あり、個別契約は非公開。VC事業の構造は確立。",
+    sources:["三井住友海上","東京海上","内閣府 賠償措置"]
+  },
+  {
+    code:"E·3", name:"コンサル・市場調査", sub:"Consulting & Research",
+    models:[
+      "戦略コンサルティング（参入支援・M&A）",
+      "市場調査レポート販売",
+      "PMO・実装支援"
+    ],
+    costRange:"数百万円〜（運営費）", costMin:5, costMax:500,
+    timeToMarket:"即日〜",
+    revenueRefs:[
+      {item:"市場調査レポート", val:"~$5,000〜（単体）"},
+      {item:"参入支援コンサル", val:"数百万〜数千万円／案件"},
+      {item:"アクセラレータ運営", val:"数千万円〜"}
+    ],
+    access:"mid",
+    accessNote:"知見・人材が主資産。専門人材確保が最大の参入障壁。",
+    sources:["Novaspace","Analysys Mason","Deloitte／A.T. Kearney"]
+  }
+];
+
+
+function renderTaxonomy(){
+  const el=document.getElementById('taxoGrid');
+  el.innerHTML=categories.map(c=>`
+    <div class="taxo-card" data-cat="${c.cat}">
+      <div class="taxo-id">${c.code}</div>
+      <div class="taxo-label">${c.label}</div>
+      <div class="taxo-sub">${c.sub}</div>
+      <div class="taxo-desc">${c.desc}</div>
+      <div class="taxo-tags">${c.tags.map(t=>`<span class="taxo-tag">${t}</span>`).join('')}</div>
+    </div>
+  `).join('');
+}
+
+// sort state for resource table
+let sortState={field:null,dir:1};
+// mapping for category code display
+const catCodeMap={
+  upstream:"上流",midstream:"中流",downstream:"下流",
+  frontier:"フロンティア",support:"支援",cross:"横断"
+};
+const infoLabelMap={
+  market:"市場",business:"BM/コスト",players:"競合",tech:"技術",
+  policy:"政策/規制",funding:"資金",data:"データ",
+  event:"イベント",career:"人材",media:"メディア"
+};
+
+function renderResources(filtered){
+  const tbody=document.getElementById('resTbody');
+  const counter=document.getElementById('resCount');
+  const empty=document.getElementById('emptyState');
+  const tableWrap=document.querySelector('.res-table-wrap');
+  if(filtered.length===0){
+    tbody.innerHTML='';
+    empty.style.display='block';
+    tableWrap.style.display='none';
+    counter.textContent='0';
+    return;
+  }
+  empty.style.display='none';
+  tableWrap.style.display='block';
+  counter.textContent=filtered.length;
+  const costLabel={free:"無償",paid:"有償",freemium:"一部無償"};
+  tbody.innerHTML=filtered.map((r,i)=>{
+    const cats=r.cat.map(c=>catCodeMap[c]||c).join(", ");
+    const infos=r.info.map(c=>infoLabelMap[c]||c).join(", ");
+    return `
+    <tr class="res-row" data-idx="${i}">
+      <td class="cell-name">${r.name}<div class="cell-name-sub">${r.tags.slice(0,3).join(" · ")}</div></td>
+      <td class="cell-org">${r.org}</td>
+      <td><span class="cell-region ${r.region}">${r.region==='JP'?'日本':'GLOBAL'}</span></td>
+      <td class="cell-badge"><span class="badge ${r.cost}">${costLabel[r.cost]}</span></td>
+      <td style="font-size:.75rem;color:var(--ink-soft)">${cats}</td>
+      <td style="font-size:.75rem;color:var(--ink-soft)">${infos}</td>
+      <td class="cell-link" style="text-align:right"><a href="${r.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">開く ↗</a></td>
+    </tr>
+    <tr class="res-detail" data-detail="${i}">
+      <td colspan="7">
+        <div class="res-detail-grid">
+          <div class="res-detail-label">概要</div>
+          <div class="res-detail-val">${r.desc}</div>
+          ${r.price?`<div class="res-detail-label">価格</div><div class="res-detail-val"><span class="res-price-inline">${r.price}</span></div>`:''}
+          <div class="res-detail-label">タグ</div>
+          <div class="res-detail-val">
+            <div class="cell-tags">${r.tags.map(t=>`<span class="cell-tag">${t}</span>`).join('')}</div>
+          </div>
+          <div class="res-detail-label">URL</div>
+          <div class="res-detail-val"><a href="${r.url}" target="_blank" rel="noopener" style="color:var(--gold-deep);font-family:'JetBrains Mono',monospace;font-size:.78rem;word-break:break-all">${r.url}</a></div>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+  // attach row click handlers (expand details)
+  tbody.querySelectorAll('tr.res-row').forEach(row=>{
+    row.addEventListener('click',e=>{
+      if(e.target.tagName==='A')return;
+      const idx=row.dataset.idx;
+      const detail=tbody.querySelector(`tr.res-detail[data-detail="${idx}"]`);
+      const isOpen=detail.classList.contains('show');
+      // close all
+      tbody.querySelectorAll('tr.res-detail.show').forEach(d=>d.classList.remove('show'));
+      tbody.querySelectorAll('tr.res-row.expanded').forEach(r=>r.classList.remove('expanded'));
+      if(!isOpen){detail.classList.add('show');row.classList.add('expanded');}
+    });
+  });
+}
+
+// sort handler
+function sortResources(field, currentList){
+  if(sortState.field===field){
+    sortState.dir*=-1;
+  }else{
+    sortState.field=field;sortState.dir=1;
+  }
+  // update header indicators
+  document.querySelectorAll('.res-table thead th.sortable').forEach(th=>{
+    th.classList.remove('sorted-asc','sorted-desc');
+    if(th.dataset.sort===field){
+      th.classList.add(sortState.dir===1?'sorted-asc':'sorted-desc');
+    }
+  });
+  const sorted=[...currentList].sort((a,b)=>{
+    let va=a[field],vb=b[field];
+    if(typeof va==='string'){va=va.toLowerCase();vb=vb.toLowerCase();}
+    if(va<vb)return -1*sortState.dir;
+    if(va>vb)return 1*sortState.dir;
+    return 0;
+  });
+  renderResources(sorted);
+}
+
+function renderPathways(){
+  const el=document.getElementById('pathways');
+  el.innerHTML=pathways.map(p=>`
+    <div class="path">
+      <div class="path-num">${p.num}</div>
+      <div class="path-body">
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <div class="path-steps">${p.steps.map(s=>`<span class="path-step">${s}</span>`).join('')}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderBusinessModels(){
+  const el=document.getElementById('bmGrid');
+  const logMin=Math.log10(1);
+  const logMax=Math.log10(300000);
+  const accessLabel={high:"高",mid:"中",low:"低"};
+  const accessText={
+    high:"公開価格・標準化",
+    mid:"参考情報あり",
+    low:"個別開示中心"
+  };
+  el.innerHTML=businessModels.map(b=>{
+    const left=((Math.log10(b.costMin)-logMin)/(logMax-logMin))*100;
+    const right=((Math.log10(b.costMax)-logMin)/(logMax-logMin))*100;
+    const width=Math.max(2,right-left);
+    const breakdownHTML=b.costBreakdown?`
+        <div class="bm-row">
+          <div class="bm-row-label">Cost Phases</div>
+          <div class="bm-row-val">
+            <div class="bm-phases">
+              ${b.costBreakdown.map(p=>`
+                <div class="bm-phase">
+                  <div class="bm-phase-head">
+                    <span class="bm-phase-name">${p.phase}</span>
+                    <span class="bm-phase-range">${p.range}</span>
+                  </div>
+                  <div class="bm-phase-note">${p.note}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>`:'';
+    const subsidiesHTML=b.subsidies&&b.subsidies.length?`
+        <div class="bm-row">
+          <div class="bm-row-label">Gov't Support</div>
+          <div class="bm-row-val">
+            <div class="bm-subsidies-wrap">
+              <div class="bm-subsidies-head">
+                <span class="bm-subsidies-icon">¥</span>
+                <span class="bm-subsidies-title">参入時に活用可能な政府支援プログラム</span>
+                <span class="bm-subsidies-sub">${b.subsidies.length} PROGRAMS</span>
+              </div>
+              <div class="bm-subsidies-list">
+                ${b.subsidies.map(s=>`
+                  <div class="bm-subsidy">
+                    <div class="bm-subsidy-name"><span class="bm-subsidy-type">${s.type}</span>${s.name}</div>
+                    <div class="bm-subsidy-amount">${s.amount}</div>
+                    <div class="bm-subsidy-theme"><strong>テーマ：</strong>${s.theme}</div>
+                    ${s.note?`<div class="bm-subsidy-note">※ ${s.note}</div>`:''}
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        </div>`:'';
+    return `
+    <div class="bm-card${b.highlight?' bm-highlight':''}">
+      ${b.highlight?'<div class="bm-flag">非宇宙からの参入機会 ★</div>':''}
+      <div class="bm-side">
+        <div>
+          <div class="bm-cat-code">${b.code}</div>
+          <div class="bm-cat-name">${b.name}</div>
+          <div class="bm-cat-sub">${b.sub}</div>
+        </div>
+        <div class="bm-access">
+          <div class="bm-access-label">INFO ACCESS</div>
+          <div class="bm-access-val ${b.access}">● ${accessLabel[b.access]}　<span style="font-size:.78rem;font-style:normal;font-family:'Noto Sans JP',sans-serif">${accessText[b.access]}</span></div>
+        </div>
+      </div>
+      <div class="bm-main">
+        <div class="bm-row">
+          <div class="bm-row-label">Business Model</div>
+          <div class="bm-row-val">
+            <div class="bm-models">
+              ${b.models.map(m=>`<div class="bm-model-item">${m}</div>`).join('')}
+            </div>
+          </div>
+        </div>
+        <div class="bm-row">
+          <div class="bm-row-label">Initial Cost</div>
+          <div class="bm-row-val">
+            <strong>${b.costRange}</strong>　<span style="color:var(--mute);font-size:.82rem">/ Time to market: ${b.timeToMarket}</span>
+            <div class="bm-cost-bar">
+              <div class="bm-cost-fill" style="left:${left}%;width:${width}%"></div>
+              <div class="bm-cost-marks">
+                <span class="bm-cost-mark">¥100万</span>
+                <span class="bm-cost-mark">¥1億</span>
+                <span class="bm-cost-mark">¥100億</span>
+                <span class="bm-cost-mark">¥3,000億</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        ${breakdownHTML}
+        ${subsidiesHTML}
+        <div class="bm-row">
+          <div class="bm-row-label">Price References</div>
+          <div class="bm-row-val">
+            <div class="bm-prices">
+              ${b.revenueRefs.map(r=>`
+                <div class="bm-price">
+                  <span class="bm-price-item">${r.item}</span>
+                  <span class="bm-price-val">${r.val}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+        <div class="bm-row">
+          <div class="bm-row-label">Access Notes</div>
+          <div class="bm-row-val" style="font-size:.83rem;color:var(--ink-soft)">${b.accessNote}</div>
+        </div>
+        <div class="bm-row">
+          <div class="bm-row-label">Key Sources</div>
+          <div class="bm-row-val">
+            <div class="bm-sources">
+              ${b.sources.map(s=>`<span class="bm-source">${s}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ===== FILTER LOGIC =====
+let currentFiltered=[];
+function applyFilter(){
+  const cat=document.getElementById('fCategory').value;
+  const info=document.getElementById('fInfo').value;
+  const cost=document.getElementById('fCost').value;
+  const region=document.getElementById('fRegion').value;
+  const q=document.getElementById('fSearch').value.trim().toLowerCase();
+
+  const filtered=resources.filter(r=>{
+    if(cat && !r.cat.includes(cat) && !r.cat.includes('cross')) return false;
+    if(info && !r.info.includes(info)) return false;
+    if(cost && r.cost!==cost) return false;
+    if(region && r.region!==region) return false;
+    if(q){
+      const hay=(r.name+' '+r.org+' '+r.desc+' '+r.tags.join(' ')).toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  currentFiltered=filtered;
+  // re-apply current sort if any
+  if(sortState.field){
+    const sorted=[...filtered].sort((a,b)=>{
+      let va=a[sortState.field],vb=b[sortState.field];
+      if(typeof va==='string'){va=va.toLowerCase();vb=vb.toLowerCase();}
+      if(va<vb)return -1*sortState.dir;
+      if(va>vb)return 1*sortState.dir;
+      return 0;
+    });
+    renderResources(sorted);
+  }else{
+    renderResources(filtered);
+  }
+}
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded',()=>{
+  renderTaxonomy();
+  renderBusinessModels();
+  renderPathways();
+  document.getElementById('resTotal').textContent=resources.length;
+  document.getElementById('sourceCountTop').textContent=resources.length;
+  document.getElementById('sourceCountBottom').textContent=resources.length;
+  currentFiltered=resources;
+  renderResources(resources);
+
+  ['fCategory','fInfo','fCost','fRegion','fSearch'].forEach(id=>{
+    document.getElementById(id).addEventListener('input',applyFilter);
+    document.getElementById(id).addEventListener('change',applyFilter);
+  });
+  document.getElementById('fReset').addEventListener('click',()=>{
+    ['fCategory','fInfo','fCost','fRegion','fSearch'].forEach(id=>{
+      document.getElementById(id).value='';
+    });
+    sortState={field:null,dir:1};
+    document.querySelectorAll('.res-table thead th.sortable').forEach(th=>{
+      th.classList.remove('sorted-asc','sorted-desc');
+    });
+    applyFilter();
+  });
+  // sort handlers
+  document.querySelectorAll('.res-table thead th.sortable').forEach(th=>{
+    th.addEventListener('click',()=>{
+      sortResources(th.dataset.sort,currentFiltered);
+    });
+  });
+});
+</script>
+</body>
+</html>

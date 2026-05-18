@@ -1,0 +1,1988 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORBIT STORIES — 衛星データで、もう始まっているビジネス</title>
+<meta name="description" content="76の事例、22業界、6年間。宇宙から地上のビジネスを変える、実在する物語の図鑑。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* === Sorabatake-aligned palette === */
+  --void: #FFFFFF;            /* page background (white) */
+  --void-soft: #F4FBFC;       /* faint cyan tint */
+  --void-card: #FFFFFF;       /* card background */
+  --line: #D8E3E8;            /* light gray-blue border */
+  --line-soft: #EDF2F4;       /* even lighter */
+  --ink: #1A2333;             /* near-black navy text */
+  --ink-soft: #4A5566;        /* secondary text */
+  --ink-mute: #8B95A3;        /* muted text */
+  /* === Sorabatake primary (cyan/teal) === */
+  --amber: #00B5D4;           /* was amber — now Sorabatake cyan */
+  --amber-deep: #0095B0;      /* deeper cyan */
+  --amber-tint: #E6F7FB;      /* very pale cyan for tints */
+  /* === Sorabatake secondary (yellow) === */
+  --yellow: #EFCD42;
+  --yellow-deep: #D4B22D;
+  --yellow-tint: #FDF7DC;
+  /* === Other accent colors (adjusted for white bg) === */
+  --cyan: #5DC7DC;            /* keep for visual variety */
+  --rose: #D14E83;            /* darker rose for white bg */
+  --moss: #5BB179;            /* moss green */
+  --violet: #8B5FCC;          /* violet */
+  --crimson: #E04545;         /* crimson */
+  --orange: #E08930;          /* warm orange */
+  --slate: #5A6F94;           /* infra blue-grey */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--void);
+  color:var(--ink);
+  font-family:"Zen Kaku Gothic New", -apple-system, sans-serif;
+  font-weight:400;
+  line-height:1.75;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+/* Sorabatake-style grid pattern background */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background-image:
+    /* Left side: cyan tiles */
+    linear-gradient(rgba(0,181,212,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,181,212,0.07) 1px, transparent 1px),
+    /* Soft radial accent */
+    radial-gradient(ellipse 800px 600px at 15% 20%, rgba(0,181,212,0.05), transparent 70%),
+    radial-gradient(ellipse 800px 600px at 85% 80%, rgba(239,205,66,0.06), transparent 70%);
+  background-size: 60px 60px, 60px 60px, 100% 100%, 100% 100%;
+  pointer-events:none;
+  z-index:0;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+/* === TYPOGRAPHY === */
+.display{
+  font-family:"Fraunces", "Zen Kaku Gothic New", serif;
+  font-weight:300;
+  font-optical-sizing:auto;
+  letter-spacing:-0.02em;
+}
+.mono{font-family:"JetBrains Mono", monospace; letter-spacing:0.05em}
+.label{
+  font-family:"JetBrains Mono", monospace;
+  font-size:0.7rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--ink-mute);
+}
+.eyebrow{
+  font-family:"JetBrains Mono", monospace;
+  font-size:0.72rem;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:var(--amber);
+  display:inline-block;
+  padding-bottom:0.6rem;
+  border-bottom:1px solid var(--amber);
+}
+/* === NAV === */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1400px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 2rem;
+}
+.nav-logo{
+  font-family:"Fraunces", serif;font-weight:500;font-style:italic;
+  font-size:1.4rem;letter-spacing:-0.02em;
+}
+.nav-logo span{color:var(--amber)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  font-family:"JetBrains Mono", monospace;
+  font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--ink-soft);transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--amber)}
+@media (max-width:760px){
+  .nav-links{display:none}
+}
+/* === LAYOUT === */
+.container{max-width:1400px;margin:0 auto;padding:0 2rem;position:relative;z-index:2}
+section{position:relative;z-index:1}
+/* === HERO === */
+.hero{
+  min-height:100vh;
+  padding:8rem 2rem 4rem;
+  position:relative;
+  display:flex;align-items:center;
+  background:
+    /* Sorabatake-style decorative grid corners */
+    linear-gradient(135deg, transparent 0%, transparent 65%, rgba(0,181,212,0.06) 100%),
+    radial-gradient(ellipse 800px 400px at 15% 20%, rgba(0,181,212,0.08), transparent 70%),
+    radial-gradient(ellipse 700px 500px at 90% 80%, rgba(239,205,66,0.12), transparent 70%);
+}
+.hero-inner{
+  max-width:1400px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1.3fr 1fr;gap:4rem;align-items:center;
+}
+@media (max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:3rem}
+}
+.hero-text{position:relative;z-index:3}
+.hero h1{
+  font-family:"Fraunces", "Zen Kaku Gothic New", serif;
+  font-weight:300;
+  font-size:clamp(2.2rem, 5vw, 4.4rem);
+  line-height:1.1;
+  letter-spacing:-0.03em;
+  margin:1.5rem 0 2rem;
+}
+.hero h1 em{
+  font-style:italic;font-weight:300;
+  color:var(--amber);
+  background:linear-gradient(120deg, var(--amber) 0%, var(--amber-deep) 50%, var(--yellow-deep) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  position:relative;
+}
+.hero h1 strong{
+  font-weight:700;font-style:normal;
+}
+.hero-lead{
+  font-size:1.05rem;line-height:1.85;
+  color:var(--ink-soft);
+  max-width:560px;
+  margin-bottom:3rem;
+}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,auto);gap:2.5rem;
+  padding-top:2rem;border-top:1px solid var(--line);
+  max-width:560px;
+}
+.hero-stat-num{
+  font-family:"Fraunces", serif;font-weight:400;
+  font-size:3rem;color:var(--ink);line-height:1;
+  letter-spacing:-0.04em;
+}
+.hero-stat-num span{
+  font-size:1.2rem;color:var(--amber);font-style:italic;
+  margin-left:0.2rem;
+}
+.hero-stat-label{
+  font-family:"JetBrains Mono", monospace;
+  font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--ink-mute);margin-top:0.5rem;
+}
+/* Hero CTAs */
+.hero-cta-row{
+  display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap;
+}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  padding:0.95rem 1.6rem;
+  font-family:"Zen Kaku Gothic New", sans-serif;
+  font-size:0.95rem;font-weight:500;letter-spacing:0.02em;
+  border:1px solid var(--amber);
+  cursor:pointer;text-decoration:none;
+  transition:all 0.25s ease;
+}
+.hero-cta.primary{
+  background:var(--amber);color:#fff;font-weight:700;
+}
+.hero-cta.primary:hover{
+  background:var(--amber-deep);border-color:var(--amber-deep);
+  transform:translateY(-2px);
+  box-shadow:0 12px 32px rgba(0,181,212,0.3);
+}
+.hero-cta.secondary{
+  background:transparent;color:var(--amber);
+  border-color:rgba(0,181,212,0.4);
+}
+.hero-cta.secondary:hover{
+  border-color:var(--amber);color:var(--amber-deep);
+  background:rgba(0,181,212,0.05);
+}
+/* === HERO VISUAL === */
+.hero-orb{
+  position:relative;
+  aspect-ratio:1;
+  max-width:480px;
+  margin:0 auto;
+  width:100%;
+}
+.hero-orb svg{width:100%;height:100%;display:block}
+.orb-ring{
+  fill:none;stroke:#B5DEE6;stroke-width:0.8;stroke-dasharray:3 6;
+  animation:rotate 60s linear infinite;
+  transform-origin:center;
+}
+.orb-ring-2{animation-duration:90s;animation-direction:reverse}
+.orb-ring-3{animation-duration:120s}
+@keyframes rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.orb-sat{
+  fill:var(--yellow);
+  animation:orbit 20s linear infinite;
+  transform-origin:250px 250px;
+  filter:drop-shadow(0 0 6px rgba(239,205,66,0.5));
+}
+.orb-sat-2{fill:var(--amber);animation-duration:30s;animation-delay:-10s;filter:drop-shadow(0 0 6px rgba(0,181,212,0.5))}
+.orb-sat-3{fill:var(--rose);animation-duration:45s;animation-delay:-20s;filter:drop-shadow(0 0 6px rgba(209,78,131,0.5))}
+@keyframes orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.orb-globe{
+  fill:url(#earthGrad);
+  filter:drop-shadow(0 12px 40px rgba(0,181,212,0.25));
+}
+.hero-highlight{
+  position:absolute;bottom:-2rem;left:1rem;
+  background:#FFFFFF;
+  border:1px solid var(--line);
+  border-left:4px solid var(--amber);
+  padding:1.2rem 1.5rem;max-width:340px;
+  font-size:0.85rem;line-height:1.7;
+  box-shadow:0 20px 50px rgba(31,55,77,0.12), 0 6px 16px rgba(31,55,77,0.06);
+}
+.hero-highlight-label{
+  font-family:"JetBrains Mono", monospace;font-size:0.6rem;
+  letter-spacing:0.3em;color:var(--amber);text-transform:uppercase;
+  margin-bottom:0.6rem;
+}
+.hero-highlight-title{
+  font-family:"Fraunces", serif;font-style:italic;
+  font-size:1rem;line-height:1.5;color:var(--ink);
+}
+.hero-highlight-sub{
+  font-size:0.78rem;color:var(--ink-mute);margin-top:0.5rem;
+}
+/* Scroll cue */
+.scroll-cue{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:0.6rem;
+  color:var(--ink-mute);
+  font-family:"JetBrains Mono", monospace;
+  font-size:0.65rem;letter-spacing:0.3em;
+  animation:bob 2.5s ease-in-out infinite;
+}
+.scroll-cue::after{
+  content:"";width:1px;height:30px;
+  background:linear-gradient(to bottom, var(--amber), transparent);
+}
+@keyframes bob{
+  0%,100%{transform:translate(-50%,0)}
+  50%{transform:translate(-50%,8px)}
+}
+/* === SECTION HEAD === */
+.section-head{
+  margin-bottom:3.5rem;
+  display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:end;
+}
+@media (max-width:760px){
+  .section-head{grid-template-columns:1fr;gap:1.5rem}
+}
+.section-num{
+  font-family:"Fraunces", serif;font-weight:300;font-style:italic;
+  font-size:8rem;line-height:0.8;
+  color:var(--amber-tint);
+  letter-spacing:-0.05em;
+  -webkit-text-stroke:1px var(--amber);
+}
+.section-title{
+  font-family:"Fraunces", serif;font-weight:300;
+  font-size:clamp(1.8rem, 4vw, 3rem);
+  line-height:1.1;letter-spacing:-0.02em;
+  margin-bottom:1rem;
+}
+.section-title em{font-style:italic;color:var(--amber)}
+.section-desc{
+  font-size:0.95rem;color:var(--ink-soft);line-height:1.85;
+  max-width:680px;
+}
+section{padding:6rem 0}
+@media (max-width:760px){section{padding:4rem 0}}
+/* === SECTION 1: INDUSTRIES MAP === */
+.industries-grid{
+  display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:1.4rem;
+}
+.industry-card{
+  background:var(--void-card);
+  border:1px solid var(--line);
+  padding:2rem 1.8rem;
+  position:relative;overflow:hidden;
+  cursor:pointer;
+  transition:all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-align:left;font-family:inherit;color:inherit;
+  display:block;width:100%;
+  box-shadow:0 1px 3px rgba(31,55,77,0.04);
+}
+.industry-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:var(--grp-color);
+  transform:scaleX(0.3);transform-origin:left;
+  transition:transform 0.5s ease;
+}
+.industry-card:hover,
+.industry-card:focus-visible{
+  transform:translateY(-4px);
+  border-color:var(--grp-color);
+  box-shadow:0 20px 40px rgba(31,55,77,0.12), 0 6px 14px rgba(31,55,77,0.06), 0 0 0 1px var(--grp-color);
+  outline:none;
+}
+.industry-card:hover::before,
+.industry-card:focus-visible::before{transform:scaleX(1)}
+.industry-card:hover .industry-cta,
+.industry-card:focus-visible .industry-cta{
+  color:var(--grp-color);opacity:1;
+}
+.industry-icon{
+  font-size:2.5rem;line-height:1;
+  margin-bottom:1.2rem;
+  display:block;
+}
+.industry-name{
+  font-family:"Fraunces", serif;font-weight:400;
+  font-size:1.4rem;color:var(--ink);
+  margin-bottom:0.3rem;letter-spacing:-0.01em;
+}
+.industry-en{
+  font-family:"Fraunces", serif;font-style:italic;
+  font-size:0.85rem;color:var(--ink-mute);
+  margin-bottom:1.5rem;
+}
+.industry-tagline{
+  font-size:0.85rem;color:var(--ink-soft);line-height:1.7;
+  margin-bottom:1.5rem;min-height:3rem;
+}
+.industry-meta{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding-top:1rem;border-top:1px solid var(--line);
+}
+.industry-count{
+  font-family:"Fraunces", serif;font-weight:400;
+  font-size:2.2rem;color:var(--grp-color);
+  line-height:1;letter-spacing:-0.03em;
+}
+.industry-count span{font-size:0.8rem;color:var(--ink-mute);font-style:italic;margin-left:0.3rem}
+.industry-numbers{
+  font-family:"JetBrains Mono", monospace;font-size:0.62rem;
+  color:var(--ink-mute);letter-spacing:0.05em;text-align:right;
+  max-width:60%;
+}
+.industry-cta{
+  margin-top:1rem;padding-top:0.8rem;
+  border-top:1px dashed var(--line);
+  font-family:"JetBrains Mono", monospace;font-size:0.65rem;
+  letter-spacing:0.15em;color:var(--ink-mute);
+  opacity:0.7;transition:all 0.25s ease;
+}
+/* === SECTION 2: FEATURED STORIES === */
+.featured-grid{
+  display:grid;grid-template-columns:repeat(auto-fill, minmax(380px, 1fr));
+  gap:1.5rem;
+}
+.story-card{
+  background:var(--void-card);
+  border:1px solid var(--line);
+  position:relative;
+  display:block;
+  overflow:hidden;
+  transition:all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow:0 1px 3px rgba(31,55,77,0.04);
+}
+.story-card-inner{
+  padding:2.5rem 2rem;
+  display:flex;flex-direction:column;
+  min-height:280px;
+  position:relative;z-index:2;
+}
+.story-card::before{
+  content:"";position:absolute;
+  top:-50%;right:-30%;width:300px;height:300px;
+  background:radial-gradient(circle, var(--card-color) 0%, transparent 65%);
+  opacity:0.06;
+  transition:opacity 0.4s;
+  z-index:1;
+}
+.story-card:hover{
+  border-color:var(--card-color);
+  transform:translateY(-4px);
+  box-shadow:0 24px 50px rgba(31,55,77,0.12), 0 8px 16px rgba(31,55,77,0.06);
+}
+.story-card:hover::before{opacity:0.15}
+.story-card-grp{
+  font-family:"JetBrains Mono", monospace;
+  font-size:0.62rem;letter-spacing:0.2em;
+  color:var(--card-color);
+  text-transform:uppercase;
+  margin-bottom:0.8rem;
+  display:flex;align-items:center;gap:0.5rem;
+}
+.story-card-grp::before{
+  content:"";width:24px;height:1px;background:var(--card-color);
+}
+.story-card-title{
+  font-family:"Fraunces", "Zen Kaku Gothic New", serif;
+  font-weight:400;font-size:1.35rem;line-height:1.4;
+  color:var(--ink);
+  margin-bottom:1.5rem;letter-spacing:-0.01em;
+  flex:1;
+}
+.story-card-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:1.2rem;border-top:1px solid var(--line);
+  font-family:"JetBrains Mono", monospace;font-size:0.65rem;
+  letter-spacing:0.1em;color:var(--ink-mute);
+}
+.story-card-arrow{color:var(--card-color);font-size:1rem;transition:transform 0.3s}
+.story-card:hover .story-card-arrow{transform:translateX(6px)}
+/* === SECTION 3: FILTERS + GALLERY === */
+.filters-wrap{
+  background:linear-gradient(180deg, rgba(0,181,212,0.04) 0%, transparent 100%);
+  border:1px solid var(--line);
+  padding:1.5rem 1.8rem 1.8rem;
+  margin-bottom:2rem;
+  position:relative;
+}
+.filters-label{
+  font-family:"JetBrains Mono", monospace;font-size:0.62rem;
+  letter-spacing:0.25em;color:var(--amber);text-transform:uppercase;
+  margin-bottom:0.6rem;
+  display:flex;align-items:center;gap:0.5rem;
+}
+.filters-label::before{
+  content:"";width:24px;height:1px;background:var(--amber);
+}
+/* Big search bar */
+.search-bar{
+  display:flex;align-items:center;gap:0.8rem;
+  background:var(--void);
+  border:2px solid var(--amber);
+  padding:0.3rem 1.2rem;
+  margin-bottom:1.4rem;
+  transition:all 0.2s;
+  box-shadow:0 0 0 6px rgba(0,181,212,0.06);
+}
+.search-bar:focus-within{
+  border-color:var(--amber-deep);
+  box-shadow:0 0 0 8px rgba(0,181,212,0.12);
+}
+.search-icon{
+  color:var(--amber);
+  flex-shrink:0;
+}
+.search-input{
+  flex:1;background:transparent;border:none;
+  color:var(--ink);
+  font-family:"Zen Kaku Gothic New", sans-serif;
+  font-size:1.05rem;padding:1rem 0;
+  outline:none;
+}
+.search-input::placeholder{color:var(--ink-mute);opacity:0.8}
+.search-clear{
+  background:none;border:none;color:var(--ink-mute);
+  font-size:1rem;cursor:pointer;
+  width:30px;height:30px;
+  display:none;align-items:center;justify-content:center;
+  border-radius:50%;
+  transition:all 0.2s;
+}
+.search-clear.show{display:flex}
+.search-clear:hover{background:var(--line);color:var(--ink)}
+.filters-hint{
+  font-size:0.78rem;color:var(--ink-mute);line-height:1.6;
+  margin-bottom:1.2rem;padding-bottom:1.2rem;
+  border-bottom:1px dashed var(--line);
+}
+
+.filters{
+  display:grid;grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+  gap:1rem;align-items:end;
+}
+.filter-group label{
+  display:block;
+  font-family:"JetBrains Mono", monospace;font-size:0.62rem;
+  letter-spacing:0.2em;color:var(--ink-mute);text-transform:uppercase;
+  margin-bottom:0.5rem;
+}
+.filter-group select,
+.filter-group input{
+  width:100%;background:var(--void);
+  border:1px solid var(--line);
+  color:var(--ink);
+  font-family:"Zen Kaku Gothic New", sans-serif;font-size:0.85rem;
+  padding:0.65rem 0.8rem;
+  outline:none;transition:border-color 0.2s;
+}
+.filter-group select:focus,
+.filter-group input:focus{border-color:var(--amber)}
+
+/* Tag toggle button */
+.tag-toggle{
+  width:100%;background:var(--void);
+  border:1px solid var(--line);color:var(--ink);
+  padding:0.65rem 0.8rem;
+  font-family:"Zen Kaku Gothic New", sans-serif;font-size:0.85rem;
+  cursor:pointer;transition:all 0.2s;
+  display:flex;align-items:center;justify-content:space-between;gap:0.5rem;
+}
+.tag-toggle:hover{border-color:var(--amber);color:var(--amber)}
+.tag-toggle.open{border-color:var(--amber);background:rgba(0,181,212,0.05)}
+.tag-toggle.open .tag-toggle-arrow{transform:rotate(180deg)}
+.tag-toggle-arrow{
+  font-size:0.7rem;color:var(--amber);
+  transition:transform 0.25s;
+}
+.tag-toggle-count{
+  background:var(--amber);color:#fff;
+  font-family:"JetBrains Mono", monospace;font-size:0.65rem;
+  padding:0.1rem 0.45rem;font-weight:500;
+}
+.filter-reset{
+  background:var(--amber);color:#fff;
+  border:none;padding:0.7rem 1.2rem;
+  font-family:"JetBrains Mono", monospace;font-size:0.7rem;
+  letter-spacing:0.15em;text-transform:uppercase;
+  cursor:pointer;transition:all 0.2s;font-weight:500;
+  width:100%;
+}
+.filter-reset:hover{background:var(--amber-deep);transform:translateY(-2px)}
+
+/* Tag picker (collapsible) */
+.tag-picker{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease, padding 0.3s ease, margin 0.3s ease;
+  margin-top:0;padding:0;
+}
+.tag-picker.open{
+  max-height:800px;
+  padding-top:1.5rem;
+  margin-top:1.5rem;
+  border-top:1px solid var(--line);
+}
+.tag-picker-inner{
+  display:flex;flex-direction:column;gap:1.2rem;
+}
+.tag-cat{
+  display:grid;grid-template-columns:140px 1fr;
+  gap:1rem;align-items:start;
+}
+@media (max-width:640px){
+  .tag-cat{grid-template-columns:1fr;gap:0.5rem}
+}
+.tag-cat-label{
+  display:flex;align-items:center;gap:0.5rem;
+  font-family:"JetBrains Mono", monospace;
+  font-size:0.7rem;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--ink-mute);
+  padding-top:0.3rem;
+}
+.tag-cat-icon{
+  font-size:1rem;line-height:1;
+  color:var(--tc-color);
+}
+.tag-chips{
+  display:flex;flex-wrap:wrap;gap:0.4rem;
+}
+.tag-chip{
+  background:var(--void);
+  border:1px solid var(--line);
+  color:var(--ink-soft);
+  font-family:"Zen Kaku Gothic New", sans-serif;
+  font-size:0.75rem;
+  padding:0.35rem 0.8rem;
+  cursor:pointer;
+  transition:all 0.15s;
+  user-select:none;
+  display:inline-flex;align-items:center;gap:0.3rem;
+}
+.tag-chip:hover{
+  border-color:var(--tc-color);
+  color:var(--tc-color);
+  background:rgba(255,255,255,0.02);
+}
+.tag-chip.active{
+  background:var(--tc-color);
+  border-color:var(--tc-color);
+  color:#fff;
+  font-weight:500;
+}
+.tag-chip.disabled{
+  opacity:0.3;cursor:not-allowed;
+}
+.tag-chip-count{
+  font-family:"JetBrains Mono", monospace;
+  font-size:0.6rem;opacity:0.7;
+  margin-left:0.2rem;
+}
+
+/* Active tags display */
+.active-tags{
+  display:flex;flex-wrap:wrap;gap:0.4rem;
+  margin-top:1.2rem;
+  min-height:0;
+}
+.active-tags:not(:empty){padding-top:0.8rem;border-top:1px dashed var(--line)}
+.active-tag-pill{
+  background:var(--tc-color);
+  color:#fff;
+  font-family:"Zen Kaku Gothic New", sans-serif;
+  font-size:0.75rem;font-weight:500;
+  padding:0.35rem 0.4rem 0.35rem 0.8rem;
+  display:inline-flex;align-items:center;gap:0.4rem;
+  cursor:pointer;
+  transition:transform 0.15s;
+  border:none;
+}
+.active-tag-pill:hover{transform:translateY(-1px)}
+.active-tag-pill::after{
+  content:"✕";font-size:0.65rem;
+  background:rgba(0,0,0,0.2);
+  width:16px;height:16px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+}
+
+.filter-summary{
+  display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;
+  font-family:"JetBrains Mono", monospace;font-size:0.78rem;
+  color:var(--ink-mute);
+  margin-bottom:1.5rem;letter-spacing:0.05em;
+}
+/* Active filter banner */
+.active-banner{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+  background:linear-gradient(90deg, rgba(0,181,212,0.15), rgba(0,181,212,0.05));
+  border:1px solid var(--amber);
+  border-left:4px solid var(--amber);
+  padding:0.9rem 1.2rem;
+  margin-bottom:1.2rem;
+}
+.active-banner-content{
+  display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap;
+}
+.active-banner-label{
+  font-family:"JetBrains Mono", monospace;font-size:0.62rem;
+  letter-spacing:0.25em;color:var(--amber);text-transform:uppercase;
+  background:var(--amber);color:#fff;
+  padding:0.25rem 0.6rem;font-weight:700;
+}
+.active-banner-text{
+  font-family:"Zen Kaku Gothic New", sans-serif;font-size:0.92rem;
+  color:var(--ink);font-weight:500;
+}
+.active-banner-text .grp-name{color:var(--amber);font-weight:700}
+.active-banner-clear{
+  background:transparent;border:1px solid var(--amber);
+  color:var(--amber);
+  font-family:"JetBrains Mono", monospace;font-size:0.68rem;
+  letter-spacing:0.1em;
+  padding:0.45rem 0.9rem;cursor:pointer;
+  transition:all 0.2s;
+}
+.active-banner-clear:hover{
+  background:var(--amber);color:#fff;
+}
+.filter-summary strong{
+  color:var(--amber);font-weight:500;
+  font-size:1.4rem;font-family:"Fraunces", serif;
+  font-style:italic;letter-spacing:-0.02em;margin-right:0.3rem;
+}
+.filter-summary-hint{
+  color:var(--ink-mute);font-size:0.7rem;
+}
+/* === Gallery list === */
+.gallery{
+  display:grid;grid-template-columns:repeat(auto-fill, minmax(360px, 1fr));
+  gap:1rem;
+}
+.article-card{
+  background:var(--void-card);
+  border:1px solid var(--line);
+  padding:1.5rem 1.6rem;
+  display:flex;flex-direction:column;
+  position:relative;
+  transition:all 0.25s ease;
+  min-height:170px;
+  box-shadow:0 1px 2px rgba(31,55,77,0.04);
+}
+.article-card:hover{
+  border-color:var(--art-color, var(--amber));
+  border-left:3px solid var(--art-color, var(--amber));
+  padding-left:calc(1.6rem - 2px);
+  transform:translateY(-2px);
+  box-shadow:0 12px 24px rgba(31,55,77,0.08), 0 4px 8px rgba(31,55,77,0.04);
+}
+.article-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:0.8rem;
+  font-family:"JetBrains Mono", monospace;font-size:0.62rem;
+  letter-spacing:0.15em;
+}
+.article-grp{color:var(--art-color, var(--amber));text-transform:uppercase}
+.article-date{color:var(--ink-mute)}
+.article-title{
+  font-family:"Fraunces", "Zen Kaku Gothic New", serif;
+  font-weight:400;font-size:1.05rem;line-height:1.5;color:var(--ink);
+  flex:1;
+  text-decoration:none;
+}
+.article-card a.article-title-link{
+  color:var(--ink);text-decoration:none;display:block;flex:1;
+}
+.article-card a.article-title-link:hover{color:var(--art-color, var(--amber))}
+.article-type-badges{
+  display:flex;gap:0.4rem;margin-top:0.8rem;align-items:center;flex-wrap:wrap;
+}
+.type-badge{
+  font-family:"JetBrains Mono", monospace;font-size:0.55rem;
+  padding:0.15rem 0.5rem;
+  letter-spacing:0.15em;
+}
+.type-badge.eo{background:var(--amber);color:#fff}
+.type-badge.comm{background:var(--violet);color:#fff}
+.type-badge.pnt{background:var(--yellow-deep);color:#fff}
+/* Article tag chips (small, on cards) */
+.article-tags{
+  display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.7rem;
+  padding-top:0.7rem;border-top:1px dashed var(--line);
+}
+.article-tag{
+  font-family:"Zen Kaku Gothic New", sans-serif;font-size:0.65rem;
+  background:transparent;border:1px solid var(--line);
+  color:var(--ink-mute);
+  padding:0.15rem 0.5rem;
+  cursor:pointer;transition:all 0.15s;
+  border-radius:1px;
+}
+.article-tag:hover{
+  color:var(--at-color, var(--amber));
+  border-color:var(--at-color, var(--amber));
+}
+.article-tag.tech{--at-color:#00B5D4}
+.article-tag.usecase{--at-color:#D4A02B}
+.article-tag.company{--at-color:#7B5FCC}
+.article-tag.region{--at-color:#4A9D5A}
+.article-tag.theme{--at-color:#D14E83}
+.empty-state{
+  grid-column:1/-1;text-align:center;padding:4rem 2rem;
+  border:1px dashed var(--line);
+  font-family:"Fraunces", serif;font-style:italic;font-size:1.2rem;
+  color:var(--ink-mute);
+}
+/* === SECTION 4: TIMELINE === */
+.timeline{
+  background:var(--void-soft);
+  padding:3rem 2.5rem;border:1px solid var(--line);
+  position:relative;
+  box-shadow:0 1px 3px rgba(31,55,77,0.04);
+}
+.timeline-row{
+  display:grid;grid-template-columns:120px 1fr 80px;
+  align-items:center;gap:2rem;
+  padding:1rem 0;
+  border-bottom:1px solid var(--line-soft);
+}
+.timeline-row:last-child{border-bottom:none}
+.timeline-year{
+  font-family:"Fraunces", serif;font-weight:300;
+  font-size:2rem;color:var(--ink);letter-spacing:-0.02em;
+}
+.timeline-bar{
+  height:18px;background:#FFFFFF;position:relative;overflow:hidden;
+  border:1px solid var(--line);
+}
+.timeline-fill{
+  height:100%;
+  background:linear-gradient(90deg, var(--amber), var(--amber-deep));
+  transition:width 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.timeline-count{
+  font-family:"JetBrains Mono", monospace;font-size:0.85rem;
+  color:var(--ink);text-align:right;letter-spacing:0.1em;
+}
+.timeline-count span{color:var(--ink-mute);font-size:0.7rem;margin-left:0.2rem}
+/* === SECTION 5: START === */
+.start-grid{
+  display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:1.2rem;
+}
+.start-card{
+  background:var(--void-card);
+  border:1px solid var(--line);
+  padding:2rem 1.8rem;
+  transition:all 0.3s ease;
+  position:relative;
+  box-shadow:0 1px 3px rgba(31,55,77,0.04);
+}
+.start-card:hover{
+  border-color:var(--amber);
+  transform:translateY(-3px);
+  box-shadow:0 12px 24px rgba(31,55,77,0.08), 0 4px 8px rgba(31,55,77,0.04);
+}
+.start-num{
+  font-family:"Fraunces", serif;font-weight:300;font-style:italic;
+  font-size:3rem;color:var(--amber);line-height:1;
+  letter-spacing:-0.04em;margin-bottom:1rem;
+}
+.start-card h3{
+  font-family:"Fraunces", serif;font-weight:400;font-size:1.3rem;
+  color:var(--ink);margin-bottom:0.8rem;line-height:1.3;
+}
+.start-card p{
+  font-size:0.88rem;color:var(--ink-soft);line-height:1.75;
+  margin-bottom:1.2rem;
+}
+.start-links{
+  list-style:none;
+  display:flex;flex-direction:column;gap:0.6rem;
+}
+.start-links a{
+  font-family:"JetBrains Mono", monospace;font-size:0.78rem;
+  color:var(--amber);
+  border-bottom:1px solid transparent;
+  transition:border-color 0.2s;
+  display:inline-block;
+}
+.start-links a:hover{border-bottom-color:var(--amber)}
+.start-links a::before{content:"→ ";color:var(--ink-mute);margin-right:0.3rem}
+/* === BASICS / DEMOS === */
+.tabs{
+  display:flex;gap:0.5rem;
+  margin-bottom:2rem;
+  flex-wrap:wrap;
+}
+.tab{
+  background:var(--void-card);
+  border:1px solid var(--line);
+  font-family:"Zen Kaku Gothic New", sans-serif;
+  font-size:0.92rem;font-weight:500;letter-spacing:0.02em;
+  color:var(--ink-soft);cursor:pointer;
+  padding:0.85rem 1.4rem;
+  transition:all 0.2s;
+}
+.tab:hover{color:var(--amber);border-color:var(--amber)}
+.tab.active{
+  color:#fff;background:var(--amber);border-color:var(--amber);
+  font-weight:700;
+}
+.tab .tab-count{
+  font-family:"JetBrains Mono", monospace;font-size:0.7rem;
+  margin-left:0.4rem;opacity:0.7;
+}
+.tab.active .tab-count{opacity:1}
+.tab-content{display:none}
+.tab-content.active{display:block}
+/* sub-section header for non-tab sections */
+.sub-section{margin-top:3rem}
+.sub-section-head{
+  display:flex;align-items:baseline;gap:0.8rem;
+  margin-bottom:1.5rem;padding-bottom:0.8rem;
+  border-bottom:1px solid var(--line);
+}
+.sub-section-num{
+  font-family:"Fraunces", serif;font-weight:300;font-style:italic;
+  font-size:1.6rem;color:var(--amber);line-height:1;
+}
+.sub-section-title{
+  font-family:"Fraunces", "Zen Kaku Gothic New", serif;
+  font-weight:400;font-size:1.4rem;color:var(--ink);
+  line-height:1.3;letter-spacing:-0.01em;
+}
+.sub-section-count{
+  font-family:"JetBrains Mono", monospace;font-size:0.7rem;
+  color:var(--ink-mute);letter-spacing:0.15em;
+  margin-left:auto;
+}
+/* === LEARN FILTER (basics + demos) === */
+.learn-filter{
+  margin-bottom:1.5rem;
+}
+.learn-search-bar{
+  display:flex;align-items:center;gap:0.7rem;
+  background:#FFFFFF;
+  border:1.5px solid var(--line);
+  padding:0.1rem 1rem;
+  margin-bottom:1rem;
+  transition:all 0.2s;
+}
+.learn-search-bar:focus-within{
+  border-color:var(--amber);
+  box-shadow:0 0 0 4px rgba(0,181,212,0.08);
+}
+.learn-search-bar svg{color:var(--amber);flex-shrink:0}
+.learn-search-input{
+  flex:1;background:transparent;border:none;
+  color:var(--ink);
+  font-family:"Zen Kaku Gothic New", sans-serif;
+  font-size:0.92rem;padding:0.7rem 0;
+  outline:none;
+}
+.learn-search-input::placeholder{color:var(--ink-mute);opacity:0.75}
+.learn-chips{
+  display:flex;flex-wrap:wrap;gap:0.5rem;
+}
+.learn-chip{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:#FFFFFF;
+  border:1.5px solid var(--line);
+  color:var(--ink-soft);
+  padding:0.55rem 0.95rem;
+  font-family:"Zen Kaku Gothic New", sans-serif;
+  font-size:0.85rem;font-weight:500;
+  cursor:pointer;
+  transition:all 0.2s ease;
+  position:relative;
+}
+.learn-chip:hover{
+  border-color:var(--chip-color, var(--amber));
+  color:var(--chip-color, var(--amber));
+  transform:translateY(-1px);
+}
+.learn-chip.active{
+  background:var(--chip-color, var(--amber));
+  border-color:var(--chip-color, var(--amber));
+  color:#FFFFFF;
+  font-weight:700;
+  box-shadow:0 4px 12px rgba(31,55,77,0.12);
+}
+.learn-chip-icon{
+  font-size:1rem;line-height:1;
+}
+.learn-chip-count{
+  font-family:"JetBrains Mono", monospace;font-size:0.68rem;
+  background:rgba(31,55,77,0.06);
+  color:var(--ink-soft);
+  padding:0.1rem 0.45rem;
+  border-radius:8px;
+  font-weight:500;
+}
+.learn-chip.active .learn-chip-count{
+  background:rgba(255,255,255,0.25);
+  color:#FFFFFF;
+}
+
+.basics-grid{
+  display:grid;grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));
+  gap:1rem;
+}
+.basic-item{
+  background:var(--void-card);
+  border:1px solid var(--line);
+  border-left:3px solid var(--item-color, var(--amber));
+  padding:1.3rem 1.5rem;
+  display:block;
+  transition:all 0.2s ease;
+  box-shadow:0 1px 2px rgba(31,55,77,0.03);
+}
+.basic-item:hover{
+  border-color:var(--item-color, var(--amber));
+  border-left-width:5px;
+  padding-left:calc(1.5rem - 2px);
+  box-shadow:0 8px 18px rgba(31,55,77,0.08), 0 2px 6px rgba(31,55,77,0.04);
+  transform:translateY(-1px);
+}
+.basic-cat-row{
+  display:flex;align-items:center;gap:0.5rem;
+  margin-bottom:0.6rem;
+}
+.basic-icon{
+  font-size:1.1rem;line-height:1;
+}
+.basic-cat{
+  font-family:"JetBrains Mono", monospace;font-size:0.62rem;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--item-color, var(--amber));
+}
+.basic-title{
+  font-family:"Fraunces", "Zen Kaku Gothic New", serif;
+  font-weight:400;font-size:0.95rem;line-height:1.5;color:var(--ink);
+}
+.basic-gained{
+  font-size:0.75rem;color:var(--ink-mute);
+  margin-top:0.6rem;line-height:1.6;
+}
+/* === FOOTER === */
+footer{
+  border-top:1px solid var(--line);
+  padding:4rem 0 3rem;margin-top:6rem;
+  text-align:center;
+}
+footer .display{
+  font-size:2rem;font-style:italic;font-weight:300;
+  color:var(--amber);margin-bottom:1.5rem;
+}
+footer p{color:var(--ink-mute);font-size:0.85rem;line-height:1.9}
+footer a{
+  color:var(--ink-soft);
+  border-bottom:1px solid var(--ink-mute);
+  transition:color 0.2s;
+}
+footer a:hover{color:var(--amber)}
+/* === ANIMATIONS === */
+.fade-in{opacity:0;transform:translateY(20px);transition:all 0.8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+/* mobile tweaks */
+@media (max-width:760px){
+  .hero{padding:6rem 1.2rem 3rem}
+  .container{padding:0 1.2rem}
+  .section-num{font-size:5rem}
+  .hero-stats{grid-template-columns:repeat(3, 1fr);gap:1rem}
+  .hero-stat-num{font-size:2rem}
+  .featured-grid,.industries-grid,.gallery{grid-template-columns:1fr}
+  .timeline-row{grid-template-columns:60px 1fr 60px;gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Orbit <span>Stories</span></div>
+    <ul class="nav-links">
+      <li><a href="#industries">業界</a></li>
+      <li><a href="#featured">物語</a></li>
+      <li><a href="#gallery-section">全事例</a></li>
+      <li><a href="#start">始める</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="eyebrow">A Field Guide to Satellite-Powered Business</span>
+      <h1>
+        宇宙から、<br>
+        ビジネスは<br>
+        <em>もう、始まっている。</em>
+      </h1>
+      <p class="hero-lead">
+        農業、漁業、行政、保険、スポーツ、暮らし──<br>
+        日本の22業界で、宇宙の目を使ったビジネスが既に動いている。<br>
+        その物語を、76の取材から集めた。<br>
+        次にはじめる人は、あなたかもしれない。
+      </p>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">115<span>+</span></div>
+          <div class="hero-stat-label">Real Stories</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">11</div>
+          <div class="hero-stat-label">Industries</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">7<span>yrs</span></div>
+          <div class="hero-stat-label">2019 → 2025</div>
+        </div>
+      </div>
+      <div class="hero-cta-row">
+        <a href="#gallery-section" class="hero-cta primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+          全事例を検索する
+        </a>
+        <a href="#industries" class="hero-cta secondary">業界別に見る →</a>
+      </div>
+    </div>
+    <div class="hero-orb">
+      <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="earthGrad" cx="35%" cy="30%">
+            <stop offset="0%" stop-color="#5DC7DC" stop-opacity="0.95"/>
+            <stop offset="60%" stop-color="#00B5D4" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#0095B0" stop-opacity="0.95"/>
+          </radialGradient>
+          <radialGradient id="atmosGrad" cx="50%" cy="50%">
+            <stop offset="65%" stop-color="transparent"/>
+            <stop offset="85%" stop-color="#00B5D4" stop-opacity="0.18"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+        </defs>
+        <!-- atmosphere -->
+        <circle cx="250" cy="250" r="240" fill="url(#atmosGrad)"/>
+        <!-- earth -->
+        <circle cx="250" cy="250" r="160" class="orb-globe"/>
+        <!-- meridian lines -->
+        <ellipse cx="250" cy="250" rx="160" ry="50" fill="none" stroke="#FFFFFF" stroke-width="0.8" stroke-opacity="0.5"/>
+        <ellipse cx="250" cy="250" rx="160" ry="100" fill="none" stroke="#FFFFFF" stroke-width="0.8" stroke-opacity="0.4"/>
+        <ellipse cx="250" cy="250" rx="50" ry="160" fill="none" stroke="#FFFFFF" stroke-width="0.8" stroke-opacity="0.5"/>
+        <ellipse cx="250" cy="250" rx="100" ry="160" fill="none" stroke="#FFFFFF" stroke-width="0.8" stroke-opacity="0.4"/>
+        <!-- orbits -->
+        <circle cx="250" cy="250" r="200" class="orb-ring"/>
+        <circle cx="250" cy="250" r="220" class="orb-ring orb-ring-2"/>
+        <circle cx="250" cy="250" r="180" class="orb-ring orb-ring-3"/>
+        <!-- satellites -->
+        <g class="orb-sat"><circle cx="450" cy="250" r="5"/></g>
+        <g class="orb-sat orb-sat-2"><circle cx="470" cy="250" r="4"/></g>
+        <g class="orb-sat orb-sat-3"><circle cx="430" cy="250" r="3"/></g>
+      </svg>
+      <div class="hero-highlight">
+        <div class="hero-highlight-label">Latest Story</div>
+        <div class="hero-highlight-title">「17時15分に退勤して、家族と幸せな時間をもっと過ごしたい」</div>
+        <div class="hero-highlight-sub">20年変わらなかった業務改革 — 南相馬市×LAND INSIGHTの挑戦</div>
+      </div>
+    </div>
+  </div>
+  <a href="#industries" class="scroll-cue">EXPLORE</a>
+</section>
+
+<!-- ===== INDUSTRIES MAP ===== -->
+<section id="industries">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">I.</div>
+      <div>
+        <h2 class="section-title">どの業界で、<em>もう動いている</em>のか</h2>
+        <p class="section-desc">
+          衛星データは「最先端の特別な技術」ではなく、農業の品質改善、漁業の負担軽減、行政の意思決定、災害復旧の効率化──
+          すでに「実装」のフェーズに入っている。あなたの業界は、どこに位置しているだろうか。
+        </p>
+      </div>
+    </div>
+    <div class="industries-grid" id="industriesGrid"></div>
+  </div>
+</section>
+
+<!-- ===== FEATURED STORIES ===== -->
+<section id="featured" style="background:linear-gradient(180deg, transparent, rgba(0,181,212,0.03) 50%, transparent);">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">II.</div>
+      <div>
+        <h2 class="section-title">あっ、と驚く<em>10の実話</em></h2>
+        <p class="section-desc">
+          76の取材から、特に「自分の業界でもこんなことができるのか」と思わせる物語を選んだ。
+          数千億円の損失を防ぐ衛星、17時15分に退勤させた業務改革、ラグビー日本代表躍進の裏側──
+          どれも実在する、日本の企業・自治体の挑戦である。
+        </p>
+      </div>
+    </div>
+    <div class="featured-grid" id="featuredGrid"></div>
+  </div>
+</section>
+
+<!-- ===== GALLERY (FULL LIST) ===== -->
+<section id="gallery-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">III.</div>
+      <div>
+        <h2 class="section-title">76の<em>物語</em>を、自由に探す</h2>
+        <p class="section-desc">
+          業界・年・データ種別の絞り込みに加え、<strong style="color:var(--amber)">技術（SAR、AI）・用途（予測、検知）・企業（JAXA、Planet）・地域（北海道、神戸）</strong>などの
+          タグでも探せる。キーワード検索はタイトル・業界名・タグすべてを横断する。
+          自分の事業と接点のありそうな物語を見つけてほしい。
+        </p>
+      </div>
+    </div>
+    <div class="filters-wrap">
+      <div class="filters-label">SEARCH / キーワードで絞り込む</div>
+      <!-- Primary search bar -->
+      <div class="search-bar">
+        <svg class="search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/>
+          <line x1="21" y1="21" x2="16.5" y2="16.5"/>
+        </svg>
+        <input type="text" id="fSearch" class="search-input" placeholder="例: 農業, AI, SAR, JAXA, 神戸, ラグビー … タイトル・業界・タグを横断検索">
+        <button class="search-clear" id="searchClear" title="検索をクリア (Escでも可)">✕</button>
+      </div>
+      <div class="filters-hint">
+        💡 上の検索ボックスに何か入力すると即座に絞り込まれます。下の業界・年・タグと組み合わせると更に詳しく探せます。
+      </div>
+
+      <!-- Filter row -->
+      <div class="filters">
+        <div class="filter-group">
+          <label>業界</label>
+          <select id="fGroup">
+            <option value="">すべての業界</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>データ種別</label>
+          <select id="fType">
+            <option value="">すべて</option>
+            <option value="EO">地球観測 (EO)</option>
+            <option value="COMM">通信 (COMM)</option>
+            <option value="PNT">測位 (PNT)</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>公開年</label>
+          <select id="fYear">
+            <option value="">すべて</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <button class="tag-toggle" id="tagToggle">
+            <span>タグで探す</span>
+            <span class="tag-toggle-count" id="tagToggleCount" style="display:none">0</span>
+            <span class="tag-toggle-arrow">▾</span>
+          </button>
+        </div>
+        <div class="filter-group">
+          <button class="filter-reset" id="fReset">RESET</button>
+        </div>
+      </div>
+
+      <!-- Tag picker (collapsible) -->
+      <div class="tag-picker" id="tagPicker">
+        <div class="tag-picker-inner" id="tagPickerInner"></div>
+      </div>
+
+      <!-- Active tags display -->
+      <div class="active-tags" id="activeTags"></div>
+    </div>
+    <!-- Active filter banner (shows when filter applied) -->
+    <div class="active-banner" id="activeBanner" style="display:none">
+      <div class="active-banner-content">
+        <span class="active-banner-label">絞り込み中</span>
+        <span class="active-banner-text" id="activeBannerText"></span>
+      </div>
+      <button class="active-banner-clear" id="activeBannerClear">すべて解除 ✕</button>
+    </div>
+    <div class="filter-summary">
+      <span><strong id="resultCount">0</strong> 件の物語</span>
+      <span class="filter-summary-hint" id="filterSummaryHint"></span>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<!-- ===== START ===== -->
+<section id="start">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">IV.</div>
+      <div>
+        <h2 class="section-title">じゃあ、<em>どうやって始める</em>のか</h2>
+        <p class="section-desc">
+          物語に共感したら、次は手を動かしてみる番だ。衛星データの多くは無償でアクセスでき、
+          小さなプロトタイプは数百万円規模で始められる。最初の一歩を踏み出すための入口を紹介する。
+        </p>
+      </div>
+    </div>
+    <div class="start-grid">
+      <div class="start-card">
+        <div class="start-num">01.</div>
+        <h3>衛星データを<br>触ってみる</h3>
+        <p>無償で使えるデータ・プラットフォームから始める。多くの事例が、ここから生まれた。</p>
+        <ul class="start-links">
+          <li><a href="https://www.tellusxdp.com/ja/" target="_blank" rel="noopener">Tellus (日本)</a></li>
+          <li><a href="https://www.copernicus.eu/en" target="_blank" rel="noopener">Copernicus / Sentinel</a></li>
+          <li><a href="https://earth.google.com/web/" target="_blank" rel="noopener">Google Earth Engine</a></li>
+        </ul>
+      </div>
+      <div class="start-card">
+        <div class="start-num">02.</div>
+        <h3>業界の<br>先輩に聞く</h3>
+        <p>すでに動いている解析企業に相談する。多くがPoCから始めるアプローチを取っている。</p>
+        <ul class="start-links">
+          <li><a href="https://sorabatake.jp/category/case-study/" target="_blank" rel="noopener">宙畑 事例カテゴリ</a></li>
+          <li><a href="https://aerospacebiz.jaxa.jp/solution/j-sparc/" target="_blank" rel="noopener">JAXA J-SPARC</a></li>
+          <li><a href="https://sorabatake.jp/category/business/" target="_blank" rel="noopener">宙畑 ビジネス記事</a></li>
+        </ul>
+      </div>
+      <div class="start-card">
+        <div class="start-num">03.</div>
+        <h3>資金面の<br>選択肢を知る</h3>
+        <p>10年1兆円の宇宙戦略基金、SBIR、自治体補助。新規参入を支える制度が整いつつある。</p>
+        <ul class="start-links">
+          <li><a href="https://fund.jaxa.jp/" target="_blank" rel="noopener">宇宙戦略基金 (JAXA)</a></li>
+          <li><a href="https://www.meti.go.jp/" target="_blank" rel="noopener">経産省 SBIR</a></li>
+          <li><a href="https://www.cao.go.jp/" target="_blank" rel="noopener">内閣府 宇宙政策委員会</a></li>
+        </ul>
+      </div>
+      <div class="start-card">
+        <div class="start-num">04.</div>
+        <h3>体系的に<br>学ぶ</h3>
+        <p>下に基礎知識記事と実証事例をまとめた。気になるテーマから読み始めてほしい。</p>
+        <ul class="start-links">
+          <li><a href="#learn">基礎知識</a></li>
+          <li><a href="#demos">実証記事</a></li>
+          <li><a href="https://sorabatake.jp/" target="_blank" rel="noopener">宙畑 トップ</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BASICS / DEMOS ===== -->
+<section id="learn">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">V.</div>
+      <div>
+        <h2 class="section-title">体系的に<em>学ぶ・実証する</em></h2>
+        <p class="section-desc">
+          全体像をつかむための「基礎知識」と、宙畑チームが手を動かして書いた「実証記事」。
+          自社の検討にそのまま使える具体例が多い。
+        </p>
+      </div>
+    </div>
+
+    <!-- 01. Basics -->
+    <div class="sub-section">
+      <div class="sub-section-head">
+        <span class="sub-section-num">01.</span>
+        <span class="sub-section-title">基礎知識・まとめ</span>
+        <span class="sub-section-count" id="basicsCount">51 ARTICLES</span>
+      </div>
+      <div class="learn-filter">
+        <div class="learn-search-bar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/>
+            <line x1="21" y1="21" x2="16.5" y2="16.5"/>
+          </svg>
+          <input type="text" id="basicsSearch" class="learn-search-input" placeholder="基礎知識を検索（例: SAR、解像度、宇宙法、トレンド）">
+        </div>
+        <div class="learn-chips" id="basicsChips"></div>
+      </div>
+      <div class="basics-grid" id="basicsGrid"></div>
+    </div>
+
+    <!-- 02. Demos -->
+    <div class="sub-section">
+      <div class="sub-section-head">
+        <span class="sub-section-num">02.</span>
+        <span class="sub-section-title">実証・妄想記事</span>
+        <span class="sub-section-count" id="demosCount">45 ARTICLES</span>
+      </div>
+      <p style="color:var(--ink-soft);font-size:0.88rem;line-height:1.75;margin-bottom:1.5rem;max-width:680px">
+        宙畑編集部が実際に手を動かして衛星データを使ってみた検証記事と、「もしも〇〇に衛星データを使ったら？」という妄想・思考実験記事。事業アイデアの種が眠っている。
+      </p>
+      <div class="learn-filter">
+        <div class="learn-search-bar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/>
+            <line x1="21" y1="21" x2="16.5" y2="16.5"/>
+          </svg>
+          <input type="text" id="demosSearch" class="learn-search-input" placeholder="実証記事を検索（例: 紅葉、桜、噴火、駐車場、戦国時代）">
+        </div>
+        <div class="learn-chips" id="demosChips"></div>
+      </div>
+      <div class="basics-grid" id="demosGrid"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="display">次の物語は、あなたから。</div>
+    <p>
+      Data and stories by <a href="https://sorabatake.jp/" target="_blank" rel="noopener">宙畑 / Sorabatake</a>.<br>
+      A field guide for non-space industries entering the satellite data business.<br>
+      <span class="mono" style="font-size:0.75rem;color:var(--ink-mute)">— ORBIT STORIES, 2026 —</span>
+    </p>
+  </div>
+</footer>
+
+<script>
+const GROUPS = {"agriculture": {"name": "農業・林業・畜産", "en": "Agriculture & Forestry", "industries": ["農業", "農業/行政", "林業", "畜産"], "icon": "🌾", "color": "#6BAA4C"}, "ocean": {"name": "漁業・海洋", "en": "Fisheries & Ocean", "industries": ["漁業・海洋"], "icon": "🌊", "color": "#00B5D4"}, "government": {"name": "行政・公共", "en": "Government & Public", "industries": ["行政", "海外支援"], "icon": "🏛", "color": "#5A6FAB"}, "disaster": {"name": "防災・災害", "en": "Disaster & Resilience", "industries": ["災害把握/防災"], "icon": "⚡", "color": "#E0454D"}, "environment": {"name": "地球環境・SDGs", "en": "Environment & SDGs", "industries": ["地球環境", "SDGs"], "icon": "🌍", "color": "#4A9D5A"}, "finance": {"name": "金融・保険・経済", "en": "Finance & Insurance", "industries": ["金融", "保険", "経済"], "icon": "💹", "color": "#D4A02B"}, "infra": {"name": "インフラ・物流・交通", "en": "Infrastructure & Logistics", "industries": ["インフラ", "物流", "交通"], "icon": "🚆", "color": "#5A6F94"}, "energy": {"name": "エネルギー", "en": "Energy", "industries": ["エネルギー"], "icon": "⚡", "color": "#E08930"}, "lifestyle": {"name": "スポーツ・暮らし", "en": "Sports & Lifestyle", "industries": ["スポーツ", "メタバース", "toCアプリ", "健康", "広告"], "icon": "🏉", "color": "#D14E83"}, "security": {"name": "安全保障", "en": "Security", "industries": ["安全保障"], "icon": "🛡", "color": "#444C5C"}, "players": {"name": "解析企業・専門家", "en": "Analytics Players", "industries": ["解析企業取材", "地球観測衛星について", "まとめ", "実証"], "icon": "🛰", "color": "#7B5FCC"}};
+const ARTICLES = [{"i": "農業", "g": "agriculture", "y": 2019, "d": "2019-02", "t": "一等米比率99%の米「青天の霹靂」に学ぶ、農家のおいしい働き方改革", "u": "https://sorabatake.jp/3699/", "p": "EO", "tg": ["稲作・米"]}, {"i": "農業", "g": "agriculture", "y": 2019, "d": "2019-06", "t": "儲かる土地が分かる!? 宇宙の目×人のノウハウでポテンシャル名産地を発見！", "u": "https://sorabatake.jp/6223/", "p": "EO", "tg": ["検知"]}, {"i": "農業", "g": "agriculture", "y": 2021, "d": "2021-01", "t": "「サービスに自信があるのは、”これ”をやったから」あらゆる産業課題を空から解決するスカイマティクス社、社会実装までの道のり", "u": "https://sorabatake.jp/17501/", "p": "EO", "tg": ["社会実装", "スカイマティクス"]}, {"i": "農業", "g": "agriculture", "y": 2021, "d": "2021-01", "t": "「ドローンにこだわっていたらAI米粒等級判定サービスは生まれなかった」スカイマティクス社に聞いた、リモートセンシングの今とこれから", "u": "https://sorabatake.jp/17510/", "p": "EO", "tg": ["解析・AI", "ドローン", "リモートセンシング", "スカイマティクス", "稲作・米"]}, {"i": "農業", "g": "agriculture", "y": 2021, "d": "2021-06", "t": "サグリが1億5500万円を調達。耕作放棄地の早期発見及び把握で農業課題の解決に挑む", "u": "https://sorabatake.jp/20806/", "p": "EO", "tg": ["検知", "資金調達", "サグリ"]}, {"i": "農業", "g": "agriculture", "y": 2021, "d": "2021-06", "t": "「結果が出なかった時期も、駄目だなとは全然思わなかった。」海外のトマト栽培を変えるカゴメxNECの新規事業に迫る！", "u": "https://sorabatake.jp/20875/", "p": "EO", "tg": ["事業化", "海外展開", "NEC", "カゴメ", "果樹・トマト"]}, {"i": "農業/行政", "g": "agriculture", "y": 2021, "d": "2021-08", "t": "「こんなことできたらいいな」に取り組んでいる人がいた！ 神戸市が取り組む農地管理の最先端", "u": "https://sorabatake.jp/22395/", "p": "EO", "tg": ["神戸市"]}, {"i": "農業", "g": "agriculture", "y": 2022, "d": "2022-03", "t": "バナナ、パーム油農園の病害による被害額は数千億円!? 当たり前の食卓を守るポーラスタースペース社のデータ活用最前線", "u": "https://sorabatake.jp/25780/", "p": "EO", "tg": ["果樹・トマト"]}, {"i": "農業", "g": "agriculture", "y": 2022, "d": "2022-09", "t": "高齢化率第3位の山口県で見えた「限られた人数で農業生産ができる仕組み」の兆し", "u": "https://sorabatake.jp/28922/", "p": "EO", "tg": ["山口県"]}, {"i": "農業", "g": "agriculture", "y": 2024, "d": "2024-08", "t": "「これ当たるんよ」「次はいつ？」山口県のキーマンに訊く、衛星データで品質向上を実現した小麦農家の生の声と展望", "u": "https://sorabatake.jp/37631/", "p": "EO", "tg": ["山口県", "小麦"]}, {"i": "農業", "g": "agriculture", "y": 2022, "d": "2022-10", "t": "食料自給率200%の北海道が推進する衛星データ利活用の今と展望", "u": "https://sorabatake.jp/29386/", "p": "EO", "tg": ["北海道"]}, {"i": "農業", "g": "agriculture", "y": 2024, "d": "2024-11", "t": "「17時15分に退勤して、家族と幸せな時間をもっと過ごしたい」20年変わらなかった業務改革 – 南相馬市×LAND INSIGHTの挑戦", "u": "https://sorabatake.jp/38881/", "p": "EO", "tg": ["南相馬市"]}, {"i": "林業", "g": "agriculture", "y": 2021, "d": "2021-07", "t": "「赤字になるから伐採できない…」期待と課題が混在する山林管理の今とこれから", "u": "https://sorabatake.jp/21369/", "p": "EO", "tg": ["森林・林業"]}, {"i": "畜産", "g": "agriculture", "y": 2022, "d": "2022-06", "t": "「サステイナブルに美味しいお肉を作る」測位とリモセンのコンビネーションが可能にする持続可能な放牧牛生産", "u": "https://sorabatake.jp/27219/", "p": "EO", "tg": ["測位・GNSS", "リモートセンシング", "畜産・放牧"]}, {"i": "漁業・海洋", "g": "ocean", "y": 2019, "d": "2019-06", "t": "データ7割・直感3割!? 漁業の“普通”を変える衛星データ利用ビジネス最前線", "u": "https://sorabatake.jp/5304/", "p": "EO", "tg": ["事業化", "漁業"]}, {"i": "漁業・海洋", "g": "ocean", "y": 2019, "d": "2019-07", "t": "第一産業生産者をサポート！ 最先端の衛星技術を活用して 世界の「食」を支えるUMITRON", "u": "https://sorabatake.jp/6682/", "p": "EO", "tg": ["海外展開", "UMITRON"]}, {"i": "漁業・海洋", "g": "ocean", "y": 2021, "d": "2021-06", "t": "漁師の大負担「漁獲報告」は宝の山だった。AIの矛が開ける日本の水産業課題解決の突破口", "u": "https://sorabatake.jp/21005/", "p": "EO", "tg": ["解析・AI", "漁業"]}, {"i": "漁業・海洋", "g": "ocean", "y": 2022, "d": "2022-04", "t": "ベテラン漁師「30年前にあったら、すごく楽になるでしょうね」 水産業の技術継承にAI活用の最前線", "u": "https://sorabatake.jp/26086/", "p": "EO", "tg": ["解析・AI", "漁業"]}, {"i": "漁業・海洋", "g": "ocean", "y": 2023, "d": "2023-03", "t": "桝太一さんも驚きの衛星データ利活用の最前線～海洋編～", "u": "https://sorabatake.jp/31214/", "p": "EO", "tg": []}, {"i": "漁業・海洋", "g": "ocean", "y": 2024, "d": "2024-12", "t": "【漁業×衛星データの最前線】オーシャンアイズが目指す未来の漁業とは、SARやStarlinkの活用にも期待!?", "u": "https://sorabatake.jp/39232/", "p": "EO", "tg": ["SAR", "通信", "漁業"]}, {"i": "行政", "g": "government", "y": 2020, "d": "2020-09", "t": "【事例付き】ビッグデータ時代に持つべき”データ活用に必要な視点”とは オープンデータ伝道師インタビュー", "u": "https://sorabatake.jp/14711/", "p": "EO", "tg": ["オープンデータ"]}, {"i": "行政", "g": "government", "y": 2020, "d": "2020-12", "t": "地域課題解決に、衛星データはどう活かせる？コロナ禍で関心が高まる「シビックテック」の第一人者 Code for Japan 代表 関治之さんに聞く", "u": "https://sorabatake.jp/17029/", "p": "EO", "tg": ["シビックテック", "地方自治体"]}, {"i": "行政", "g": "government", "y": 2021, "d": "2021-01", "t": "社会的課題の解決につながる？ 衛星データが「社会的インパクト評価」に役立つ可能性を探ってみた", "u": "https://sorabatake.jp/17386/", "p": "EO", "tg": ["社会課題解決"]}, {"i": "行政", "g": "government", "y": 2021, "d": "2021-02", "t": "新興国が求めている宇宙ビジネスとは！？元アジア開発銀行リモセン専門家が衛星データのプラットフォーム可能性を語る", "u": "https://sorabatake.jp/18717/", "p": "EO", "tg": ["リモートセンシング", "事業化"]}, {"i": "行政", "g": "government", "y": 2021, "d": "2021-07", "t": "データがない世界地図の空白地帯にデータサイエンティストが色をつける。世界銀行の仕事に衛星データが活用されているワケ", "u": "https://sorabatake.jp/21510/", "p": "EO", "tg": ["海外展開"]}, {"i": "行政", "g": "government", "y": 2022, "d": "2022-11", "t": "東京都デジタルツイン実現プロジェクトに学ぶ、DXの進め方のコツ！", "u": "https://sorabatake.jp/29455/", "p": "EO", "tg": ["デジタルツイン", "東京都"]}, {"i": "行政", "g": "government", "y": 2023, "d": "2023-02", "t": "海への流出を防げ！岡山市における航空写真×AIを使った河川のごみ探し", "u": "https://sorabatake.jp/30993/", "p": "EO", "tg": ["解析・AI", "岡山市", "河川・水害"]}, {"i": "行政", "g": "government", "y": 2024, "d": "2024-09", "t": "【政策やプロジェクトの評価と決定×衛星データの最前線】社会経済学における5つの衛星データ活用事例と展望", "u": "https://sorabatake.jp/37731/", "p": "EO", "tg": []}, {"i": "行政", "g": "government", "y": 2024, "d": "2024-09", "t": "地方自治体の先進事例が日本を救う!? 地方自治体から事例が生まれる5つのヒント【フィラメント角勝さんインタビュー】", "u": "https://sorabatake.jp/38219/", "p": "EO", "tg": ["地方自治体"]}, {"i": "インフラ", "g": "infra", "y": 2021, "d": "2021-07", "t": "宇宙ビジネスの一丁目一番地！衛星通信についてスカパーＪＳＡＴ社に聞いてみた", "u": "https://sorabatake.jp/21129/", "p": "EO", "tg": ["通信", "事業化", "スカパーJSAT"]}, {"i": "インフラ", "g": "infra", "y": 2021, "d": "2021-07", "t": "時間分解能と精度の課題を解消！ スカパーＪＳＡＴの研究から生まれる衛星データ利活用のブレークスルー", "u": "https://sorabatake.jp/21297/", "p": "EO", "tg": ["通信", "スカパーJSAT"]}, {"i": "インフラ", "g": "infra", "y": 2023, "d": "2023-05", "t": "ＬＩＡＮＡから学ぶインフラ老朽化など危険を察知する衛星データ活用の最前線", "u": "https://sorabatake.jp/32423/", "p": "EO", "tg": ["インフラ老朽化"]}, {"i": "エネルギー", "g": "energy", "y": 2019, "d": "2019-02", "t": "電力にも品質がある？ 3つのデータで発電の最適化を図る電力会社の意外な取組み", "u": "https://sorabatake.jp/3850/", "p": "EO", "tg": ["電力・発電"]}, {"i": "エネルギー", "g": "energy", "y": 2019, "d": "2019-12", "t": "業界のトレンドを先読み！第3回『Tellus Open Discussion』～通信・エネルギー篇～レポート", "u": "https://sorabatake.jp/8824/", "p": "EO", "tg": ["通信", "予測"]}, {"i": "金融", "g": "finance", "y": 2020, "d": "2020-07", "t": "衛星データゴールドラッシュ!? 経済アナリストとデータ活用の金脈を探ってみた | 宙畑", "u": "https://sorabatake.jp/13553/", "p": "EO", "tg": ["経済指標"]}, {"i": "金融", "g": "finance", "y": 2022, "d": "2022-07", "t": "【オルタナティブデータって何？】投資判断の最前線、新たな経済指標を用いた資産運用事例", "u": "https://sorabatake.jp/27566/", "p": "EO", "tg": ["オルタナティブデータ", "経済指標"]}, {"i": "金融", "g": "finance", "y": 2024, "d": "2024-02", "t": "マイクロファイナンス、金融包摂とは？ マイクロファイナンスに取り組む企業と衛星データの役割", "u": "https://sorabatake.jp/35453/", "p": "EO", "tg": []}, {"i": "保険", "g": "finance", "y": 2021, "d": "2021-05", "t": "本格実用目前！水害発生から早期に被害を把握、衛星データによる損害査定実証の裏側", "u": "https://sorabatake.jp/19802/", "p": "EO", "tg": ["損害査定・保険", "社会実装", "河川・水害"]}, {"i": "物流", "g": "infra", "y": 2021, "d": "2021-09", "t": "「洗濯物が乾く時間が10分単位でわかる」50年以上気象データを用いて顧客ニーズに応え続けるウェザーニューズの今", "u": "https://sorabatake.jp/22856/", "p": "EO", "tg": ["気象データ", "ウェザーニューズ"]}, {"i": "災害把握/防災", "g": "disaster", "y": 2022, "d": "2022-03", "t": "小笠原の海から日本列島へ。1400km以上を旅した軽石を追いかける宇宙と海洋のコラボレーション", "u": "https://sorabatake.jp/25764/", "p": "EO", "tg": ["小笠原"]}, {"i": "災害把握/防災", "g": "disaster", "y": 2022, "d": "2022-03", "t": "JAXAの衛星観測のプロに聞く！ 宇宙から軽石と雲を見分ける解析テクニック", "u": "https://sorabatake.jp/25696/", "p": "EO", "tg": ["解析・AI", "JAXA"]}, {"i": "災害把握/防災", "g": "disaster", "y": 2023, "d": "2023-03", "t": "桝太一さんも驚きの衛星データ利活用の最前線～防災・自然災害編～", "u": "https://sorabatake.jp/31198/", "p": "EO", "tg": []}, {"i": "災害把握/防災", "g": "disaster", "y": 2023, "d": "2023-06", "t": "ソニーがGNSSの可能性に注目！「地球みまもりプラットフォーム」で目指す新しい世界", "u": "https://sorabatake.jp/32614/", "p": "EO", "tg": ["測位・GNSS", "海外展開", "ソニー"]}, {"i": "災害把握/防災", "g": "disaster", "y": 2023, "d": "2023-12", "t": "明星電気に聞く、気象観測の最前線！ 気象観測の空間分解能と時間分解能を高めて分かった未来の人命救助につながるデータ利用とは", "u": "https://sorabatake.jp/34696/", "p": "EO", "tg": ["気象データ", "電力・発電"]}, {"i": "災害把握/防災", "g": "disaster", "y": 2023, "d": "2023-11", "t": "地域一丸となって豪雨災害に立ち向かう「流域治水」と衛星データの関わりとは", "u": "https://sorabatake.jp/34418/", "p": "EO", "tg": ["河川・水害", "地方自治体"]}, {"i": "災害把握/防災", "g": "disaster", "y": 2023, "d": "2023-11", "t": "地域一丸となって豪雨災害に立ち向かう　流域治水プロジェクトについて国土交通省に聞く", "u": "https://sorabatake.jp/34403/", "p": "EO", "tg": ["河川・水害", "地方自治体"]}, {"i": "災害把握/防災", "g": "disaster", "y": 2024, "d": "2024-09", "t": "不法盛土を宇宙から監視！　国交省が公開した盛土規制法のガイドラインに衛星データが盛り込まれたワケ", "u": "https://sorabatake.jp/37639/", "p": "EO", "tg": ["モニタリング・監視", "インフラ老朽化"]}, {"i": "地球環境", "g": "environment", "y": 2022, "d": "2022-12", "t": "環境省に聞く、世界の環境観測のインフラとなる人工衛星GOSATシリーズとは", "u": "https://sorabatake.jp/29913/", "p": "EO", "tg": ["海外展開"]}, {"i": "地球環境", "g": "environment", "y": 2023, "d": "2023-02", "t": "気候変動のリスク情報開示の現在地。リスク可視化に取り組む日本初のスタートアップ・Gaia Visionに聞く、データとビジネスの統合", "u": "https://sorabatake.jp/30744/", "p": "EO", "tg": ["可視化", "事業化"]}, {"i": "地球環境", "g": "environment", "y": 2024, "d": "2024-01", "t": "地球を丸ごと見える化すると何ができる？〜自然資本保全と経済活動の最適化に向けた取り組み〜【地球の健康状態を知る・守るための産業連携イベントレポート】", "u": "https://sorabatake.jp/35274/", "p": "EO", "tg": ["可視化"]}, {"i": "地球環境", "g": "environment", "y": 2024, "d": "2024-07", "t": "総合地球環境学研究所に訊く！地球規模の課題解決における衛星データの活用可能性とは？", "u": "https://sorabatake.jp/37071/", "p": "EO", "tg": []}, {"i": "経済", "g": "finance", "y": 2023, "d": "2023-10", "t": "GDPだけでは測れない豊かさを測る「新国富指標」とは~見えないものの価値の測り方~＜前編＞", "u": "https://sorabatake.jp/33735/", "p": "EO", "tg": ["経済指標"]}, {"i": "経済", "g": "finance", "y": 2023, "d": "2023-10", "t": "GDPだけでは測れない豊かさを測る「新国富指標」とは~衛星データの使い方と可能性~＜後編＞", "u": "https://sorabatake.jp/33739/", "p": "EO", "tg": ["経済指標"]}, {"i": "健康", "g": "lifestyle", "y": 2023, "d": "2023-01", "t": "プラネタリーヘルス実現に向けた衛星データを利用した取り組みとは", "u": "https://sorabatake.jp/30439/", "p": "EO", "tg": ["プラネタリーヘルス"]}, {"i": "スポーツ", "g": "lifestyle", "y": 2020, "d": "2020-05", "t": "ラグビー日本代表大躍進の影の立役者!? 衛星データがスポーツをこんなに変えた！", "u": "https://sorabatake.jp/12336/", "p": "EO", "tg": ["スポーツ"]}, {"i": "スポーツ", "g": "lifestyle", "y": 2024, "d": "2024-12", "t": "【1秒に1回、高精度な位置情報が分かる世界へ】スポーツ観戦と練習をアップデートするN-Sports tracking Labの実例と展望", "u": "https://sorabatake.jp/39074/", "p": "EO", "tg": ["海外展開", "スポーツ"]}, {"i": "交通", "g": "infra", "y": 2019, "d": "2019-06", "t": "AIによるビッグデータ活用で30分後のタクシーの需要が予測できる！", "u": "https://sorabatake.jp/6015/", "p": "EO", "tg": ["解析・AI", "予測", "タクシー・移動"]}, {"i": "広告", "g": "lifestyle", "y": 2021, "d": "2021-09", "t": "気象データ活用で購入数20%アップ！ 使い方は無限大、ウェザーニューズ社の最新ビジネス事例と展望", "u": "https://sorabatake.jp/22864/", "p": "EO", "tg": ["気象データ", "事業化", "ウェザーニューズ"]}, {"i": "メタバース", "g": "lifestyle", "y": 2022, "d": "2022-01", "t": "衛星データには唯一無二の価値がある。メタバース空間のゼロ地点を作るスペースデータ佐藤さんを突き動かす衝動とは", "u": "https://sorabatake.jp/25196/", "p": "EO", "tg": ["デジタルツイン"]}, {"i": "toCアプリ", "g": "lifestyle", "y": 2020, "d": "2020-11", "t": "ヤマップ流！ ユーザーの心をつかむデータを使った新機能リリースのコツ", "u": "https://sorabatake.jp/16439/", "p": "EO", "tg": ["ヤマップ"]}, {"i": "SDGs", "g": "environment", "y": 2021, "d": "2021-01", "t": "海のごみ対策をボランティアで終わらせない。プロジェクト・イッカクが目指す海ごみ削減のための「経済システム」とは", "u": "https://sorabatake.jp/17422/", "p": "EO", "tg": ["海洋ごみ・SDGs"]}, {"i": "SDGs", "g": "environment", "y": 2022, "d": "2022-06", "t": "森林のCO2 吸収量を取り引きする？ J−クレジット制度の「森林由来クレジット」について制度事務局に聞いた", "u": "https://sorabatake.jp/27542/", "p": "EO", "tg": ["森林・林業", "森林由来CO2"]}, {"i": "海外支援", "g": "government", "y": 2020, "d": "2020-01", "t": "JICAがカンボジアの田舎で水力発電！ 電気はどこまで届いた？衛星で見たらスゴいことになっていた | 宙畑", "u": "https://sorabatake.jp/9753/", "p": "EO", "tg": ["JICA", "カンボジア", "稲作・米", "電力・発電"]}, {"i": "海外支援", "g": "government", "y": 2020, "d": "2020-01", "t": "アマゾンの違法伐採をぞくぞく発見！77カ国の森林を守るJICAの衛星システムがすごかった | 宙畑", "u": "https://sorabatake.jp/9912/", "p": "EO", "tg": ["検知", "JICA", "アマゾン", "森林・林業"]}, {"i": "実証", "g": "players", "y": 2020, "d": "2020-04", "t": "シャープ独自開発の深層学習モデルによる衛星画像の超解像処理", "u": "https://sorabatake.jp/11443/", "p": "EO", "tg": ["解析・AI", "シャープ"]}, {"i": "地球観測衛星について", "g": "players", "y": 2020, "d": "2020-02", "t": "地球観測のプロに聞いた、地球観測衛星の歴史と日本と欧州の現状比較 | 宙畑", "u": "https://sorabatake.jp/10693/", "p": "EO", "tg": []}, {"i": "地球観測衛星について", "g": "players", "y": 2020, "d": "2020-02", "t": "金脈を掘り当てるのは誰だ!? 地球観測のプロが期待する『衛星データを使った小商い』 | 宙畑", "u": "https://sorabatake.jp/10704/", "p": "EO", "tg": []}, {"i": "地球観測衛星について", "g": "players", "y": 2019, "d": "2019-06", "t": "加速する「オープン化」と「実用化」の波、衛星データ×機械学習でできること", "u": "https://sorabatake.jp/6170/", "p": "EO", "tg": ["解析・AI", "社会実装"]}, {"i": "地球観測衛星について", "g": "players", "y": 2023, "d": "2023-03", "t": "衛星データ利用を拡大するには？衛星データ市場を牽引する3社未来対談！", "u": "https://sorabatake.jp/31311/", "p": "EO", "tg": []}, {"i": "解析企業取材", "g": "players", "y": 2021, "d": "2021-10", "t": "「宇宙？すごいけど、うちではちょっと……」衛星データ解析のトップランナーOrbital Insightが乗り越えてきたデータ活用の障壁", "u": "https://sorabatake.jp/23320/", "p": "EO", "tg": ["解析・AI", "Orbital Insight"]}, {"i": "解析企業取材", "g": "players", "y": 2023, "d": "2023-01", "t": "地球観測衛星データの世界のトップランナー！Planetに聞く、次世代衛星データ構想と日本のポテンシャル【前編】", "u": "https://sorabatake.jp/30649/", "p": "EO", "tg": ["海外展開", "Planet"]}, {"i": "解析企業取材", "g": "players", "y": 2023, "d": "2023-01", "t": "地球観測衛星データの世界のトップランナー！Planetの躍進の裏側にあるPublic Benefit Corporationの思想【後編】", "u": "https://sorabatake.jp/30680/", "p": "EO", "tg": ["海外展開", "Planet"]}, {"i": "解析企業取材", "g": "players", "y": 2025, "d": "2025-03", "t": "4000以上のプロジェクトに貢献する全世界デジタル3D地図「AW3D」の展望と、自社衛星が生み出す新たな価値とは。NTTデータ・Marble Visionsインタビュー", "u": "https://sorabatake.jp/39782/", "p": "EO", "tg": ["海外展開"]}, {"i": "安全保障", "g": "security", "y": 2023, "d": "2023-10", "t": "衛星データ×AIで実現できることはここまできた！ Planet LabsとSynthetaicに訊く、衛星データのAI利用最先端", "u": "https://sorabatake.jp/33771/", "p": "EO", "tg": ["解析・AI", "Planet"]}, {"i": "まとめ", "g": "players", "y": 2020, "d": "2020-10", "t": "【随時更新】衛星データ活用事例を総まとめ！ あなたにおすすめの事例がきっとわかる!?", "u": "https://sorabatake.jp/15698/", "p": "EO", "tg": []}, {"i": "まとめ", "g": "players", "y": 2024, "d": "2024-01", "t": "欧州衛星データ利用レポートを読み解く！産業別衛星データ利用のミライ", "u": "https://sorabatake.jp/35094/", "p": "EO", "tg": []}, {"i": "農業", "g": "agriculture", "y": 2021, "d": "2021-01", "t": "「サービスに自信があるのは、”これ”をやったから」あらゆる産業課題を空から解決するスカイマティクス社、社会実装までの道のり", "u": "https://sorabatake.jp/17501/", "p": "COMM", "tg": ["社会実装", "スカイマティクス"]}, {"i": "農業", "g": "agriculture", "y": 2021, "d": "2021-01", "t": "「ドローンにこだわっていたらAI米粒等級判定サービスは生まれなかった」スカイマティクス社に聞いた、リモートセンシングの今とこれから", "u": "https://sorabatake.jp/17510/", "p": "COMM", "tg": ["解析・AI", "ドローン", "リモートセンシング", "スカイマティクス", "稲作・米"]}, {"i": "農業", "g": "agriculture", "y": 2022, "d": "2022-10", "t": "食料自給率200%の北海道が推進する衛星データ利活用の今と展望", "u": "https://sorabatake.jp/29386/", "p": "COMM", "tg": ["北海道"]}, {"i": "畜産", "g": "agriculture", "y": 2022, "d": "2022-06", "t": "「サステイナブルに美味しいお肉を作る」測位とリモセンのコンビネーションが可能にする持続可能な放牧牛生産", "u": "https://sorabatake.jp/27219/", "p": "COMM", "tg": ["測位・GNSS", "リモートセンシング", "畜産・放牧"]}, {"i": "漁業・海洋", "g": "ocean", "y": 2019, "d": "2019-06", "t": "データ7割・直感3割!? 漁業の“普通”を変える衛星データ利用ビジネス最前線", "u": "https://sorabatake.jp/5304/", "p": "COMM", "tg": ["事業化", "漁業"]}, {"i": "漁業・海洋", "g": "ocean", "y": 2019, "d": "2019-07", "t": "第一産業生産者をサポート！ 最先端の衛星技術を活用して 世界の「食」を支えるUMITRON", "u": "https://sorabatake.jp/6682/", "p": "COMM", "tg": ["海外展開", "UMITRON"]}, {"i": "漁業・海洋", "g": "ocean", "y": 2021, "d": "2021-06", "t": "漁師の大負担「漁獲報告」は宝の山だった。AIの矛が開ける日本の水産業課題解決の突破口", "u": "https://sorabatake.jp/21005/", "p": "COMM", "tg": ["解析・AI", "漁業"]}, {"i": "漁業・海洋", "g": "ocean", "y": 2022, "d": "2022-04", "t": "ベテラン漁師「30年前にあったら、すごく楽になるでしょうね」 水産業の技術継承にAI活用の最前線", "u": "https://sorabatake.jp/26086/", "p": "COMM", "tg": ["解析・AI", "漁業"]}, {"i": "インフラ", "g": "infra", "y": 2021, "d": "2021-07", "t": "宇宙ビジネスの一丁目一番地！衛星通信についてスカパーＪＳＡＴ社に聞いてみた", "u": "https://sorabatake.jp/21129/", "p": "COMM", "tg": ["通信", "事業化", "スカパーJSAT"]}, {"i": "災害把握/防災", "g": "disaster", "y": 2023, "d": "2023-06", "t": "ソニーがGNSSの可能性に注目！「地球みまもりプラットフォーム」で目指す新しい世界", "u": "https://sorabatake.jp/32614/", "p": "COMM", "tg": ["測位・GNSS", "海外展開", "ソニー"]}, {"i": "災害把握/防災", "g": "disaster", "y": 2023, "d": "2023-12", "t": "明星電気に聞く、気象観測の最前線！ 気象観測の空間分解能と時間分解能を高めて分かった未来の人命救助につながるデータ利用とは", "u": "https://sorabatake.jp/34696/", "p": "COMM", "tg": ["気象データ", "電力・発電"]}, {"i": "toCアプリ", "g": "lifestyle", "y": 2020, "d": "2020-11", "t": "ヤマップ流！ ユーザーの心をつかむデータを使った新機能リリースのコツ", "u": "https://sorabatake.jp/16439/", "p": "COMM", "tg": ["ヤマップ"]}, {"i": "SDGs", "g": "environment", "y": 2021, "d": "2021-01", "t": "海のごみ対策をボランティアで終わらせない。プロジェクト・イッカクが目指す海ごみ削減のための「経済システム」とは", "u": "https://sorabatake.jp/17422/", "p": "COMM", "tg": ["海洋ごみ・SDGs"]}, {"i": "", "g": "players", "y": 2023, "d": "2023-10", "t": "2025年に音声通話が可能に。Starlinkとスマホの直接通信でサービスが拡大【宇宙ビジネスニュース】", "u": "https://sorabatake.jp/33963/", "p": "COMM", "tg": ["通信", "事業化"]}, {"i": "", "g": "players", "y": 2021, "d": "2021-09", "t": "全裸監督の野望を叶える!? 地球全域に映像を届ける通信衛星の歴史と登場作品、代表的な企業", "u": "https://sorabatake.jp/22453/", "p": "COMM", "tg": ["通信"]}, {"i": "", "g": "players", "y": 2021, "d": "2021-04", "t": "SpaceXが世界中にインターネットを届けるStarlink(スターリンク)とは!? 通信速度や市場規模まで徹底解説", "u": "https://sorabatake.jp/19526/", "p": "COMM", "tg": ["通信", "海外展開"]}, {"i": "", "g": "players", "y": 2019, "d": "2019-12", "t": "業界のトレンドを先読み！第3回『Tellus Open Discussion』～通信・エネルギー篇～レポート", "u": "https://sorabatake.jp/8824/", "p": "COMM", "tg": ["通信", "予測"]}, {"i": "", "g": "players", "y": 2024, "d": "2024-01", "t": "5Gって何？を基礎から徹底解説。5Gのメリット・デメリットと期待される活用事例", "u": "https://sorabatake.jp/23634/", "p": "COMM", "tg": ["5G・次世代通信"]}, {"i": "", "g": "players", "y": 2023, "d": "2023-10", "t": "商船三井が外航船200隻超へStarlinkを本格導入。期待されるユースケースをまとめたホワイトペーパーも公開中【宇宙ビジネスニュース】", "u": "https://sorabatake.jp/34226/", "p": "COMM", "tg": ["通信", "事業化"]}, {"i": "", "g": "players", "y": 2023, "d": "2023-06", "t": "KDDIとヤマップらがStarlinkを活用した「山小屋Wi-Fi」を提供へ。auユーザーは無料。山小屋の業務DX化にも寄与【宇宙ビジネスニュース】 \n| 宙畑", "u": "https://sorabatake.jp/32534/", "p": "COMM", "tg": ["通信", "事業化", "ヤマップ"]}, {"i": "", "g": "players", "y": 2022, "d": "2022-10", "t": "航空機内Wi-fiが高速に!? 機内エンターテインメントを提供するパナソニックアビオニクスがOneWebと提供【宇宙ビジネスニュース】", "u": "https://sorabatake.jp/29369/", "p": "COMM", "tg": ["事業化"]}, {"i": "", "g": "players", "y": 2023, "d": "2023-07", "t": "フジロックやロッキンジャパンなど音楽フェスにもWi-Fiを提供へ。KDDIがStarlinkの提供を拡大【宇宙ビジネスニュース】", "u": "https://sorabatake.jp/33068/", "p": "COMM", "tg": ["通信", "事業化"]}, {"i": "農業", "g": "agriculture", "y": 2021, "d": "2021-01", "t": "「サービスに自信があるのは、”これ”をやったから」あらゆる産業課題を空から解決するスカイマティクス社、社会実装までの道のり", "u": "https://sorabatake.jp/17501/", "p": "PNT", "tg": ["社会実装", "スカイマティクス"]}, {"i": "農業", "g": "agriculture", "y": 2022, "d": "2022-10", "t": "食料自給率200%の北海道が推進する衛星データ利活用の今と展望", "u": "https://sorabatake.jp/29386/", "p": "PNT", "tg": ["北海道"]}, {"i": "畜産", "g": "agriculture", "y": 2022, "d": "2022-06", "t": "「サステイナブルに美味しいお肉を作る」測位とリモセンのコンビネーションが可能にする持続可能な放牧牛生産", "u": "https://sorabatake.jp/27219/", "p": "PNT", "tg": ["測位・GNSS", "リモートセンシング", "畜産・放牧"]}, {"i": "漁業・海洋", "g": "ocean", "y": 2021, "d": "2021-06", "t": "漁師の大負担「漁獲報告」は宝の山だった。AIの矛が開ける日本の水産業課題解決の突破口", "u": "https://sorabatake.jp/21005/", "p": "PNT", "tg": ["解析・AI", "漁業"]}, {"i": "漁業・海洋", "g": "ocean", "y": 2022, "d": "2022-04", "t": "ベテラン漁師「30年前にあったら、すごく楽になるでしょうね」 水産業の技術継承にAI活用の最前線", "u": "https://sorabatake.jp/26086/", "p": "PNT", "tg": ["解析・AI", "漁業"]}, {"i": "物流", "g": "infra", "y": 2021, "d": "2021-09", "t": "「洗濯物が乾く時間が10分単位でわかる」50年以上気象データを用いて顧客ニーズに応え続けるウェザーニューズの今", "u": "https://sorabatake.jp/22856/", "p": "PNT", "tg": ["気象データ", "ウェザーニューズ"]}, {"i": "物流", "g": "infra", "y": 2020, "d": "2020-01", "t": "物流×宇宙(人工衛星利用)、現状と事例 【宙畑業界研究Vol.6】", "u": "https://sorabatake.jp/16657/", "p": "PNT", "tg": ["物流"]}, {"i": "災害把握/防災", "g": "disaster", "y": 2023, "d": "2023-06", "t": "ソニーがGNSSの可能性に注目！「地球みまもりプラットフォーム」で目指す新しい世界", "u": "https://sorabatake.jp/32614/", "p": "PNT", "tg": ["測位・GNSS", "海外展開", "ソニー"]}, {"i": "交通", "g": "infra", "y": 2019, "d": "2019-06", "t": "AIによるビッグデータ活用で30分後のタクシーの需要が予測できる！", "u": "https://sorabatake.jp/6015/", "p": "PNT", "tg": ["解析・AI", "予測", "タクシー・移動"]}, {"i": "広告", "g": "lifestyle", "y": 2021, "d": "2021-09", "t": "気象データ活用で購入数20%アップ！ 使い方は無限大、ウェザーニューズ社の最新ビジネス事例と展望", "u": "https://sorabatake.jp/22864/", "p": "PNT", "tg": ["気象データ", "事業化", "ウェザーニューズ"]}, {"i": "toCアプリ", "g": "lifestyle", "y": 2020, "d": "2020-11", "t": "ヤマップ流！ ユーザーの心をつかむデータを使った新機能リリースのコツ", "u": "https://sorabatake.jp/16439/", "p": "PNT", "tg": ["ヤマップ"]}, {"i": "解析企業取材", "g": "players", "y": 2021, "d": "2021-10", "t": "「宇宙？すごいけど、うちではちょっと……」衛星データ解析のトップランナーOrbital Insightが乗り越えてきたデータ活用の障壁", "u": "https://sorabatake.jp/23320/", "p": "PNT", "tg": ["解析・AI", "Orbital Insight"]}, {"i": "基礎知識", "g": "players", "y": 2024, "d": "2024-01", "t": "日本版GPS「みちびき」の今！世界初・センチメートル級の高精度測位サービスの可能性", "u": "https://sorabatake.jp/6245/", "p": "PNT", "tg": ["測位・GNSS", "海外展開"]}, {"i": "まとめ", "g": "players", "y": 2022, "d": "2022-04", "t": "準天頂衛星「みちびき」を利用した実証事業の公募開始。測位サービスの実用化を後押し", "u": "https://sorabatake.jp/26114/", "p": "PNT", "tg": ["測位・GNSS", "社会実装", "事業化"]}, {"i": "まとめ", "g": "players", "y": 2024, "d": "2024-01", "t": "欧州衛星データ利用レポートを読み解く！産業別衛星データ利用のミライ", "u": "https://sorabatake.jp/35094/", "p": "PNT", "tg": []}, {"i": "スポーツ", "g": "lifestyle", "y": 2020, "d": "2020-05", "t": "ラグビー日本代表大躍進の影の立役者!? 衛星データがスポーツをこんなに変えた！", "u": "https://sorabatake.jp/12336/", "p": "PNT", "tg": ["スポーツ"]}, {"i": "金融", "g": "finance", "y": 2022, "d": "2022-07", "t": "【オルタナティブデータって何？】投資判断の最前線、新たな経済指標を用いた資産運用事例", "u": "https://sorabatake.jp/27566/", "p": "PNT", "tg": ["オルタナティブデータ", "経済指標"]}];
+const BASICS = [{"i": "基礎知識", "c": "宇宙ビジネス", "g": "宇宙ビジネスの全体像を理解", "y": 2017, "t": "宇宙ビジネスとは~業界マップ、ビジネスモデル、注目企業、市場規模~", "u": "https://sorabatake.jp/216/", "tg": ["事業化"], "tp": "business"}, {"i": "基礎知識", "c": "宇宙ビジネス", "g": "宇宙ビジネスで働くとなった際に知っておきたい全体像", "y": 2023, "t": "転職したらまず読む宇宙業界ジョインガイド！～ ロケット、衛星、地上局のオリジナル因果ループ図付き～", "u": "https://sorabatake.jp/30872/", "tg": [], "tp": "business"}, {"i": "基礎知識", "c": "衛星データ", "g": "衛星データで分かるモノ・コトを理解", "y": 2018, "t": "衛星データのキホン~分かること、種類、頻度、解像度、活用事例~", "u": "https://sorabatake.jp/279/", "tg": [], "tp": "data"}, {"i": "基礎知識", "c": "衛星データ", "g": "光学衛星の仕組みについて理解", "y": 2018, "t": "光の波長って何？ なぜ人工衛星は人間の目に見えないものが見えるのか", "u": "https://sorabatake.jp/364/", "tg": [], "tp": "data"}, {"i": "基礎知識", "c": "衛星データ", "g": "SAR衛星の仕組みについて理解", "y": 2019, "t": "合成開口レーダ（SAR）のキホン～事例、分かること、センサ、衛星、波長～", "u": "https://sorabatake.jp/3364/", "tg": ["SAR"], "tp": "data"}, {"i": "基礎知識", "c": "衛星データ", "g": "干渉SARの仕組みについて理解", "y": 2019, "t": "干渉SAR（InSAR）とは-分かること、事例、仕組み、読み解き方-", "u": "https://sorabatake.jp/4343/", "tg": ["SAR"], "tp": "data"}, {"i": "基礎知識", "c": "衛星データ", "g": "SARの原理について、どのように地上の状態を把握しているのかを理解", "y": 2024, "t": "レーダーの基礎から学ぶSAR(合成開口レーダー)の原理と奇跡【SARデータ解析者への道】", "u": "https://sorabatake.jp/36124/", "tg": ["SAR", "解析・AI"], "tp": "data"}, {"i": "基礎知識", "c": "衛星データ", "g": "衛星データの前処理の工程やその内容について基本を理解", "y": 2019, "t": "【図解】衛星データの前処理とは~概要、レベル別の処理内容と解説~", "u": "https://sorabatake.jp/9192/", "tg": [], "tp": "data"}, {"i": "基礎知識", "c": "衛星データ", "g": "ライダーの仕組みについて理解", "y": 2020, "t": "衛星搭載ライダーのキホン~事例、分かること、仕組み、種類、衛星~", "u": "https://sorabatake.jp/14216/", "tg": [], "tp": "data"}, {"i": "基礎知識", "c": "衛星データ", "g": "ハイパースペクトルについて概要を理解", "y": 2022, "t": "ハイパースペクトルセンサとは～仕組み、用途、代表的なセンサ～日本の技術力が集結したHISUIの凄さに迫る！", "u": "https://sorabatake.jp/28639/", "tg": ["ハイパースペクトル"], "tp": "data"}, {"i": "基礎知識", "c": "衛星データ", "g": "ハイパースペクトルについて概要と実践まで理解", "y": 2025, "t": "【徹底解説】第3の分解能に特化したハイパースペクトルデータの概要と解析方法、代表企業まとめ", "u": "https://sorabatake.jp/40363/", "tg": ["解析・AI", "ハイパースペクトル"], "tp": "data"}, {"i": "基礎知識", "c": "衛星データ", "g": "GISの基本と事例を理解", "y": 2020, "t": "GIS（地理空間情報システム）の基本～できること、活用事例、GISデータ、ソフト～", "u": "https://sorabatake.jp/16915/", "tg": [], "tp": "data"}, {"i": "基礎知識", "c": "衛星データ", "g": "衛星データが苦手なこと、制約について理解", "y": 2023, "t": "気持ちよく衛星データを利用するために知っておきたい！ 衛星データの制約と利活用を社会実装までつなげるヒント", "u": "https://sorabatake.jp/34685/", "tg": ["社会実装"], "tp": "data"}, {"i": "基礎知識", "c": "衛星データ", "g": "解像度と分解能の言葉の違いについて理解", "y": 2024, "t": "解像度と分解能の違いとは？ 地球観測含む様々な業界の言葉の定義と違いを知る意義", "u": "https://sorabatake.jp/34976/", "tg": [], "tp": "data"}, {"i": "基礎知識", "c": "通信衛星", "g": "通信衛星コンステレーション市場の基本を理解", "y": 2020, "t": "通信衛星コンステレーションビジネスとは~参入企業、市場規模、課題と展望~", "u": "https://sorabatake.jp/14414/", "tg": ["通信", "事業化"], "tp": "comms"}, {"i": "基礎知識", "c": "地上システム", "g": "市場システムの基本を理解", "y": 2020, "t": "参入チャンス！ 衛星を支える地上システムまとめ～構成、企業、法規制～", "u": "https://sorabatake.jp/16323/", "tg": [], "tp": "comms"}, {"i": "基礎知識", "c": "SSA", "g": "SSA（宇宙状況把握）の基本とプレイヤーを理解", "y": 2023, "t": "SSA（宇宙状況把握）とは〜日本の防衛省と国際状況、企業の貢献、技術課題、運用システムを総合的に解説〜", "u": "https://sorabatake.jp/33237/", "tg": [], "tp": "comms"}, {"i": "基礎知識", "c": "測位衛星", "g": "準天頂衛星「みちびき」の仕組みを理解", "y": 2017, "t": "「みちびき」とは～GPS精度を向上させる準天頂衛星の仕組み～", "u": "https://sorabatake.jp/625/", "tg": ["測位・GNSS"], "tp": "comms"}, {"i": "基礎知識", "c": "資金調達", "g": "SPACについて、基本と宇宙ビジネスにおける状況を整理", "y": 2022, "t": "SPAC（特別買収目的会社）ってなに？ 宇宙ビジネスでも話題の話題の新しい上場の形とメリット、課題を分かりやすく解説", "u": "https://sorabatake.jp/26927/", "tg": ["事業化"], "tp": "finance"}, {"i": "基礎知識", "c": "月面探査計画", "g": "アルテミス計画について理解", "y": 2020, "t": "アルテミス計画総まとめ！ 2020年代の月面開発はどこまで進むのか", "u": "https://sorabatake.jp/14652/", "tg": [], "tp": "explore"}, {"i": "基礎知識", "c": "軌道", "g": "衛星の軌道について実践と合わせて理解", "y": 2021, "t": "Pythonを使って人工衛星の軌道を表現する～軌道６要素、TLE～", "u": "https://sorabatake.jp/23655/", "tg": [], "tp": "data"}, {"i": "基礎知識", "c": "軌道", "g": "衛星の軌道について仕組みと基本を理解", "y": 2021, "t": "人工衛星の軌道を徹底解説！ 軌道の種類と用途別軌道選定のポイント", "u": "https://sorabatake.jp/23000/", "tg": [], "tp": "data"}, {"i": "基礎知識", "c": "宇宙旅行", "g": "宇宙旅行の種類と金額について理解", "y": 2020, "t": "2020年サービス開始!?「宇宙旅行ビジネス」の現状とその費用、企業紹介", "u": "https://sorabatake.jp/12241/", "tg": ["事業化"], "tp": "explore"}, {"i": "基礎知識", "c": "宇宙法", "g": "宇宙ビジネスに参入するうえで知っておきたい法律を理解", "y": 2018, "t": "宇宙二法とは~国際的な背景と各法律の概要、今後の課題~", "u": "https://sorabatake.jp/152/", "tg": [], "tp": "policy"}, {"i": "基礎知識", "c": "宇宙法", "g": "宇宙ビジネスに参入するうえで知っておきたい法律を理解", "y": 2020, "t": "宇宙法とは何か、宇宙ビジネスを起業する上で知っておきたい法律まとめ", "u": "https://sorabatake.jp/10546/", "tg": ["事業化"], "tp": "policy"}, {"i": "基礎知識", "c": "宇宙法", "g": "衛星データビジネスを行う上で知っておきたい法律を理解", "y": 2020, "t": "3つのケースで考える衛星データビシネスと法実務~実践編~", "u": "https://sorabatake.jp/13002/", "tg": [], "tp": "policy"}, {"i": "基礎知識", "c": "宇宙資源開発", "g": "宇宙資源開発の基本を理解", "y": 2019, "t": "宇宙資源開発のロマンとそろばん ~宇宙資源とは、市場規模、法律~", "u": "https://sorabatake.jp/5316/", "tg": [], "tp": "explore"}, {"i": "基礎知識", "c": "サイバーセキュリティ", "g": "宇宙開発におけるサイバーセキュリティを理解", "y": 2021, "t": "車も衛星もハッキングされる時代！？注目が集まる衛星のサイバーセキュリティ", "u": "https://sorabatake.jp/24311/", "tg": [], "tp": "policy"}, {"i": "基礎知識", "c": "宇宙ゴミ", "g": "宇宙ゴミ/スペースデブリの基本を理解", "y": 2024, "t": "深刻化する「宇宙ごみ」問題〜スペースデブリの現状と今後の対策〜", "u": "https://sorabatake.jp/15865/", "tg": [], "tp": "env"}, {"i": "基礎知識", "c": "トレンド", "g": "SDGs,ESGについて、基本と衛星データとの関連を理解", "y": 2021, "t": "【今さら聞けない】SDGsとは？ESGって何？ 事例と合わせて分かりやすく解説", "u": "https://sorabatake.jp/18417/", "tg": [], "tp": "business"}, {"i": "基礎知識", "c": "トレンド", "g": "スマートシティについて、基本と衛星データとの関連を理解", "y": 2021, "t": "【スマートシティとは？】トヨタを含む国内外11事例と関連技術を分かりやすく解説", "u": "https://sorabatake.jp/18567/", "tg": [], "tp": "business"}, {"i": "基礎知識", "c": "トレンド", "g": "デジタルツインについて、基本と衛星データとの関連を理解", "y": 2021, "t": "デジタルツインとは～シミュレーションとの違い、解決する課題、企業・国・都市の事例、注目データ～", "u": "https://sorabatake.jp/20125/", "tg": ["デジタルツイン"], "tp": "business"}, {"i": "まとめ", "c": "宇宙政策", "g": "日本の直近の宇宙政策と予算について理解", "y": 2025, "t": "宇宙産業に関する政府支援プログラムと予算の割り当てまとめ～宇宙戦略基金、SBIR、スターダスト、Kプログラム～", "u": "https://sorabatake.jp/36775/", "tg": [], "tp": "policy"}, {"i": "まとめ", "c": "衛星データ", "g": "光学衛星の正規化指標について理解", "y": 2019, "t": "課題に応じて変幻自在？ 衛星データをブレンドして見えるモノ・コト", "u": "https://sorabatake.jp/5192/", "tg": [], "tp": "data"}, {"i": "まとめ", "c": "衛星データ", "g": "解像度と地方時について整理", "y": 2018, "t": "人工衛星から人は見える？~衛星別、地上分解能・地方時まとめ~", "u": "https://sorabatake.jp/441/", "tg": ["地方自治体"], "tp": "data"}, {"i": "まとめ", "c": "衛星データ", "g": "豊富な衛星データの利活用事例を一気に理解", "y": 2020, "t": "【随時更新】衛星データ活用事例を総まとめ！ あなたにおすすめの事例がきっとわかる!?", "u": "https://sorabatake.jp/15698/", "tg": [], "tp": "data"}, {"i": "まとめ", "c": "衛星データ", "g": "衛星データの代表的な利活用事例と必要な衛星のスペックを理解", "y": 2022, "t": "衛星データ活用事例別、ニーズを実現するために必要な衛星スペックと解析技術", "u": "https://sorabatake.jp/28350/", "tg": ["解析・AI"], "tp": "data"}, {"i": "まとめ", "c": "衛星データ", "g": "環境問題に利用できる衛星データを理解", "y": 2022, "t": "【保存版】環境問題を可視化する衛星データまとめ〜環境問題の指標・世界の取り組み・利用できる人工衛星〜", "u": "https://sorabatake.jp/26822/", "tg": ["可視化", "海外展開"], "tp": "data"}, {"i": "まとめ", "c": "衛星データ", "g": "災害発生時に提供される衛星データを理解", "y": 2022, "t": "災害時の衛星画像はどこを見に行けばいい？災害時の衛星画像や解析結果を共有する取り組みを紹介！", "u": "https://sorabatake.jp/27822/", "tg": ["解析・AI"], "tp": "data"}, {"i": "まとめ", "c": "衛星データ", "g": "災害時の国際的な衛星観測の地理組について理解", "y": 2023, "t": "各国の災害に世界の衛星が総結集！ センチネルアジアと国際災害チャータの概要と活躍する衛星一覧", "u": "https://sorabatake.jp/34435/", "tg": ["海外展開"], "tp": "data"}, {"i": "まとめ", "c": "資金調達", "g": "国内外の資金調達状況の全体像を理解（2019年時点）", "y": 2019, "t": "宇宙ベンチャーの資金調達！国内・海外宇宙ビジネスの調達方法と実例まとめ【2019】", "u": "https://sorabatake.jp/5408/", "tg": ["資金調達", "事業化", "海外展開"], "tp": "finance"}, {"i": "まとめ", "c": "資金調達", "g": "SPAC上場をした宇宙ベンチャーの決算状況を整理", "y": 2022, "t": "SPAC（特別買収目的会社）上場した宇宙ベンチャーの株価推移と財務状況を徹底分析！", "u": "https://sorabatake.jp/26953/", "tg": [], "tp": "finance"}, {"i": "まとめ", "c": "衛星開発", "g": "超小型衛星の市場について理解", "y": 2020, "t": "宇宙はもはや”手段”の時代。ビジネス利用が広がる超小型衛星の市場規模と事業社まとめ", "u": "https://sorabatake.jp/16295/", "tg": ["事業化"], "tp": "comms"}, {"i": "まとめ", "c": "打ち上げ射場", "g": "ロケット射場の基本と現状を理解", "y": 2021, "t": "射場の条件と合わせて学ぶ、続々と増える世界のロケット射場まとめ", "u": "https://sorabatake.jp/18541/", "tg": ["海外展開"], "tp": "comms"}, {"i": "まとめ", "c": "宇宙探査", "g": "宇宙探査市場について世界情勢を理解", "y": 2020, "t": "はやぶさ2予算はアポロ計画の1/300!? 各国の宇宙探査まとめ", "u": "https://sorabatake.jp/16655/", "tg": [], "tp": "explore"}, {"i": "まとめ", "c": "宇宙ビジネス", "g": "宇宙ビジネスの市場規模に関する3つの未来予測を理解", "y": 2021, "t": "【宇宙産業は”夢”なのか】宇宙産業の今と2050年を予測する3つの文献", "u": "https://sorabatake.jp/17696/", "tg": ["予測"], "tp": "business"}, {"i": "まとめ", "c": "宇宙エンタメ", "g": "宇宙エンタメの市場と参入企業を理解", "y": 2021, "t": "人工流れ星、宇宙旅行に宇宙広告……宇宙エンタメビジネスの現在地と19の参入企業", "u": "https://sorabatake.jp/22737/", "tg": ["事業化"], "tp": "explore"}, {"i": "まとめ", "c": "スタートアップ支援", "g": "宇宙ベンチャーが受けられる支援を網羅的に理解", "y": 2021, "t": "宇宙ベンチャーを支援するJAXA+9機関全41のスタートアップ支援制度まとめ、JETROとJAXAに聞いてみた", "u": "https://sorabatake.jp/22681/", "tg": ["JAXA"], "tp": "business"}, {"i": "まとめ", "c": "オープンデータ", "g": "オープンデータについて基本と事例を理解", "y": 2020, "t": "オープンデータ活用事例28選とおすすめデータセットまとめ【無料のデータでビジネスをアップデート！ 】", "u": "https://sorabatake.jp/14930/", "tg": ["事業化", "オープンデータ"], "tp": "policy"}, {"i": "まとめ", "c": "衛星データ", "g": "衛星データに関するよくある質問をまとめ", "y": 2021, "t": "20000人が寄せた衛星データのはてな、衛星データQ&Aまとめ", "u": "https://sorabatake.jp/17871/", "tg": [], "tp": "data"}, {"i": "インタビュー", "c": "行政改革", "g": "地方自治体で先進事例が生まれるヒントをインタビュー", "y": 2024, "t": "地方自治体の先進事例が日本を救う!? 地方自治体から事例が生まれる5つのヒント【フィラメント角勝さんインタビュー】", "u": "https://sorabatake.jp/38219/", "tg": ["地方自治体"], "tp": "policy"}];
+const DEMOS = [{"c": "妄想", "o": "戦国時代", "t": "戦国時代は情報戦！ もしも戦国時代に衛星データがあったなら | 宙畑", "u": "https://sorabatake.jp/7369/", "tg": []}, {"c": "衛星データの確認", "o": "噴火", "t": "衛星から噴火はこう見える！ キラウェア火山観測の光学・SAR比較 | 宙畑", "u": "https://sorabatake.jp/1229/", "tg": ["SAR", "光学"]}, {"c": "衛星データの確認", "o": "紅葉", "t": "人工衛星で見ごろがわかる？紅葉エリアを調べてみた | 宙畑", "u": "https://sorabatake.jp/666/", "tg": []}, {"c": "衛星データの確認", "o": "ディズニー", "t": "いつ空いてるの!? 無料衛星データでディズニーランドの混雑予想チャレンジ（前編） | 宙畑", "u": "https://sorabatake.jp/349/", "tg": []}, {"c": "衛星データの確認", "o": "土砂崩れ", "t": "北海道地震の土砂崩れは広範囲だった？ SAR衛星データで調べてみた | 宙畑", "u": "https://sorabatake.jp/395/", "tg": ["SAR", "北海道"]}, {"c": "衛星データの確認", "o": "積雪", "t": "新千歳空港閉鎖!? 積雪状況を3種類の衛星データで見比べてみた | 宙畑", "u": "https://sorabatake.jp/3593/", "tg": []}, {"c": "衛星データの確認", "o": "富士山", "t": "富士山が見える場所はどこまで？標高データから解析！ | 宙畑", "u": "https://sorabatake.jp/4076/", "tg": ["解析・AI"]}, {"c": "衛星データの確認", "o": "熊本城", "t": "熊本城は令和時代でも落とせない!? 城の専門家が語る加藤清正の選地の妙 | 宙畑", "u": "https://sorabatake.jp/22304/", "tg": []}, {"c": "衛星データの確認", "o": "阿蘇の草原", "t": "1000年以上守り続けた美しさ。世界遺産登録を目指す「阿蘇」の雄大な景観保護にデータ活用検討！ | 宙畑", "u": "https://sorabatake.jp/24504/", "tg": ["海外展開"]}, {"c": "衛星データの確認", "o": "流氷", "t": "北海道で流氷を見たい！ 流氷の位置を衛星データで確認する方法 | 宙畑", "u": "https://sorabatake.jp/3333/", "tg": ["北海道"]}, {"c": "衛星データの確認", "o": "森林限界", "t": "Tellusで標高の高い山の森林限界を可視化してみた | 宙畑", "u": "https://sorabatake.jp/9136/", "tg": ["可視化", "森林・林業"]}, {"c": "衛星データの確認", "o": "駐車場", "t": "夕陽が見えるあの場所は”穴場”？衛星データで気になる観光スポットの混雑度チェック！ | 宙畑", "u": "https://sorabatake.jp/25940/", "tg": []}, {"c": "仮説検証", "o": "東京五輪マラソン", "t": "東京五輪マラソンは本当に暑い？ 衛星データで過去と比較してみた | 宙畑", "u": "https://sorabatake.jp/737/", "tg": ["東京都"]}, {"c": "仮説検証", "o": "夜間光とGDP", "t": "衛星が撮影した夜の地球「夜間光」がお金に変わる!? 概要と利用事例 | 宙畑", "u": "https://sorabatake.jp/240/", "tg": []}, {"c": "仮説検証", "o": "アメリカ大統領選挙", "t": "アメリカ民主党支持層は本当に都市部に多い？衛星データで検証してみた | 宙畑", "u": "https://sorabatake.jp/2059/", "tg": []}, {"c": "仮説検証", "o": "箱根駅伝", "t": "箱根駅伝強豪校の通学路は坂道が多い？都市伝説を衛星データで検証してみた | 宙畑", "u": "https://sorabatake.jp/2752/", "tg": []}, {"c": "仮説検証", "o": "みかん畑", "t": "みかん農家に聞いた「美味しいみかん畑の4つの条件」を衛星データで検証してみた | 宙畑", "u": "https://sorabatake.jp/4225/", "tg": []}, {"c": "仮説検証", "o": "電動アシスト付き自転車の商圏", "t": "QGISで電動アシスト付自転車が売れる町の仮説を立てて実際にその町に行ってみた | 宙畑", "u": "https://sorabatake.jp/4901/", "tg": []}, {"c": "仮説検証", "o": "空港周辺の緑地率とバードストライク", "t": "空港周辺の緑地率とバードストライク率の相関を検証してみた | 宙畑", "u": "https://sorabatake.jp/8520/", "tg": []}, {"c": "仮説検証", "o": "年収と緑地率", "t": "年収と街の緑地率に相関があるってホント!? 衛星データで検証してみた | 宙畑", "u": "https://sorabatake.jp/9152/", "tg": []}, {"c": "仮説検証", "o": "海面水温と魚釣り", "t": "まさに目からウロコ！ 衛星データで見つけた漁場の釣果が凄かった | 宙畑", "u": "https://sorabatake.jp/7946/", "tg": ["検知"]}, {"c": "仮説検証", "o": "スサノオ神社と水害", "t": "スサノオ神社がある場所は水害に遭いにくい？ 御祭神に注目して衛星データで都内を見てみた | 宙畑", "u": "https://sorabatake.jp/17548/", "tg": ["河川・水害"]}, {"c": "仮説検証", "o": "天気の子", "t": "天気の子、その影響は10メートルの水没⁉︎ その時日本はどうなっていたのか | 宙畑", "u": "https://sorabatake.jp/12617/", "tg": []}, {"c": "仮説検証", "o": "100万ドルの夜景", "t": "神戸の夜景は何万ドル？衛星データを使って実際に計算してみた | 宙畑", "u": "https://sorabatake.jp/15363/", "tg": ["神戸市"]}, {"c": "仮説検証", "o": "夜間光と土地価格", "t": "「夜明るいところは土地の価格が高い？夜間光と土地価格の相関を調査してみた！」 | 宙畑", "u": "https://sorabatake.jp/27232/", "tg": []}, {"c": "検知", "o": "桜", "t": "衛星から桜は見える！ 衛星画像を使った桜の探し方 | 宙畑", "u": "https://sorabatake.jp/1108/", "tg": []}, {"c": "検知", "o": "テニスコート", "t": "衛星データだけでグランドスラムのテニスコート素材を当てる！ | 宙畑", "u": "https://sorabatake.jp/889/", "tg": []}, {"c": "検知", "o": "オイルスリック", "t": "貨物船衝突事故発生、衛星データでオイルの漏出を確認できるのか | 宙畑", "u": "https://sorabatake.jp/1380/", "tg": []}, {"c": "検知", "o": "桜", "t": "衛星データから桜の開花検知によるお花見スポット探索の実装と3Dでの表現【MAXARの衛星データでやってみた】 | 宙畑", "u": "https://sorabatake.jp/34076/", "tg": ["検知", "社会実装"]}, {"c": "場所探し", "o": "ビーチ", "t": "今夏はどこへ行く!? 衛星画像から知られざる最高のビーチを探せ！ | 宙畑", "u": "https://sorabatake.jp/1322/", "tg": []}, {"c": "場所探し", "o": "天体観測スポット", "t": "流れ星が見える場所はどこ？ 衛星データで近場の星空観光スポットを探せ！ | 宙畑", "u": "https://sorabatake.jp/266/", "tg": []}, {"c": "場所探し", "o": "花粉が少ない場所", "t": "花粉から逃げろ！ 衛星データを使って花粉の少ない街探しチャレンジ vol.1 | 宙畑", "u": "https://sorabatake.jp/9592/", "tg": []}, {"c": "場所探し", "o": "牛肉が美味しい場所", "t": "自分好みの牛肉をお取り寄せ！ 239種の国産銘柄牛を衛星データで比較してみた | 宙畑", "u": "https://sorabatake.jp/12445/", "tg": []}, {"c": "場所探し", "o": "鬼・妖怪", "t": "鬼が住んでいそうな場所を衛星から探してみたら、47カ所見つかった | 宙畑", "u": "https://sorabatake.jp/21317/", "tg": []}, {"c": "場所探し", "o": "恋人", "t": "オープンデータを利用して理想の恋人は見つかるのか!? 結婚したいOLのクリスマス直前カレシ探し 【前編】 | 宙畑", "u": "https://sorabatake.jp/1686/", "tg": ["オープンデータ"]}, {"c": "場所探し", "o": "やまびこスポット", "t": "2020年の抱負を叫ぶため、衛星データでやまびこができるポイントを探す！(前編) | 宙畑", "u": "https://sorabatake.jp/9801/", "tg": []}, {"c": "場所探し", "o": "風が強いテニスコート", "t": "風が強いテニスコートはどこだ！ 過去10年間のインターハイ決勝会場比較 | 宙畑", "u": "https://sorabatake.jp/7513/", "tg": []}, {"c": "場所探し", "o": "街", "t": "京都と似ている街は？熊本城近辺と似ている場所は？ 宇宙から見た街の近似度チェック！ | 宙畑", "u": "https://sorabatake.jp/24228/", "tg": []}, {"c": "場所探し", "o": "キャンプスポット", "t": "理想の“くるキャン”スポットを衛星データで探せ！〜 Vol.2 車中泊スポットの理想条件を衛星データで分析する 〜 | 宙畑", "u": "https://sorabatake.jp/22965/", "tg": []}, {"c": "場所探し", "o": "ロケットの打上げが見える場所", "t": "ロケットの打ち上げはどこから見える!? 未来のロケット射場と可視エリア推定 | 宙畑", "u": "https://sorabatake.jp/19113/", "tg": []}, {"c": "場所探し", "o": "ロケットの打上げが見えて星がきれいな場所", "t": "ロケット打上げを観測できて、星も綺麗な場所を探したら、熊本で1箇所だけ見つかった！ | 宙畑", "u": "https://sorabatake.jp/22184/", "tg": []}, {"c": "予測", "o": "雲海", "t": "AMeDASのデータから雲海の発生予測をして実際に見に行ってみた | 宙畑", "u": "https://sorabatake.jp/11075/", "tg": ["予測"]}, {"c": "予測", "o": "紅葉", "t": "YAMAPのリアルタイム紅葉モニターの画像を参照して衛星データから紅葉予測チャレンジ！~データ解析編~ | 宙畑", "u": "https://sorabatake.jp/29528/", "tg": ["解析・AI", "予測"]}, {"c": "企画", "o": "", "t": "元衛星国ブルガリアを、衛星国時代のガイドブックで、衛星に関係ないもの縛り観光 | 宙畑", "u": "https://sorabatake.jp/7361/", "tg": []}, {"c": "企画", "o": "", "t": "自分の歴史を人工衛星データで振り返ると歩んできた道がよくわかる | 宙畑", "u": "https://sorabatake.jp/809/", "tg": []}];
+const TAG_CATEGORIES = {"tech": {"label": "技術", "icon": "◍", "color": "#00B5D4", "tags": ["SAR", "光学", "解析・AI", "ドローン", "IoT", "気象データ", "通信", "測位・GNSS", "リモートセンシング", "デジタルツイン", "ハイパースペクトル"]}, "usecase": {"label": "用途", "icon": "◎", "color": "#D4A02B", "tags": ["モニタリング・監視", "予測", "検知", "損害査定・保険", "社会実装", "可視化", "資金調達", "事業化", "海外展開", "オープンデータ"]}, "company": {"label": "企業・組織", "icon": "◆", "color": "#7B5FCC", "tags": ["JAXA", "JICA", "NEC", "スカイマティクス", "サグリ", "Planet", "Synspective", "QPS研究所", "ispace", "スカパーJSAT", "ウェザーニューズ", "UMITRON", "Orbital Insight", "ソニー", "カゴメ", "シャープ", "ヤマップ"]}, "region": {"label": "地域", "icon": "◉", "color": "#4A9D5A", "tags": ["神戸市", "山口県", "北海道", "岡山市", "南相馬市", "東京都", "小笠原", "カンボジア", "アマゾン"]}, "theme": {"label": "テーマ", "icon": "※", "color": "#D14E83", "tags": ["稲作・米", "小麦", "果樹・トマト", "森林・林業", "畜産・放牧", "漁業", "河川・水害", "森林由来CO2", "スポーツ", "タクシー・移動", "インフラ老朽化", "シビックテック", "社会課題解決", "プラネタリーヘルス", "海洋ごみ・SDGs", "5G・次世代通信", "オルタナティブデータ", "電力・発電", "経済指標", "物流", "地方自治体"]}};
+const TAG_TO_CAT = {"SAR": "tech", "光学": "tech", "解析・AI": "tech", "ドローン": "tech", "IoT": "tech", "気象データ": "tech", "通信": "tech", "測位・GNSS": "tech", "リモートセンシング": "tech", "デジタルツイン": "tech", "ハイパースペクトル": "tech", "モニタリング・監視": "usecase", "予測": "usecase", "検知": "usecase", "損害査定・保険": "usecase", "社会実装": "usecase", "可視化": "usecase", "資金調達": "usecase", "事業化": "usecase", "海外展開": "usecase", "オープンデータ": "usecase", "JAXA": "company", "JICA": "company", "NEC": "company", "スカイマティクス": "company", "サグリ": "company", "Planet": "company", "Synspective": "company", "QPS研究所": "company", "ispace": "company", "スカパーJSAT": "company", "ウェザーニューズ": "company", "UMITRON": "company", "Orbital Insight": "company", "ソニー": "company", "カゴメ": "company", "シャープ": "company", "ヤマップ": "company", "神戸市": "region", "山口県": "region", "北海道": "region", "岡山市": "region", "南相馬市": "region", "東京都": "region", "小笠原": "region", "カンボジア": "region", "アマゾン": "region", "稲作・米": "theme", "小麦": "theme", "果樹・トマト": "theme", "森林・林業": "theme", "畜産・放牧": "theme", "漁業": "theme", "河川・水害": "theme", "森林由来CO2": "theme", "スポーツ": "theme", "タクシー・移動": "theme", "インフラ老朽化": "theme", "シビックテック": "theme", "社会課題解決": "theme", "プラネタリーヘルス": "theme", "海洋ごみ・SDGs": "theme", "5G・次世代通信": "theme", "オルタナティブデータ": "theme", "電力・発電": "theme", "経済指標": "theme", "物流": "theme", "地方自治体": "theme"};
+const BASICS_TOPICS = {"data": {"label": "衛星データ", "icon": "🛰", "color": "#00B5D4", "categories": ["衛星データ", "軌道"]}, "business": {"label": "宇宙ビジネス", "icon": "💼", "color": "#D4A02B", "categories": ["宇宙ビジネス", "トレンド", "スタートアップ支援"]}, "finance": {"label": "資金調達", "icon": "💰", "color": "#6BAA4C", "categories": ["資金調達"]}, "policy": {"label": "法・政策", "icon": "⚖️", "color": "#5A6FAB", "categories": ["宇宙法", "宇宙政策", "オープンデータ", "行政改革", "サイバーセキュリティ"]}, "comms": {"label": "通信・地上系", "icon": "📡", "color": "#7B5FCC", "categories": ["通信衛星", "地上システム", "測位衛星", "SSA", "衛星開発", "打ち上げ射場"]}, "explore": {"label": "月・宇宙探査", "icon": "🌙", "color": "#E08930", "categories": ["月面探査計画", "宇宙探査", "宇宙資源開発", "宇宙旅行", "宇宙エンタメ"]}, "env": {"label": "宇宙環境", "icon": "🌍", "color": "#4A9D5A", "categories": ["宇宙ゴミ"]}};
+const DEMOS_TOPICS = {"仮説検証": {"icon": "🔬", "color": "#00B5D4"}, "場所探し": {"icon": "🗺️", "color": "#6BAA4C"}, "衛星データの確認": {"icon": "🔍", "color": "#7B5FCC"}, "検知": {"icon": "📡", "color": "#E0454D"}, "予測": {"icon": "🔮", "color": "#D14E83"}, "企画": {"icon": "📋", "color": "#D4A02B"}, "妄想": {"icon": "💭", "color": "#E08930"}};
+const FEATURED_TITLES = ["ラグビー日本代表", "一等米比率99%", "アマゾンの違法伐採", "30分後のタクシー", "洗濯物が乾く時間が10分単位", "漁師の大負担", "水害発生から早期", "耕作放棄地", "17時15分に退勤", "バナナ、パーム油"];
+const TAGLINES = {"agriculture": "土を見るのではなく、土地のポテンシャルを観る", "ocean": "海の上に、見えなかった \"海図\" が広がる", "government": "行政の意思決定に、宇宙からの証拠を", "disaster": "災害発生から数時間で、被害の地図が描かれる", "environment": "地球を一枚の画像にする、その先のアクション", "finance": "見えない経済指標を、可視化する", "infra": "老朽化・需要・流れ、すべてを宇宙が映す", "energy": "エネルギー最適化のための、新しいデータ", "lifestyle": "スポーツも暮らしも、宇宙データで一歩先へ", "security": "安全保障の最前線、衛星×AIの実装", "players": "世界のトップランナーが語る、これからの十年"};
+const NUMBERS = {"agriculture": "一等米99%, 1.5億円調達, ¥数千億円規模", "ocean": "漁師70%データ依存, 17:15退勤", "government": "77カ国の森林を監視, アマゾン違法伐採検知", "disaster": "1400km軽石を追跡, 早期被害把握", "environment": "CO2吸収量を取引, 自然資本評価", "finance": "購入数+20%, オルタナティブデータ", "infra": "30分後のタクシー需要予測, インフラ老朽化検知", "energy": "電力品質の最適化, 発電量予測", "lifestyle": "ラグビー日本代表躍進, 洗濯時間10分単位", "security": "衛星×AIの最前線", "players": "Planet・Orbital Insight・Synspective"};
+
+// === Render Industries ===
+function renderIndustries(){
+  const el = document.getElementById('industriesGrid');
+  const counts = {};
+  ARTICLES.forEach(a => counts[a.g] = (counts[a.g] || 0) + 1);
+  el.innerHTML = Object.entries(GROUPS).map(([code, g]) => {
+    const cnt = counts[code] || 0;
+    return `
+      <button type="button" class="industry-card" data-group-filter="${code}" style="--grp-color:${g.color}">
+        <span class="industry-icon">${g.icon}</span>
+        <div class="industry-name">${g.name}</div>
+        <div class="industry-en">${g.en}</div>
+        <div class="industry-tagline">${TAGLINES[code] || ''}</div>
+        <div class="industry-meta">
+          <div class="industry-count">${cnt}<span>stories</span></div>
+          <div class="industry-numbers">${NUMBERS[code] || ''}</div>
+        </div>
+        <div class="industry-cta">クリックで絞り込む →</div>
+      </button>`;
+  }).join('');
+}
+
+// === Render Featured ===
+function renderFeatured(){
+  const el = document.getElementById('featuredGrid');
+  const featured = [];
+  FEATURED_TITLES.forEach(kw => {
+    const found = ARTICLES.find(a => a.t.includes(kw));
+    if(found && !featured.includes(found)) featured.push(found);
+  });
+  el.innerHTML = featured.map(a => {
+    const g = GROUPS[a.g] || {color: '#FFB85C', name: ''};
+    return `
+      <a href="${a.u}" class="story-card" target="_blank" rel="noopener" style="--card-color:${g.color}">
+        <div class="story-card-inner">
+          <div class="story-card-grp">${g.icon || ''} ${g.name || a.i}</div>
+          <div class="story-card-title">${a.t}</div>
+          <div class="story-card-meta">
+            <span>${a.d || ''}</span>
+            <span class="story-card-arrow">読む →</span>
+          </div>
+        </div>
+      </a>`;
+  }).join('');
+}
+
+// === Render Gallery (filterable) ===
+const groupColors = {};
+Object.entries(GROUPS).forEach(([c, g]) => groupColors[c] = g.color);
+
+// Tag category lookup
+const TAG_CAT_LOOKUP = TAG_TO_CAT;
+
+function renderGallery(items){
+  const el = document.getElementById('gallery');
+  const cnt = document.getElementById('resultCount');
+  if(!el) return;
+  if(cnt) cnt.textContent = items.length;
+  if(items.length === 0){
+    el.innerHTML = '<div class="empty-state">物語が見つかりませんでした。<br>条件を緩めてみてください。</div>';
+    return;
+  }
+  el.innerHTML = items.map(a => {
+    const g = GROUPS[a.g] || {color:'#FFB85C', name:a.i, icon:''};
+    const typeBadge = {EO:'eo', COMM:'comm', PNT:'pnt'}[a.p];
+    const typeLabel = {EO:'観測', COMM:'通信', PNT:'測位'}[a.p];
+    const tags = (a.tg || []).slice(0, 6); // show up to 6
+    const tagsHTML = tags.length ? `
+      <div class="article-tags">
+        ${tags.map(tag => {
+          const cat = TAG_CAT_LOOKUP[tag] || 'theme';
+          // Use data attribute for event delegation
+          const safeTag = tag.replace(/"/g, '&quot;');
+          return `<button type="button" class="article-tag ${cat}" data-add-tag="${safeTag}" title="このタグで絞り込む">${tag}</button>`;
+        }).join('')}
+      </div>` : '';
+    return `
+      <div class="article-card" style="--art-color:${g.color}">
+        <a href="${a.u}" class="article-title-link" target="_blank" rel="noopener">
+          <div class="article-meta">
+            <span class="article-grp">${g.icon || ''} ${g.name || a.i}</span>
+            <span class="article-date">${a.d || ''}</span>
+          </div>
+          <div class="article-title">${a.t}</div>
+        </a>
+        <div class="article-type-badges">
+          <span class="type-badge ${typeBadge}">${typeLabel}</span>
+        </div>
+        ${tagsHTML}
+      </div>`;
+  }).join('');
+}
+
+// === Tag selection state ===
+const selectedTags = new Set();
+
+function addTagFilter(tag){
+  selectedTags.add(tag);
+  renderTagPicker();
+  renderActiveTags();
+  applyFilters();
+  // scroll to results
+  document.getElementById('gallery').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function removeTagFilter(tag){
+  selectedTags.delete(tag);
+  renderTagPicker();
+  renderActiveTags();
+  applyFilters();
+}
+
+function toggleTagFilter(tag){
+  if(selectedTags.has(tag)) selectedTags.delete(tag);
+  else selectedTags.add(tag);
+  renderTagPicker();
+  renderActiveTags();
+  applyFilters();
+}
+
+// === Render Tag Picker ===
+function renderTagPicker(){
+  const el = document.getElementById('tagPickerInner');
+  // Compute tag counts based on current OTHER filters (so users see only useful tags)
+  const tagCounts = {};
+  ARTICLES.forEach(a => {
+    (a.tg || []).forEach(t => {
+      tagCounts[t] = (tagCounts[t] || 0) + 1;
+    });
+  });
+  el.innerHTML = Object.entries(TAG_CATEGORIES).map(([code, cat]) => {
+    return `
+      <div class="tag-cat">
+        <div class="tag-cat-label" style="--tc-color:${cat.color}">
+          <span class="tag-cat-icon">${cat.icon}</span>
+          ${cat.label}
+        </div>
+        <div class="tag-chips">
+          ${cat.tags.map(tag => {
+            const count = tagCounts[tag] || 0;
+            const active = selectedTags.has(tag);
+            const disabled = count === 0;
+            const safeTag = tag.replace(/"/g, '&quot;');
+            return `
+              <button type="button" class="tag-chip ${active ? 'active' : ''} ${disabled ? 'disabled' : ''}"
+                style="--tc-color:${cat.color}"
+                ${disabled ? 'disabled' : ''}
+                data-toggle-tag="${safeTag}">
+                ${tag}
+                <span class="tag-chip-count">${count}</span>
+              </button>
+            `;
+          }).join('')}
+        </div>
+      </div>`;
+  }).join('');
+  // Update toggle count
+  const cnt = document.getElementById('tagToggleCount');
+  if(selectedTags.size > 0){
+    cnt.textContent = selectedTags.size;
+    cnt.style.display = 'inline-block';
+  } else {
+    cnt.style.display = 'none';
+  }
+}
+
+// === Render Active Tags ===
+function renderActiveTags(){
+  const el = document.getElementById('activeTags');
+  if(selectedTags.size === 0){
+    el.innerHTML = '';
+    return;
+  }
+  el.innerHTML = [...selectedTags].map(tag => {
+    const cat = TAG_CAT_LOOKUP[tag];
+    const color = TAG_CATEGORIES[cat] ? TAG_CATEGORIES[cat].color : '#FFB85C';
+    const safeTag = tag.replace(/"/g, '&quot;');
+    return `<button type="button" class="active-tag-pill" style="--tc-color:${color}" data-remove-tag="${safeTag}" title="クリックで解除">${tag}</button>`;
+  }).join('');
+}
+
+// === Filter logic ===
+function applyFilters(){
+  const fGroup = document.getElementById('fGroup');
+  const fType = document.getElementById('fType');
+  const fYear = document.getElementById('fYear');
+  const fSearch = document.getElementById('fSearch');
+  const g = fGroup ? fGroup.value : '';
+  const t = fType ? fType.value : '';
+  const y = fYear ? fYear.value : '';
+  const q = fSearch ? fSearch.value.trim().toLowerCase() : '';
+  const clearBtn = document.getElementById('searchClear');
+  if(clearBtn) clearBtn.classList.toggle('show', q.length > 0);
+
+  const filtered = ARTICLES.filter(a => {
+    if(g && a.g !== g) return false;
+    if(t && a.p !== t) return false;
+    if(y && String(a.y) !== y) return false;
+
+    // Tag filter: all selected tags must be present
+    if(selectedTags.size > 0){
+      const articleTags = new Set(a.tg || []);
+      for(const tag of selectedTags){
+        if(!articleTags.has(tag)) return false;
+      }
+    }
+
+    // Keyword search: title, industry, group name, and tags
+    if(q){
+      const grpName = (GROUPS[a.g] || {}).name || '';
+      const hay = [
+        a.t || '',
+        a.i || '',
+        grpName,
+        ...(a.tg || [])
+      ].join(' ').toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  filtered.sort((a, b) => (b.y || 0) - (a.y || 0));
+  renderGallery(filtered);
+  updateFilterHint(g, t, y, q);
+}
+
+function updateFilterHint(g, t, y, q){
+  const hints = [];
+  const bannerParts = [];
+  if(g){
+    const gname = (GROUPS[g] || {}).name || g;
+    const gicon = (GROUPS[g] || {}).icon || '';
+    hints.push(`業界:${gname}`);
+    bannerParts.push(`業界 = <span class="grp-name">${gicon} ${gname}</span>`);
+  }
+  if(t){
+    const tn = {EO:'観測', COMM:'通信', PNT:'測位'}[t] || t;
+    hints.push(`種別:${tn}`);
+    bannerParts.push(`データ種別 = <span class="grp-name">${tn}</span>`);
+  }
+  if(y){
+    hints.push(`年:${y}`);
+    bannerParts.push(`公開年 = <span class="grp-name">${y}</span>`);
+  }
+  if(q){
+    hints.push(`検索:"${q}"`);
+    bannerParts.push(`検索 = <span class="grp-name">"${q}"</span>`);
+  }
+  if(selectedTags.size > 0){
+    hints.push(`タグ:${selectedTags.size}件`);
+    bannerParts.push(`タグ = <span class="grp-name">${[...selectedTags].join(', ')}</span>`);
+  }
+  const hintEl = document.getElementById('filterSummaryHint');
+  if(hintEl) hintEl.textContent = hints.length ? '— ' + hints.join(' / ') : '';
+  // Active banner
+  const banner = document.getElementById('activeBanner');
+  const bannerText = document.getElementById('activeBannerText');
+  if(banner && bannerText){
+    if(bannerParts.length > 0){
+      banner.style.display = 'flex';
+      bannerText.innerHTML = bannerParts.join(' ／ ');
+    } else {
+      banner.style.display = 'none';
+    }
+  }
+}
+
+function filterByGroup(code){
+  console.log('[ORBIT STORIES] filterByGroup called with:', code);
+  // Reset ALL other filters so user sees ONLY this industry
+  const fType = document.getElementById('fType');
+  const fYear = document.getElementById('fYear');
+  const fSearch = document.getElementById('fSearch');
+  const fGroup = document.getElementById('fGroup');
+  if(fType) fType.value = '';
+  if(fYear) fYear.value = '';
+  if(fSearch) fSearch.value = '';
+  selectedTags.clear();
+  const sc = document.getElementById('searchClear');
+  if(sc) sc.classList.remove('show');
+  const picker = document.getElementById('tagPicker');
+  const toggle = document.getElementById('tagToggle');
+  if(picker) picker.classList.remove('open');
+  if(toggle) toggle.classList.remove('open');
+
+  // Apply the single group filter
+  if(fGroup) fGroup.value = code;
+  renderTagPicker();
+  renderActiveTags();
+  applyFilters();
+  setTimeout(() => {
+    const gallery = document.getElementById('gallery');
+    if(gallery) gallery.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 60);
+}
+
+// === Reset all filters ===
+function resetAllFilters(){
+  ['fGroup','fType','fYear','fSearch'].forEach(id => document.getElementById(id).value = '');
+  selectedTags.clear();
+  document.getElementById('searchClear').classList.remove('show');
+  renderTagPicker();
+  renderActiveTags();
+  applyFilters();
+}
+
+// === Init filters ===
+function initFilters(){
+  const groupSel = document.getElementById('fGroup');
+  Object.entries(GROUPS).forEach(([code, g]) => {
+    const opt = document.createElement('option');
+    opt.value = code;
+    opt.textContent = `${g.icon} ${g.name}`;
+    groupSel.appendChild(opt);
+  });
+  const yearSel = document.getElementById('fYear');
+  const years = [...new Set(ARTICLES.map(a => a.y).filter(Boolean))].sort((a,b)=>b-a);
+  years.forEach(y => {
+    const opt = document.createElement('option');
+    opt.value = y; opt.textContent = y;
+    yearSel.appendChild(opt);
+  });
+  ['fGroup','fType','fYear','fSearch'].forEach(id => {
+    const el = document.getElementById(id);
+    el.addEventListener('input', applyFilters);
+    el.addEventListener('change', applyFilters);
+  });
+  document.getElementById('fReset').addEventListener('click', resetAllFilters);
+  document.getElementById('activeBannerClear').addEventListener('click', () => {
+    resetAllFilters();
+    document.getElementById('gallery').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  // Tag toggle
+  document.getElementById('tagToggle').addEventListener('click', () => {
+    const picker = document.getElementById('tagPicker');
+    const toggle = document.getElementById('tagToggle');
+    picker.classList.toggle('open');
+    toggle.classList.toggle('open');
+  });
+  // Search clear button (in search bar)
+  document.getElementById('searchClear').addEventListener('click', () => {
+    const inp = document.getElementById('fSearch');
+    inp.value = '';
+    inp.focus();
+    applyFilters();
+  });
+  // Keyboard shortcut: ESC clears search when focused on search input
+  document.getElementById('fSearch').addEventListener('keydown', (e) => {
+    if(e.key === 'Escape'){
+      e.target.value = '';
+      applyFilters();
+    }
+  });
+
+  // === Document-level event delegation for dynamic content ===
+  // (handles industry cards, article tag chips, tag picker chips, active tag pills, learn chips)
+  document.body.addEventListener('click', (e) => {
+    // Industry card click → filter by group (resets others)
+    const groupBtn = e.target.closest('[data-group-filter]');
+    if(groupBtn){
+      e.preventDefault();
+      filterByGroup(groupBtn.dataset.groupFilter);
+      return;
+    }
+    // Article tag chip → add tag
+    const addTagBtn = e.target.closest('[data-add-tag]');
+    if(addTagBtn){
+      e.preventDefault();
+      e.stopPropagation();
+      addTagFilter(addTagBtn.dataset.addTag);
+      return;
+    }
+    // Tag picker chip → toggle tag
+    const toggleTagBtn = e.target.closest('[data-toggle-tag]');
+    if(toggleTagBtn){
+      e.preventDefault();
+      toggleTagFilter(toggleTagBtn.dataset.toggleTag);
+      return;
+    }
+    // Active tag pill → remove tag
+    const removeTagBtn = e.target.closest('[data-remove-tag]');
+    if(removeTagBtn){
+      e.preventDefault();
+      removeTagFilter(removeTagBtn.dataset.removeTag);
+      return;
+    }
+    // Basics topic chip
+    const basicsTopicBtn = e.target.closest('[data-basics-topic]');
+    if(basicsTopicBtn){
+      e.preventDefault();
+      basicsState.topic = basicsTopicBtn.dataset.basicsTopic;
+      renderBasicsChips();
+      renderBasics();
+      return;
+    }
+    // Demos category chip
+    const demosCatBtn = e.target.closest('[data-demos-cat]');
+    if(demosCatBtn){
+      e.preventDefault();
+      demosState.category = demosCatBtn.dataset.demosCat;
+      renderDemosChips();
+      renderDemos();
+      return;
+    }
+  });
+}
+
+// === Basics & Demos (with category filter + search) ===
+const basicsState = { topic: '', search: '' };
+const demosState = { category: '', search: '' };
+
+function renderBasicsChips(){
+  const el = document.getElementById('basicsChips');
+  if(!el) return;
+  // Count per topic
+  const counts = {};
+  BASICS.forEach(b => counts[b.tp] = (counts[b.tp] || 0) + 1);
+  const totalCount = BASICS.length;
+  const chips = [
+    `<button type="button" class="learn-chip ${basicsState.topic === '' ? 'active' : ''}" data-basics-topic="" style="--chip-color:var(--ink-mute)">
+      <span class="learn-chip-icon">✦</span>
+      <span>すべて</span>
+      <span class="learn-chip-count">${totalCount}</span>
+    </button>`,
+    ...Object.entries(BASICS_TOPICS).map(([code, t]) => {
+      const cnt = counts[code] || 0;
+      if(cnt === 0) return '';
+      const active = basicsState.topic === code;
+      return `<button type="button" class="learn-chip ${active ? 'active' : ''}" data-basics-topic="${code}" style="--chip-color:${t.color}">
+        <span class="learn-chip-icon">${t.icon}</span>
+        <span>${t.label}</span>
+        <span class="learn-chip-count">${cnt}</span>
+      </button>`;
+    })
+  ];
+  el.innerHTML = chips.join('');
+}
+
+function renderDemosChips(){
+  const el = document.getElementById('demosChips');
+  if(!el) return;
+  const counts = {};
+  DEMOS.forEach(d => counts[d.c] = (counts[d.c] || 0) + 1);
+  const totalCount = DEMOS.length;
+  const chips = [
+    `<button type="button" class="learn-chip ${demosState.category === '' ? 'active' : ''}" data-demos-cat="" style="--chip-color:var(--ink-mute)">
+      <span class="learn-chip-icon">✦</span>
+      <span>すべて</span>
+      <span class="learn-chip-count">${totalCount}</span>
+    </button>`,
+    ...Object.entries(DEMOS_TOPICS).map(([cat, t]) => {
+      const cnt = counts[cat] || 0;
+      if(cnt === 0) return '';
+      const active = demosState.category === cat;
+      return `<button type="button" class="learn-chip ${active ? 'active' : ''}" data-demos-cat="${cat}" style="--chip-color:${t.color}">
+        <span class="learn-chip-icon">${t.icon}</span>
+        <span>${cat}</span>
+        <span class="learn-chip-count">${cnt}</span>
+      </button>`;
+    })
+  ];
+  el.innerHTML = chips.join('');
+}
+
+function renderBasics(){
+  const el = document.getElementById('basicsGrid');
+  const cntEl = document.getElementById('basicsCount');
+  if(!el) return;
+  const q = basicsState.search.trim().toLowerCase();
+  const filtered = BASICS.filter(b => {
+    if(basicsState.topic && b.tp !== basicsState.topic) return false;
+    if(q){
+      const hay = [b.t || '', b.c || '', b.g || '', b.i || ''].join(' ').toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  // Sort: year desc
+  filtered.sort((a,b) => (b.y || 0) - (a.y || 0));
+  if(cntEl) cntEl.textContent = `${filtered.length} / ${BASICS.length} ARTICLES`;
+  if(filtered.length === 0){
+    el.innerHTML = '<div class="empty-state" style="grid-column:1/-1">該当する記事が見つかりませんでした。</div>';
+    return;
+  }
+  el.innerHTML = filtered.map(b => {
+    const topic = BASICS_TOPICS[b.tp] || {icon:'📄', color:'var(--amber)', label:''};
+    return `
+      <a href="${b.u}" class="basic-item" target="_blank" rel="noopener" style="--item-color:${topic.color}">
+        <div class="basic-cat-row">
+          <span class="basic-icon">${topic.icon}</span>
+          <span class="basic-cat">${b.c || topic.label}</span>
+        </div>
+        <div class="basic-title">${b.t}</div>
+        ${b.g ? `<div class="basic-gained">→ ${b.g}</div>` : ''}
+      </a>
+    `;
+  }).join('');
+}
+
+function renderDemos(){
+  const el = document.getElementById('demosGrid');
+  const cntEl = document.getElementById('demosCount');
+  if(!el) return;
+  const q = demosState.search.trim().toLowerCase();
+  const filtered = DEMOS.filter(d => {
+    if(demosState.category && d.c !== demosState.category) return false;
+    if(q){
+      const hay = [d.t || '', d.c || '', d.o || ''].join(' ').toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  if(cntEl) cntEl.textContent = `${filtered.length} / ${DEMOS.length} ARTICLES`;
+  if(filtered.length === 0){
+    el.innerHTML = '<div class="empty-state" style="grid-column:1/-1">該当する記事が見つかりませんでした。</div>';
+    return;
+  }
+  el.innerHTML = filtered.map(d => {
+    const topic = DEMOS_TOPICS[d.c] || {icon:'📄', color:'var(--amber)'};
+    return `
+      <a href="${d.u}" class="basic-item" target="_blank" rel="noopener" style="--item-color:${topic.color}">
+        <div class="basic-cat-row">
+          <span class="basic-icon">${topic.icon}</span>
+          <span class="basic-cat">${d.c || ''}${d.o ? ' ・ ' + d.o : ''}</span>
+        </div>
+        <div class="basic-title">${d.t}</div>
+      </a>
+    `;
+  }).join('');
+}
+
+function initLearnSection(){
+  // Search inputs
+  const basicsSearch = document.getElementById('basicsSearch');
+  if(basicsSearch){
+    basicsSearch.addEventListener('input', (e) => {
+      basicsState.search = e.target.value;
+      renderBasics();
+    });
+  }
+  const demosSearch = document.getElementById('demosSearch');
+  if(demosSearch){
+    demosSearch.addEventListener('input', (e) => {
+      demosState.search = e.target.value;
+      renderDemos();
+    });
+  }
+}
+
+// === Expose key functions to window so inline onclick (if any) works ===
+window.filterByGroup = filterByGroup;
+window.addTagFilter = addTagFilter;
+window.removeTagFilter = removeTagFilter;
+window.toggleTagFilter = toggleTagFilter;
+window.resetAllFilters = resetAllFilters;
+
+// === Init - runs on DOMContentLoaded OR immediately if already loaded ===
+function initApp(){
+  try {
+    initFilters();
+    initLearnSection();
+    renderIndustries();
+    renderFeatured();
+    renderTagPicker();
+    renderActiveTags();
+    applyFilters();
+    renderBasicsChips();
+    renderBasics();
+    renderDemosChips();
+    renderDemos();
+    console.log('[ORBIT STORIES] App initialized successfully. Articles:', ARTICLES.length);
+  } catch(e) {
+    console.error('[ORBIT STORIES] Init error:', e);
+  }
+}
+
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  // DOM already loaded — run now
+  initApp();
+}
+</script>
+
+</body>
+</html>
